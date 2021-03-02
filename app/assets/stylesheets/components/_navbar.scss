@@ -1,12 +1,56 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-navy {
+  background-color: $navy;
+  color: $lighter-blue;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-navy a {
+  color: inherit;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+
+.navbar-lewagon {
+  font-size: 1.4rem;
+}
+
+.navbar-lewagon form {
+  height: 2.5rem;
+  width: 20rem;
+}
+
+
+.navbar-lewagon form input {
+  background-color: transparent;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: inherit;
+}
+
+.navbar-lewagon form input::placeholder {
+  color: $light-blue;
+}
+
+.navbar-lewagon form button {
+  font-size: inherit;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// navbar-links
+
+.full-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
 }
