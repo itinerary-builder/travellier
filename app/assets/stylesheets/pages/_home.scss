@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+.home-img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-img {
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.home-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: $green;
+  height: 5rem;
+  width: 5rem;
+  font-family: $headers-font;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.home-number-right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.home-number-left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.home-grid-info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.home-grid-info p {
+  font-size: 1.1rem;
+}
