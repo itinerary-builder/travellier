@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# 10.times do
+# 	User.create!(email: Faker::Internet.free_email , password: "test123")
+# end
+
+
+
+User.all.each do |user|
+	Itinerary.create!(user_id: user.id , city: Faker::Address.city, duration: 5, title: "nice holday #{user}")
+end
