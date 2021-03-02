@@ -1,7 +1,7 @@
 class Itinerary < ApplicationRecord
   belongs_to :user
-  after_save :create_days
-  has_many :days
+  after_create :create_days
+  has_many :days, dependent: :destroy
   accepts_nested_attributes_for :days, allow_destroy: true
 
   def create_days
