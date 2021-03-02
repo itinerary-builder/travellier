@@ -1,7 +1,7 @@
-<h1>form</h1>
 <%= simple_form_for(@itinerary) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :duration %>
-  <%= f.input :city %>
-  <%= f.submit %>
+  <h2>Create Itinerary</h2>
+  <%= f.input :title, input_html: { placeholder: "Amalfi Coast" }, label: false %>
+  <%= f.input :duration, input_html: { placeholder: "7 days" }, label: false %>
+  <%= f.input :city, input_html: { placeholder: "Napoli, Italia" }, label: false %>
+  <%= f.button :submit, 'Create',  class: "btn btn-primary" %>
 <% end %>

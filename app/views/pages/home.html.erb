@@ -4,13 +4,20 @@
     <p>
       <span id="banner-typed-text"></span>
     </p>
-    <button class="button">
-        <span class="default">Start Planning</span>
-        <span class="success">Generating...</span>
-        <div class="left"></div>
-        <div class="right"></div>
-    </button>
-    <%# <a class="btn btn-flat banner-button" href="#">Start Planning</a> %>
+    <div class = "home-button-container">
+      <div class="home-button">
+        <button class="button">
+            <span class="default">Start Planning</span>
+            <span class="success">Generating...</span>
+            <div class="left"></div>
+            <div class="right"></div>
+        </button>
+      </div>
+      <%# <a class="btn btn-flat banner-button" href="#">Start Planning</a> %>
+      <div class="dropdown-form dropdown-form-hidden">
+        <%= render "partials/itinerary_form" %>
+      </div>
+    </div>
   </div>
 </div>
 
