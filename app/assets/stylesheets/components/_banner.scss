@@ -28,12 +28,14 @@
 }
 
 .banner-button {
-  letter-spacing: .1rem;
+  font-family: $headers-font;
+  letter-spacing: .05rem;
   font-weight: 300;
   padding: .9rem 4rem;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   background-color: $light-blue;
   color: $navy;
-  border-radius: 2px;
+  border-radius: 50px;
+  margin-top: 1.5rem;
 }
