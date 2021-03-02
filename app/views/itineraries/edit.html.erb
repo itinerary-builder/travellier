@@ -1,0 +1,10 @@
+<%= form_with model: @itinerary do |form| %>
+	<%= form.fields_for :days do |day_form| %>
+		<%= day_form.check_box :_destroy %>
+		<%= day_form.association :morning %>
+		<%= day_form.association :lunch %>
+		<%= day_form.association :afternoon %>
+		<%= day_form.association :dinner %>
+		<%= day_form.association :evening %>
+	<% end %>
+<% end %>
