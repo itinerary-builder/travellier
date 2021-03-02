@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import initScrollNav from "../plugins/init_scroll_nav";
 import initTyped from "../plugins/init_typed";
-
+import initAddAirplane from "../plugins/init_add_airplane";
 
 Rails.start()
 Turbolinks.start()
@@ -32,4 +32,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initScrollNav();
   initTyped();
+  initAddAirplane();
+  
 });
