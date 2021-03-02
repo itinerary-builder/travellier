@@ -8,6 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import initScrollNav from "../plugins/init_scroll_nav";
+import initTyped from "../plugins/init_typed";
+import initAddAirplane from "../plugins/init_add_airplane";
+import initAddScrollhover from "../plugins/init_add_scrollhover";
 
 Rails.start()
 Turbolinks.start()
@@ -29,5 +32,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initScrollNav();
-  
+  initTyped();
+  initAddAirplane();
+  initAddScrollhover();
 });
