@@ -1,0 +1,28 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 250px 0;
+}
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.banner h1 {
+  margin: 0;
+  color: $navy;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 6rem;
+  font-weight: 300;
+  letter-spacing: .2rem;
+}
+
+.banner p {
+  font-size: 2.5rem;
+  color: $navy;
+  opacity: .85;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
