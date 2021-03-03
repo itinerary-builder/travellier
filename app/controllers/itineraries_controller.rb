@@ -21,6 +21,7 @@ class ItinerariesController < ApplicationController
 	end
 
 	def edit
+		@places = Place.all
 		@itinerary = Itinerary.find(params[:id])
 	end
 
