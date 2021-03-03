@@ -51,18 +51,18 @@ place_4.save!
 
 puts 'Finished!'
 
-#require "faker"
-# 10.times do
-#  	User.create!(email: Faker::Internet.free_email , password: "test123")
-# end
+require "faker"
+10.times do
+ 	User.create!(email: Faker::Internet.free_email , password: "test123")
+end
 
 
 
-# User.all.each do |user|
-#  	Itinerary.create!(user_id: user.id , city: Faker::Address.city, duration: 5, title: "nice holday #{user}")
-# end
+User.all.each do |user|
+ 	Itinerary.create!(user_id: user.id , city: Faker::Address.city, duration: 5, title: "nice holday #{user}")
+end
 
-# 20.times do
-# 	Place.create!(name: Faker::Movies::LordOfTheRings.location ,description: Faker::Lorem.paragraph(sentence_count: 2))
-# end
+20.times do
+	Place.create!(name: Faker::Movies::LordOfTheRings.location ,description: Faker::Lorem.paragraph(sentence_count: 2))
+end
 
