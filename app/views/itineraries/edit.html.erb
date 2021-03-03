@@ -1,13 +1,14 @@
+
+
 <div class="container mt-5">
 	<ul>
 		<% @places.each do |place| %>
 			<li>
-				<%= place.name %>a
+				<a href="#exampleModal" data-toggle="modal"><%= place.name %></a>
 			</li>
 		<% end %>
 	</ul>
 </div>
-
 
 <div class="container mt-5">
 		<% @itinerary.days.each do |day| %>
@@ -21,3 +22,5 @@
 			</div>
 		<% end %>
 </div>	
+
+<%= render "partials/modal" %>

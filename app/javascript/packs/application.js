@@ -12,6 +12,7 @@ import initTyped from "../plugins/init_typed";
 import initAddAirplane from "../plugins/init_add_airplane";
 import initAddScrollhover from "../plugins/init_add_scrollhover";
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -35,4 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   initTyped();
   initAddAirplane();
   initAddScrollhover();
+  
 });
