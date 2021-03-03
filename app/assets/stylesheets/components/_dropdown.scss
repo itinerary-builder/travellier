@@ -1,0 +1,38 @@
+.dropdown-form {
+  background-color: $lighter-blue;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.home-button-hidden {
+  display: none;
+}
+
+.dropdown-form-hidden {
+  display: none;
+}
+
+.dropdown-form-exit {
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $orange;
+  color: $navy;
+  font-family: $headers-font;
+  font-weight: 500;
+  border-radius: 50%;
+  position: absolute;
+  top: -7.5px;
+  right: -7.5px;
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.dropdown-form-exit:hover {
+  opacity: 0.8;
+}

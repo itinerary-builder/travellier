@@ -1,25 +1,36 @@
-<div class="banner" style="background-image: linear-gradient(rgba(230, 254, 255, 0.2),rgba(230, 254, 255, 0.2)), url(https://images.unsplash.com/photo-1501696461415-6bd6660c6742?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=968&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(230, 254, 255, 0.2),rgba(230, 254, 255, 0.2)), url('<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614772809/maritime_ihqzvh.jpg" %>');">
   <div class="container banner-container">
     <h1>Travellier</h1>
     <p>
       <span id="banner-typed-text"></span>
     </p>
-    <button class="button">
-        <span class="default">Start Planning</span>
-        <span class="success">Generating...</span>
-        <div class="left"></div>
-        <div class="right"></div>
-    </button>
-    <%# <a class="btn btn-flat banner-button" href="#">Start Planning</a> %>
+    <div class = "home-button-container">
+      <div class="home-button">
+        <button class="button">
+            <span class="default">Start Planning</span>
+            <span class="success">Generating...</span>
+            <div class="left"></div>
+            <div class="right"></div>
+        </button>
+      </div>
+      <%# <a class="btn btn-flat banner-button" href="#">Start Planning</a> %>
+      <div class="dropdown-form dropdown-form-hidden">
+        <%= render "partials/itinerary_form" %>
+        <div class="dropdown-form-exit">
+          x
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<%#= render "partials/navigation_buttons" %>
 
 <div class="container home-grid py-5">
   <div class="row align-items-center py-2 home-column-1">
     <div class="col-lg-6">
       <div class="home-img-div">
-        <img src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="pic" class="home-img">
+        <img src='<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614773050/plan_pia2lp.jpg" %>' alt="pic" class="home-img">
       </div>
     </div>
     <div class="col-lg-6">
@@ -40,14 +51,14 @@
     </div>
     <div class="col-lg-6">
       <div class="home-img-div">
-        <img src="https://images.unsplash.com/photo-1437846972679-9e6e537be46e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" alt="pic" class="home-img">
+        <img src="<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614773618/plane_xh4hma.jpg" %>" alt="pic" class="home-img">
       </div>
     </div>
   </div>
   <div class="row align-items-center py-2 home-column-3">
     <div class="col-lg-6">
       <div class="home-img-div">
-        <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="pic" class="home-img">
+        <img src="<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614773020/travel_ktdaqm.jpg" %>" alt="pic" class="home-img">
       </div>
     </div>
     <div class="col-lg-6">
@@ -68,7 +79,7 @@
     </div>
     <div class="col-lg-6">
       <div class="home-img-div">
-        <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1075&q=80" alt="pic" class="home-img">
+        <img src="<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614773618/adventure_jinfsp.jpg" %>" alt="pic" class="home-img">
       </div>
     </div>
   </div>

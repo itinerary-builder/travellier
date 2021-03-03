@@ -5,6 +5,10 @@
 		<% @places.each do |place| %>
 			<li>
 				<a href="#exampleModal" data-toggle="modal"><%= place.name %></a>
+				<%= place.name %>
+				<% Day::TOD.each do |time|%>
+				<%= link_to time, assign_place_itinerary_days_path(@itinerary, place_id: place.id, tod: time), method: :patch  %>
+			<% end %>
 			</li>
 		<% end %>
 	</ul>

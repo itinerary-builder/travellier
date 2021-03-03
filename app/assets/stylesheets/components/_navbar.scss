@@ -29,12 +29,11 @@
 
 .navbar-lewagon-link {
   color: $navy !important;
-  width: 9rem;
+  width: 8.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  letter-spacing: .1rem;
-  font-weight: 500;
+  font-weight: 300;
   font-family: $headers-font;
   font-size: 1.5rem;
 }

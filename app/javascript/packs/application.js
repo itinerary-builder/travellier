@@ -11,6 +11,7 @@ import initScrollNav from "../plugins/init_scroll_nav";
 import initTyped from "../plugins/init_typed";
 import initAddAirplane from "../plugins/init_add_airplane";
 import initAddScrollhover from "../plugins/init_add_scrollhover";
+import initAddFormToggle from "../plugins/init_add_form_toggle";
 
 
 Rails.start()
@@ -36,5 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   initTyped();
   initAddAirplane();
   initAddScrollhover();
-  
+  initAddFormToggle();
 });

@@ -44,3 +44,9 @@
 .home-grid-info p {
   font-size: 1.1rem;
 }
+
+@media (max-width: 880px) {
+  .home-img-div-none {
+    display: none;
+  }
+}
