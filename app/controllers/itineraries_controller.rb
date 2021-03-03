@@ -23,10 +23,10 @@ class ItinerariesController < ApplicationController
 	def edit
 		@places = Place.all
 		@itinerary = Itinerary.find(params[:id])
-		@markers = @places.geocoded.map do |place|
+		@markers = @places.map do |place|
       {
         lat: place.lat,
-        lng: flat.lng
+        lng: place.lng
       }
     end
 	end
