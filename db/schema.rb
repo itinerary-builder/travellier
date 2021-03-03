@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_120500) do
+ActiveRecord::Schema.define(version: 2021_03_03_154453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_120500) do
     t.bigint "evening_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["afternoon_id"], name: "index_days_on_afternoon_id"
     t.index ["dinner_id"], name: "index_days_on_dinner_id"
     t.index ["evening_id"], name: "index_days_on_evening_id"

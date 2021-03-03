@@ -15,6 +15,7 @@ import initAddFormToggle from "../plugins/init_add_form_toggle";
 import initMapbox from "../plugins/init_mapbox";
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

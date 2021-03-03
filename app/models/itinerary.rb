@@ -5,6 +5,6 @@ class Itinerary < ApplicationRecord
   accepts_nested_attributes_for :days, allow_destroy: true
 
   def create_days
-    duration.times { Day.create(itinerary: self) }
+    duration.times {|i| Day.create(itinerary: self, name: "day #{i+1}") }
   end
 end
