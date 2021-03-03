@@ -1,19 +1,22 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= dom_id(place) %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><%= place.name %></h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <% Day::TOD.each do |time|%>
-				<%= link_to time, assign_place_itinerary_days_path(@itinerary, place_id: place.id, tod: time), method: :patch  %>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <%= simple_form_for :day, url: assign_place_itinerary_days_path(itinerary), method:
+       :patch do |f|%>
+        <div class="modal-body">
+          <%= f.input :place_id, as: :hidden, input_html: {value: place.id} %>
+          <%= f.input :tod, as: :radio_buttons, collection: Day::TOD %>
+          <%= f.input :day_id, as: :select, collection: itinerary.days, label_method: :name, value_method: :id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "save changes", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
