@@ -2,7 +2,10 @@
 	<ul>
 		<% @places.each do |place| %>
 			<li>
-				<%= place.name %>a
+				<%= place.name %>
+				<% Day::TOD.each do |time|%>
+				<%= link_to time, assign_place_itinerary_days_path(@itinerary, place_id: place.id, tod: time), method: :patch  %>
+			<% end %>
 			</li>
 		<% end %>
 	</ul>
@@ -20,4 +23,4 @@
 				<div><%= day.evening_id ? day.evening_id : "evening" %></div>
 			</div>
 		<% end %>
-</div>	
+</div>
