@@ -4,14 +4,41 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/itin-builder522/ckltkvxwd2jhd17o8wqv8kq1o'
   });
 };
+
+const findMarkerColor = (category) => {
+  let newColor = "#000";
+  switch (category) {
+    case "Restaurants":
+      newColor = "#FFB86F";
+      break;
+    case "Museums":
+      newColor = "#6BA368";
+      break;
+    case "Landmarks":
+      newColor = "#CA807D";
+      break;
+    case "Activities":
+      newColor = "#2A3B7A";
+      break;
+    default:
+      newColor
+      break;
+  }
+  return newColor;
+}
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    new mapboxgl.Marker()
+    const element = document.createElement('i');
+    element.className = 'fas fa-map-marker-alt fa-4x';
+    element.style.textShadow = '0 4x 4x rgba(0,0,0,0.2)';
+    element.style.color = findMarkerColor(marker.category);
+
+    new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);

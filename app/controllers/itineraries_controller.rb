@@ -27,7 +27,8 @@ class ItinerariesController < ApplicationController
       {
         lat: place.lat,
         lng: place.lng,
-				infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+				infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+				category: place.category
       }
     end
 	end
