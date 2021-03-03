@@ -13,6 +13,7 @@ import initAddAirplane from "../plugins/init_add_airplane";
 import initAddScrollhover from "../plugins/init_add_scrollhover";
 import initAddFormToggle from "../plugins/init_add_form_toggle";
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
