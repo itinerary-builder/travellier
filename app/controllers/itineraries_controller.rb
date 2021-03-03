@@ -26,7 +26,8 @@ class ItinerariesController < ApplicationController
 		@markers = @places.map do |place|
       {
         lat: place.lat,
-        lng: place.lng
+        lng: place.lng,
+				infoWindow: render_to_string(partial: "info_window", locals: { place: place })
       }
     end
 	end
