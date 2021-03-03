@@ -20,6 +20,11 @@
     background-color: $lighter-blue;
   }
 
+  .form-control:focus {
+    color: $light-blue;
+    box-shadow: 0 0 0 0.2rem #b2c2cf6e;
+  }
+
   h2 {
     font-size: 25px;
     font-weight: bold;
