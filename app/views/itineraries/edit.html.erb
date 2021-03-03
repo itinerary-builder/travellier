@@ -1,0 +1,23 @@
+<div class="container mt-5">
+	<ul>
+		<% @places.each do |place| %>
+			<li>
+				<%= place.name %>a
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+
+<div class="container mt-5">
+		<% @itinerary.days.each do |day| %>
+			<div>
+				<h2>day-<%= day.id %></h2>
+				<div><%= day.morning_id ? day.morning_id : "morning" %></div>
+				<div><%= day.lunch_id ? day.lunch_id : "lunch" %></div>
+				<div><%= day.afternoon_id ? day.afternoon_id : "afternoon" %></div>
+				<div><%= day.dinner_id ? day.dinner_id : "dinner" %></div>
+				<div><%= day.evening_id ? day.evening_id : "evening" %></div>
+			</div>
+		<% end %>
+</div>	

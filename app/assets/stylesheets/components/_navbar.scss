@@ -1,56 +1,40 @@
+.navbar-lewagon {
+  font-size: 1.4rem;
+  position: fixed;
+  transition: background-color 1s;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  font-family: $headers-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $navy;
+}
+
 .navbar-navy {
   background-color: $navy;
   color: $lighter-blue;
+  z-index: 10;
+  
+  .navbar-lewagon-link {
+    color: $lighter-blue !important;
+  }
+
+  .navbar-brand {
+    color: $lighter-blue;
+  }
 }
 
-.navbar-navy a {
-  color: inherit;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-
-.navbar-lewagon {
-  font-size: 1.4rem;
-}
-
-.navbar-lewagon form {
-  height: 2.5rem;
-  width: 20rem;
-}
-
-
-.navbar-lewagon form input {
-  background-color: transparent;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  height: inherit;
-}
-
-.navbar-lewagon form input::placeholder {
-  color: $light-blue;
-}
-
-.navbar-lewagon form button {
-  font-size: inherit;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+.navbar-lewagon-link {
+  color: $navy !important;
+  width: 9rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-// navbar-links
-
-.full-navbar {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.navbar-links {
-  display: flex;
-  align-items: center;
+  letter-spacing: .1rem;
+  font-weight: 500;
+  font-family: $headers-font;
+  font-size: 1.5rem;
 }

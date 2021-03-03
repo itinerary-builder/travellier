@@ -1,15 +1,23 @@
 <div class="banner" style="background-image: linear-gradient(rgba(230, 254, 255, 0.2),rgba(230, 254, 255, 0.2)), url(https://images.unsplash.com/photo-1501696461415-6bd6660c6742?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=968&q=80);">
   <div class="container banner-container">
     <h1>Travellier</h1>
-    <p>Travel with ease.</p>
-    <a class="btn btn-flat banner-button" href="#">Start Planning</a>
+    <p>
+      <span id="banner-typed-text"></span>
+    </p>
+    <button class="button">
+        <span class="default">Start Planning</span>
+        <span class="success">Generating...</span>
+        <div class="left"></div>
+        <div class="right"></div>
+    </button>
+    <%# <a class="btn btn-flat banner-button" href="#">Start Planning</a> %>
   </div>
 </div>
 
 <%#= render "partials/navigation_buttons" %>
 
-<div class="container py-5">
-  <div class="row align-items-center py-2">
+<div class="container home-grid py-5">
+  <div class="row align-items-center py-2 home-column-1">
     <div class="col-lg-6">
       <div class="home-img-div">
         <img src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="pic" class="home-img">
@@ -23,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="row align-items-center py-2">
+  <div class="row align-items-center py-2 home-column-2">
     <div class="col-lg-6">
       <div class="home-number home-number-left">2</div>
       <div class="home-grid-info">
@@ -37,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="row align-items-center py-2">
+  <div class="row align-items-center py-2 home-column-3">
     <div class="col-lg-6">
       <div class="home-img-div">
         <img src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="pic" class="home-img">
@@ -51,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="row align-items-center py-2">
+  <div class="row align-items-center py-2 home-column-4">
     <div class="col-lg-6">
       <div class="home-number home-number-left">4</div>
       <div class="home-grid-info">
