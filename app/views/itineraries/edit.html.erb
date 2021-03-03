@@ -1,16 +1,23 @@
-<div class="spacer"></div>
-<%= form_with model: @itinerary do |form| %>
-	<%= form.fields_for :days do |day_form| %>
-		<div class="day-form">
-			<%= day_form.check_box :_destroy %>
+<div class="container mt-5">
+	<ul>
+		<% @places.each do |place| %>
+			<li>
+				<%= place.name %>a
+			</li>
+		<% end %>
+	</ul>
+</div>
 
-			<%= day_form.select :morning_id, options_for_select(Place.all.map{ |place| [place.name, place.id]}, selected: day_form.object.morning_id ) %>
-			<%= day_form.select :lunch_id, options_for_select(Place.all.map{ |place| [place.name, place.id]}, selected: day_form.object.lunch_id ) %>
-			<%= day_form.select :afternoon_id, options_for_select(Place.all.map{ |place| [place.name, place.id]}, selected: day_form.object.afternoon_id ) %>
-			<%= day_form.select :dinner_id, options_for_select(Place.all.map{ |place| [place.name, place.id]}, selected: day_form.object.dinner_id ) %>
-			<%= day_form.select :evening_id, options_for_select(Place.all.map{ |place| [place.name, place.id]}, selected: day_form.object.evening_id ) %>
-			
-		</div>
-	<% end %>
-	<%= form.submit :submit %>
-<% end %>
+
+<div class="container mt-5">
+		<% @itinerary.days.each do |day| %>
+			<div>
+				<h2>day-<%= day.id %></h2>
+				<div><%= day.morning_id ? day.morning_id : "morning" %></div>
+				<div><%= day.lunch_id ? day.lunch_id : "lunch" %></div>
+				<div><%= day.afternoon_id ? day.afternoon_id : "afternoon" %></div>
+				<div><%= day.dinner_id ? day.dinner_id : "dinner" %></div>
+				<div><%= day.evening_id ? day.evening_id : "evening" %></div>
+			</div>
+		<% end %>
+</div>	
