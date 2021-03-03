@@ -4,11 +4,9 @@
 	<ul>
 		<% @places.each do |place| %>
 			<li>
-				<a href="#exampleModal" data-toggle="modal"><%= place.name %></a>
-				<%= place.name %>
-				<% Day::TOD.each do |time|%>
-				<%= link_to time, assign_place_itinerary_days_path(@itinerary, place_id: place.id, tod: time), method: :patch  %>
-			<% end %>
+				<a href="#exampleModal" data-toggle="modal"><%= place.name %>
+				<%= render partial: "partials/modal", locals: {place: place} %>
+			</a>
 			</li>
 		<% end %>
 	</ul>
@@ -27,4 +25,3 @@
 		<% end %>
 </div>	
 
-<%= render "partials/modal" %>
