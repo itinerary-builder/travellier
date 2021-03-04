@@ -23,6 +23,14 @@ class ItinerariesController < ApplicationController
 	def edit
 		@places = Place.all
 		@itinerary = Itinerary.find(params[:id])
+		@markers = @places.map do |place|
+      {
+        lat: place.lat,
+        lng: place.lng,
+				infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+				category: place.category
+      }
+    end
 	end
 
 	def update

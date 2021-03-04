@@ -20,4 +20,10 @@
 			<div><%= day.evening_id ?  @places[(day.evening_id)-1].name : "evening" %></div>
 		</div>
 	<% end %>
+</div>	
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
