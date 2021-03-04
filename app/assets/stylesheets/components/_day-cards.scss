@@ -1,8 +1,75 @@
+
+.itin-title {
+	margin-top: 100px;
+	h1 {
+		font-size: 60px;
+	}
+	p {
+		color: $orange;
+	}
+}
+
+.places {
+	width: 50%;
+	height: 550px;
+	margin: 100px auto;
+	overflow: auto;
+}
+
+.place-card {
+	background-color: white;
+	height: 150px;
+	width: 90%;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px auto;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+	transition: 0.4s;
+
+	&:hover { 
+	  transform: scale(1.04);
+	  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	}
+
+	a {
+		align-text: end;
+	}
+
+	h2 {
+		font-size: 20px;
+	}
+
+	p {
+		font-size: 15px;
+		color: $orange;
+	}
+
+	.place-img {
+		width: 40%;
+		height: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			border-radius: 5px;
+		}
+	}
+}
+
 .days {
 	width: 40%;
 	height: 550px;
 	margin: 100px auto;
 	overflow: auto;
+}
+
+.day-img {
+	width: 30%;
+	height: 90%;
+	img {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .day-card {
