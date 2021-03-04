@@ -5,9 +5,6 @@ class PagesController < ApplicationController
     @itinerary=Itinerary.new
   end
 
-  def upcoming
-  end
-
-  def completed
+  def profile
   end
 end

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get "/profile_page/upcoming", to: "pages#upcoming", as: "profile_upcoming"
-  get "/profile_page/completed", to: "pages#completed", as: "profile_completed"
+  get "/profile_page", to: "pages#profile", as: "profile"
   resources :itineraries, only: [:new, :create, :show, :edit, :update] do
     resources :days, only: [] do
         patch :assign_place, on: :collection
