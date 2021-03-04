@@ -1,7 +1,14 @@
+.profile {
+  margin: 7.5% 5%;
+  color: $navy;
+}
+
 .profile-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 10% auto;
+  h1 {
+    font-weight: 300;
+  }
+}
+
+.profile-button {
+  border-radius: 50px;
 }

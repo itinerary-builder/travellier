@@ -1,3 +1,29 @@
-<div class="container profile-container">
-  <%= render partial: "partials/profile_segment" %>  
+<div class="profile">
+  <div class="profile-container">
+    <div class="row">
+      <div class="col-lg-4">
+        <%= render partial: "partials/profile_segment" %>  
+      </div>
+      <div class="col-lg-4">
+        <div class="flex-row">
+          <div class="vertical-line"></div>
+          <div class="text-center">
+            <h1>Upcoming Trips</h1>
+            <div class="container my-4">
+              <%= render partial: "partials/profile_cards" %>
+            </div>
+          </div>
+          <div class="vertical-line"></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="text-center">
+          <h1>Completed Trips</h1>
+          <div class="container my-4">
+              <%= render partial: "partials/profile_cards" %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
