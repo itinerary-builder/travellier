@@ -9,21 +9,10 @@ User.destroy_all
 Itinerary.destroy_all
 Place.destroy_all
 
-10.times do
- 	User.create!(email: Faker::Internet.free_email , password: "test123")
-end
-
-
-
-User.all.each do |user|
- 	Itinerary.create!(user_id: user.id , city: Faker::Address.city, duration: 5, title: "nice holday #{user}")
-end
-
-
 require 'json'
 require 'open-uri'
 
-url_lisbon = 'https://www.triposo.com/api/20201111/poi.json?location_id=Lisbon&fields=name,coordinates,snippet&account=C5KPFAI5&token=1cqamu68ut4x8he5cmoglzkjmkyddw1n'
+url_lisbon = 'https://www.triposo.com/api/20201111/poi.json?location_id=Lisbon&count=20&fields=name,coordinates,snippet,images&account=C5KPFAI5&token=1cqamu68ut4x8he5cmoglzkjmkyddw1n'
 place_serialized = open(url_lisbon).read
 place = JSON.parse(place_serialized)
 
@@ -37,6 +26,8 @@ place_1 = Place.new(
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/torre-de-belem/a/poi-sig/401037/360366",
     )
 place_1.save
+
+puts "finish 1"
 
 place_2 = Place.new(
     name: place["results"][1]["name"],
@@ -115,7 +106,7 @@ place_9 = Place.new(
     lat: place["results"][8]["coordinates"]["latitude"], 
     lng: place["results"][8]["coordinates"]["longitude"], 
     description: place["results"][8]["snippet"], 
-    link_url: "hhttps://lisbonlisboaportugal.com/lisbon-sights/cristo-rei-christ-statue-lisbon.html",
+    link_url: "https://lisbonlisboaportugal.com/lisbon-sights/cristo-rei-christ-statue-lisbon.html",
     )
 place_9.save
 
@@ -128,5 +119,48 @@ place_10 = Place.new(
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/castelo-de-sao-jorge/a/poi-sig/400925/360366",
     )
 place_10.save
+
+# from here i created new places
+
+place_11 = Place.new(
+    name: place["results"][10]["name"], 
+    category: "Museums", 
+    lat: place["results"][10]["coordinates"]["latitude"], 
+    lng: place["results"][10]["coordinates"]["longitude"], 
+    description: place["results"][10]["snippet"], 
+    link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/castelo-de-sao-jorge/a/poi-sig/400925/360366",
+    )
+place_11.save
+
+place_12 = Place.new(
+    name: place["results"][10]["name"], 
+    category: "Museums", 
+    lat: place["results"][11]["coordinates"]["latitude"], 
+    lng: place["results"][11]["coordinates"]["longitude"], 
+    description: place["results"][11]["snippet"], 
+    link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/castelo-de-sao-jorge/a/poi-sig/400925/360366",
+    )
+place_12.save
+
+place_13 = Place.new(
+    name: place["results"][12]["name"], 
+    category: "Museums", 
+    lat: place["results"][12]["coordinates"]["latitude"], 
+    lng: place["results"][12]["coordinates"]["longitude"], 
+    description: place["results"][12]["snippet"], 
+    link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/castelo-de-sao-jorge/a/poi-sig/400925/360366",
+    )
+place_13.save
+
+place_10 = Place.new(
+    name: place["results"][9]["name"], 
+    category: "Museums", 
+    lat: place["results"][9]["coordinates"]["latitude"], 
+    lng: place["results"][9]["coordinates"]["longitude"], 
+    description: place["results"][9]["snippet"], 
+    link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/castelo-de-sao-jorge/a/poi-sig/400925/360366",
+    )
+place_10.save
+
 
 puts "Finish"
