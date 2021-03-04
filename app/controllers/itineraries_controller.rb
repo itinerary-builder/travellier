@@ -41,7 +41,6 @@ class ItinerariesController < ApplicationController
 		end
 	end
 
-
 	private
 
 	def set_itinerary
@@ -51,9 +50,4 @@ class ItinerariesController < ApplicationController
 	def itinerary_params
 		params.require(:itinerary).permit(:title, :duration, :city, days_attributes: [:id, :morning_id, :lunch_id, :dinner_id, :afternoon_id, :evening_id])
 	end
-
-
-
- 
-    
 end
