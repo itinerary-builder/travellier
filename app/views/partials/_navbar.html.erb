@@ -3,15 +3,16 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to "Home", root_path, class: "navbar-brand" %>
+    <%= link_to "travellier", root_path, class: "navbar-brand" %>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <%= link_to "Home", root_path, class: "nav-link navbar-lewagon-link" %>
         <%= link_to "Plan a trip", new_itinerary_path, class: "nav-link navbar-lewagon-link" %>
         <% if user_signed_in? %>
           <%# need to put current_user.avatar here to display real avatar %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link navbar-lewagon-link" %>
-          <img src='<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614793101/2750635_gray-circle-login-user-icon-png-transparent-png_uqkm8d.jpg" %>' alt="pic" class="avatar">
+          <%= link_to profile_path do %>
+            <img src='<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614793101/2750635_gray-circle-login-user-icon-png-transparent-png_uqkm8d.jpg" %>' alt="pic" class="avatar">
+          <% end %>
         <% else %>
           <%= link_to "Sign in", user_session_path, class: "nav-link navbar-lewagon-link" %>
         <% end %>
