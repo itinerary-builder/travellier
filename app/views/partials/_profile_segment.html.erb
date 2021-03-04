@@ -3,10 +3,10 @@
     <img src='<%= cl_image_path "https://res.cloudinary.com/df6gjhrs5/image/upload/v1614793101/2750635_gray-circle-login-user-icon-png-transparent-png_uqkm8d.jpg" %>' alt="pic" class="avatar-large">
   </div>
   <div>
-    <h1 class="py-2">Welcome, Damon</h1>
+    <h1 class="py-2">Welcome, <%= current_user.first_name.capitalize %></h1>
   </div>
   <div>
-    <p class="text-danger">damon@gmail.com</p>
+    <p class="text-danger"><%= current_user.email %></p>
   </div>
-  <a class="btn btn-primary profile-button w-25">Edit</a>
+  <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary profile-button w-25" %>
 </div>
