@@ -5,10 +5,14 @@
   border-radius: 50%;
   box-shadow: 0 4px 4px rgba($navy, 0.2);
 }
+
 .avatar-large {
-  width: 56px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 50%;
 }
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;

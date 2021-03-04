@@ -1,0 +1,8 @@
+<% itineraries.each do |trip| %>
+  <%= link_to itinerary_path(trip) do %>
+    <div class="day-card profile-day-card">
+      <h2><%= trip.title %></h2>
+      <p><%= pluralize(trip.duration, "day") %></p>
+    </div>
+  <% end %>
+<% end %>
