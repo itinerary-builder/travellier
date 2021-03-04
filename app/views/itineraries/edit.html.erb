@@ -10,7 +10,6 @@
 			<% end %>
 		</ul>
 	</div>
-
 	<div class="days">
 		<nav aria-label="Page navigation example">
 			<ul class="nav nav-pills mb-3 pagination" id="pills-tab" role="tablist">
@@ -26,11 +25,11 @@
 		 	<% @itinerary.days.each_with_index do |day, ind| %>
 				<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
 					<h2><%= day.name %></h2>
-					<div><%= day.morning_id ? day.morning_id : "morning" %></div>
-					<div><%= day.lunch_id ? day.lunch_id : "lunch" %></div>
-					<div><%= day.afternoon_id ? day.afternoon_id : "afternoon" %></div>
-					<div><%= day.dinner_id ? day.dinner_id : "dinner" %></div>
-					<div><%= day.evening_id ? day.evening_id : "evening" %></div>
+          <div><%= day.morning_id ? @places[(day.morning_id)-1].name : "morning" %></div>
+          <div><%= day.lunch_id ?  @places[(day.lunch_id)-1].name : "lunch" %></div>
+          <div><%= day.afternoon_id ?  @places[(day.afternoon_id)-1].name : "afternoon" %></div>
+          <div><%= day.dinner_id ?  @places[(day.dinner_id)-1].name : "dinner" %></div>
+          <div><%= day.evening_id ?  @places[(day.evening_id)-1].name : "evening" %></div>
 				</div>
 			<% end %>
 		</div>
