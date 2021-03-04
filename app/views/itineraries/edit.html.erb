@@ -1,25 +1,39 @@
-<div class="container mt-5">
-	<ul>
-		<% @places.each do |place| %>
-			<li>
-				<a href="#<%= dom_id(place) %>" data-toggle="modal"><%= place.name %></a>
-				<%= render partial: "partials/modal", locals: {place: place, itinerary: @itinerary} %>
-			</li>
-		<% end %>
-	</ul>
-</div>
+<div class="container d-flex justify-content-around">
 
-<div class="container mt-5">
-	<% @itinerary.days.each do |day| %>
-		<div>
-			<h2><%= day.name %></h2>
-			<div><%= day.morning_id ? @places[(day.morning_id)-1].name : "morning" %></div>
-			<div><%= day.lunch_id ?  @places[(day.lunch_id)-1].name : "lunch" %></div>
-			<div><%= day.afternoon_id ?  @places[(day.afternoon_id)-1].name : "afternoon" %></div>
-			<div><%= day.dinner_id ?  @places[(day.dinner_id)-1].name : "dinner" %></div>
-			<div><%= day.evening_id ?  @places[(day.evening_id)-1].name : "evening" %></div>
+	<div class="days">
+		<ul>
+			<% @places.each do |place| %>
+				<li>
+					<a href="#<%= dom_id(place) %>" data-toggle="modal"><%= place.name %></a>
+					<%= render partial: "partials/modal", locals: {place: place, itinerary: @itinerary} %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="days">
+		<nav aria-label="Page navigation example">
+			<ul class="nav nav-pills mb-3 pagination" id="pills-tab" role="tablist">
+				<% @itinerary.days.each_with_index do |day, ind| %>
+				  <li class="nav-item" role="presentation">
+				    <a class="page-link nav-link <%= ind == 0 ? 'active' : "" %>" href="#pills-<%=ind %>"  id="pills-<%= ind %>-tab" data-toggle="pill"  role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
+				  </li>
+			  <% end %>
+			</ul>
+		</nav>
+
+		<div class="tab-content" id="pills-tabContent">
+		 	<% @itinerary.days.each_with_index do |day, ind| %>
+				<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
+					<h2><%= day.name %></h2>
+          <div><%= day.morning_id ? @places[(day.morning_id)-1].name : "morning" %></div>
+          <div><%= day.lunch_id ?  @places[(day.lunch_id)-1].name : "lunch" %></div>
+          <div><%= day.afternoon_id ?  @places[(day.afternoon_id)-1].name : "afternoon" %></div>
+          <div><%= day.dinner_id ?  @places[(day.dinner_id)-1].name : "dinner" %></div>
+          <div><%= day.evening_id ?  @places[(day.evening_id)-1].name : "evening" %></div>
+				</div>
+			<% end %>
 		</div>
-	<% end %>
+	</div>
 </div>	
 
 <div id="map"
@@ -27,3 +41,4 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+
