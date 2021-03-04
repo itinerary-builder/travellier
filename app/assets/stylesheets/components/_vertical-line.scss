@@ -1,0 +1,10 @@
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vertical-line {
+  border-left: 2px solid $light-blue;
+  box-shadow: 0 4px 4px rgba(#777, 0.4);
+  height: 500px;
+}
