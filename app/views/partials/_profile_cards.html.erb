@@ -1,8 +1,8 @@
-<div class="day-card profile-day-card">
-  <h2>Lisbon, Portugal</h2>
-  <p>3 Days</p>
-</div>
-<div class="day-card profile-day-card">
-  <h2>Berlin, Germany</h2>
-  <p>7 Days</p>
-</div>
+<% itineraries.each do |trip| %>
+  <%= link_to itinerary_path(trip) do %>
+    <div class="day-card profile-day-card">
+      <h2><%= trip.title %></h2>
+      <p><%= pluralize(trip.duration, "day") %></p>
+    </div>
+  <% end %>
+<% end %>

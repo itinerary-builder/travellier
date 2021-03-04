@@ -7,6 +7,19 @@
   h1 {
     font-weight: 300;
   }
+
+  &-no-entries {
+    p {
+      color: $orange;
+      font-weight: 400;
+    }
+  }
+
+  &-cards {
+    a:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .profile-button {
