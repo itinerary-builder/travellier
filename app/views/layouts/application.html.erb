@@ -15,7 +15,7 @@
   <body>
     <div class="page-container">
       <div class="navbar-container"><%= render "partials/navbar" %></div>
-      <div class="content-container"><%= yield %></div>
+      <div class="content-container" style="min-height: calc(100vh - 132px)"><%= yield %></div>
       <div class="footer-container"><%= render "partials/footer" %></div>
     </div>
     <%= render 'shared/flashes' %>

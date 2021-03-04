@@ -1,3 +1,37 @@
+<div class="centered-text">    
+    <h1><%= @itinerary.title.capitalize %></h1>
+    <h3><%= "#{@itinerary.days.count} Days" %></h3>
+</div>
+    <hr style="width: 60%; height:2em;">
+<div class="itinerary-show-page">
+    <div class="show-box">
+      <% @itinerary.days.each_with_index do |day, index| %>
+      <div class="day-content">
+        <div class="btn btn-primary"> <%= "Day #{index+1}" %> </div>
+              <div class="day-card">
+                <h2><%= day.morning_id ? @places[(day.morning_id)-1].name  : "morning" %></h2>
+                <p><%= @places[(day.morning_id)-1].category if day.morning_id %></p>
+              </div>
+              <div class="day-card">
+                <h2><%= day.lunch_id ? @places[(day.lunch_id)-1].name  : "lunch" %></h2>
+                <p><%= @places[(day.lunch_id)-1].category if day.lunch_id %></p>
+              </div>
+              <div class="day-card">
+                <h2><%= day.afternoon_id ? @places[(day.afternoon_id)-1].name  : "afternoon" %></h2>
+                <p><%= @places[(day.afternoon_id)-1].category if day.afternoon_id %></p>
+              </div>
+              <div class="day-card">
+                <h2><%= day.dinner_id ? @places[(day.dinner_id)-1].name  : "dinner" %></h2>
+                <p><%= @places[(day.dinner_id)-1].category if day.dinner_id %></p>
+              </div>
+              <div class="day-card">
+                <h2><%= day.evening_id ? @places[(day.evening_id)-1].name  : "evening" %></h2>
+                <p><%= @places[(day.evening_id)-1].category if day.evening_id %></p>
+              </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="btn button-orange"> <%= link_to "edit", edit_itinerary_path(@itinerary) %></div>
+    <div class="btn button-orange"> <%= link_to "save", "#" %></div>
+</div>
 
-<h1><% @itinerary.title %></h1>
-<%= link_to "edit", edit_itinerary_path(@itinerary), class: "mt-4" %>

@@ -1,0 +1,53 @@
+.large{
+  width: 100%;
+}
+.centered-text{
+  // position: relative;
+  // top: 3em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+  margin-top: 107px;
+}
+.itinerary-show-page{
+  .show-box{
+    margin: 20px;
+    margin-top: 80px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    overflow: scroll;
+    width: 100vw;
+    // flex-direction: column;
+  }
+  .day-content{
+    width: 600px;
+    margin: 15px;
+    min-height: 8em;
+    :hover {
+      box-shadow: 2px 4px 6px rgba($orange, 0.25);
+    }
+ }
+  
+  .button-orange{
+    margin: 15px;
+    width: 84px;
+    border-radius: 15px;
+    background-color: $orange;
+    text-decoration: none;
+    :hover{
+      background-color: $light-blue;
+      text-decoration: none;
+    }
+  }
+ .day-card{
+   width: 600px;
+ }
+}
+
+// hr{
+//       width: 20%;
+//       /* height: 2em; */
+//       border: solid 3px #52b1ff;
+// }
