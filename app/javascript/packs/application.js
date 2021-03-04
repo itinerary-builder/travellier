@@ -11,6 +11,10 @@ import initScrollNav from "../plugins/init_scroll_nav";
 import initTyped from "../plugins/init_typed";
 import initAddAirplane from "../plugins/init_add_airplane";
 import initAddScrollhover from "../plugins/init_add_scrollhover";
+import initAddFormToggle from "../plugins/init_add_form_toggle";
+import initMapbox from "../plugins/init_mapbox";
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 Rails.start()
 Turbolinks.start()
@@ -35,4 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   initTyped();
   initAddAirplane();
   initAddScrollhover();
+  initAddFormToggle();
+  initMapbox();
 });

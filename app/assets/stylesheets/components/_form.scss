@@ -1,0 +1,38 @@
+.new_itinerary {
+  background: $lighter-blue;
+  padding: 10px 20px;
+  margin-top: 3rem;
+  border-radius: 10px;
+  width: 25rem;
+
+  input {
+    border-radius: 10px;
+    background: $lighter-blue;
+    font-size: 1.2rem;
+  }
+
+  input[type="submit"] {
+    background-color: $navy;
+    border-radius: 50px;
+  }
+
+  input:active, input:focus {
+    background-color: $lighter-blue;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem #b2c2cf6e;
+  }
+
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 50px;
+  }
+}
