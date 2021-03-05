@@ -35,7 +35,7 @@ class ItinerariesController < ApplicationController
 
 	def update
 		if @itinerary.update(itinerary_params)
-			redirect_to @itinerary
+			redirect_to request.referrer
 		else
 			render :edit
 		end
@@ -48,6 +48,6 @@ class ItinerariesController < ApplicationController
 	end
 
 	def itinerary_params
-		params.require(:itinerary).permit(:title, :duration, :city, days_attributes: [:id, :morning_id, :lunch_id, :dinner_id, :afternoon_id, :evening_id])
+		params.require(:itinerary).permit(:title, :duration, :city, :completed, days_attributes: [:id, :morning_id, :lunch_id, :dinner_id, :afternoon_id, :evening_id])
 	end
 end
