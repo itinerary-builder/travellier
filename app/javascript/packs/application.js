@@ -13,7 +13,7 @@ import initAddAirplane from "../plugins/init_add_airplane";
 import initAddScrollhover from "../plugins/init_add_scrollhover";
 import initAddFormToggle from "../plugins/init_add_form_toggle";
 import initMapbox from "../plugins/init_mapbox";
-import 'mapbox-gl/dist/mapbox-gl.css';
+import "mapbox-gl/dist/mapbox-gl.css";
 
 
 Rails.start()
