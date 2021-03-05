@@ -6,8 +6,8 @@
         <hr style="width: 60%; height:2em;">
     <div class="itinerary-show-page">
     <div class="buttons">
-        <div class="btn button-orange"> <%= link_to "edit", edit_itinerary_path(@itinerary) %></div>
-        <div class="btn button-orange"> <%= link_to "save", "#" %></div>
+        <%= link_to "edit", edit_itinerary_path(@itinerary), class: "btn button-orange" %>
+        <%= link_to "save", profile_path, class: "btn button-orange" %>
     </div>
         <div class="show-box">
           <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
