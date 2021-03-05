@@ -35,7 +35,11 @@
 				<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
           <div class="day-card d-flex">
           	<% if day.morning_id %>
-          		<div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
+          		<% if @places[(day.morning_id)-1].photo.attached? %>
+              <div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+              <% end %>
               <div class="itin-text">
             		<h2><%= @places[(day.morning_id)-1].name %></h2>
             		<p><%= @places[(day.morning_id)-1].category %></p>
@@ -46,7 +50,11 @@
           </div>
           <div class="day-card d-flex">
           	<% if day.lunch_id %>
+              <% if @places[(day.lunch_id)-1].photo.attached? %>
           		<div class="day-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+              <% end %>
               <div class="itin-text">
             		<h2><%= @places[(day.lunch_id)-1].name %></h2>
             		<p><%= @places[(day.lunch_id)-1].category %></p>
@@ -57,7 +65,11 @@
           </div>
           <div class="day-card d-flex">
           	<% if day.afternoon_id %>
-          		<div class="day-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
+          		<% if @places[(day.afternoon_id)-1].photo.attached? %>
+                <div class="day-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+              <% end %>
               <div class="itin-text">
             		<h2><%= @places[(day.afternoon_id)-1].name %></h2>
             		<p><%= @places[(day.afternoon_id)-1].category %></p>
@@ -68,7 +80,11 @@
           </div>
           <div class="day-card d-flex">
           	<% if day.dinner_id %>
-          		<div class="day-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
+          		<% if @places[(day.dinner_id)-1].photo.attached? %>
+                <div class="day-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+              <% end %>
               <div class="itin-text">
             		<h2><%= @places[(day.dinner_id)-1].name %></h2>
             		<p><%= @places[(day.dinner_id)-1].category %></p>
@@ -79,7 +95,11 @@
           </div>
           <div class="day-card d-flex">
           	<% if day.evening_id %>
-          		<div class="day-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
+          		<% if @places[(day.evening_id)-1].photo.attached? %>
+                <div class="day-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+              <% end %>
               <div class="itin-text">
             		<h2><%= @places[(day.evening_id)-1].name %></h2>
             		<p><%= @places[(day.evening_id)-1].category %></p>
