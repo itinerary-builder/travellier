@@ -17,12 +17,12 @@
           </div>
           <div class="modal-text">
             <p><%= place.description %></p>
-            <a href="<%= place.link_url %>">More info</a>
+            <a href="<%= place.link_url %>" target="_blank">More info</a>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit "save changes", class: "btn btn-primary" %>
+          <%= f.submit "Add to itinerary", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>

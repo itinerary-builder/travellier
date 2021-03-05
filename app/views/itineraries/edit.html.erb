@@ -3,6 +3,11 @@
 	<p><%= @itinerary.duration %> days</p>
 </div>
 <hr style="width: 60%;">
+<div class="text-center m-3">
+  <div>
+    <%= render partial: "partials/navigation_buttons"%>  
+  </div>
+</div>
 <div class="container d-flex justify-content-around">
 	<div class="places">
 		<div>
@@ -20,15 +25,11 @@
 	</div>
 
 	<div class="days">
-		<nav aria-label="Page navigation example">
-			<ul class="pagination nav nav-pills mb-3" id="pills-tab" role="tablist">
-				<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-				  <li class="page-item">
-				    <a class="page-link" href="#pills-<%=ind %>"  id="pills-<%= ind %>-tab" data-toggle="pill"  role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
-				  </li>
-			  <% end %>
-			</ul>
-		</nav>
+    <div class="text-center m-3">
+  		<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
+  			<a class="btn btn-primary profile-button w-25" href="#pills-<%=ind %>"  id="pills-<%= ind %>-tab" data-toggle="pill"  role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
+  		<% end %>
+    </div>
 		<div class="tab-content" id="pills-tabContent">
 		 	<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
 				<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
@@ -93,7 +94,7 @@
 	</div>
 </div>
 <div class="text-center">
-  <%= link_to 'Save Itinerary', profile_path, class: "btn btn-primary m-5"%>
+  <%= link_to 'Save Itinerary', profile_path, class: "btn btn-primary profile-button w-25 m-5"%>
 </div>	
 
 <div id="map"
