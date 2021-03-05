@@ -10,7 +10,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
      @itinerary.user = current_user
     if @itinerary.save
-        redirect_to itinerary_path(@itinerary)
+        redirect_to edit_itinerary_path(@itinerary)
     else
         render :new
     end
@@ -18,6 +18,7 @@ class ItinerariesController < ApplicationController
 
 	def show
 		@itinerary = Itinerary.find(params[:id])
+		@places = Place.all
 	end
 
 	def edit

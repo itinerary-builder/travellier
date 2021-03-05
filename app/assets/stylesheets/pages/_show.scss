@@ -7,9 +7,14 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 15px;
-  margin-top: 107px;
+  // margin: 15px;
+  padding-top: 107px;
 }
+
+.show-page-container{
+  margin-top: 100px;
+}
+
 .itinerary-show-page{
   .show-box{
     margin: 20px;
@@ -43,6 +48,10 @@
   }
  .day-card{
    width: 600px;
+ }
+ .buttons{
+   display: flex;
+   justify-content: center;
  }
 }
 

@@ -2,6 +2,7 @@
   font-size: 1.4rem;
   position: fixed;
   transition: background-color 1s;
+  background-color: transparent;
 }
 
 .navbar-brand {
@@ -12,7 +13,6 @@
   align-items: center;
   color: $navy;
 }
-
 .navbar-navy {
   background-color: $navy;
   color: $lighter-blue;
