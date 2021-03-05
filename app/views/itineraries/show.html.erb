@@ -13,9 +13,9 @@
           <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
           <div class="day-content">
             <div class="btn btn-primary"> <%= "Day #{index+1}" %> </div>
-                  <div class="day-card">
-                  <% if day.morning_id %>
-                  <div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
+              <div class="place-card d-flex ml-0">
+                <% if day.morning_id %>
+                  <div class="place-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
                   <div>
                     <h2><%= @places[(day.morning_id)-1].name %></h2>
                     <p><%= @places[(day.morning_id)-1].category %></p>
@@ -23,24 +23,52 @@
                 <% else %>
                   <h3>Morning</h3>
                 <% end %>
+              </div>
+              <div class="place-card d-flex ml-0">
+                <% if day.lunch_id %>
+                  <div class="place-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
+                  <div>
+                    <h2><%= @places[(day.lunch_id)-1].name %></h2>
+                    <p><%= @places[(day.lunch_id)-1].category %></p>
                   </div>
-                  <div class="day-card">
-                    <h2><%= day.lunch_id ? @places[(day.lunch_id)-1].name  : "lunch" %></h2>
-                    <p><%= @places[(day.lunch_id)-1].category if day.lunch_id %></p>
+                <% else %>
+                  <h3>Lunch</h3>
+                <% end %>
+              </div>
+              <div class="place-card d-flex ml-0">
+                <% if day.afternoon_id %>
+                  <div class="place-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
+                  <div>
+                    <h2><%= @places[(day.afternoon_id)-1].name %></h2>
+                    <p><%= @places[(day.afternoon_id)-1].category %></p>
                   </div>
-                  <div class="day-card">
-                    <h2><%= day.afternoon_id ? @places[(day.afternoon_id)-1].name  : "afternoon" %></h2>
-                    <p><%= @places[(day.afternoon_id)-1].category if day.afternoon_id %></p>
+                <% else %>
+                  <h3>Afternoon</h3>
+                <% end %>
+              </div>
+              <div class="place-card d-flex ml-0">
+                <% if day.dinner_id %>
+                  <div class="place-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
+                  <div>
+                    <h2><%= @places[(day.dinner_id)-1].name %></h2>
+                    <p><%= @places[(day.dinner_id)-1].category %></p>
                   </div>
-                  <div class="day-card">
-                    <h2><%= day.dinner_id ? @places[(day.dinner_id)-1].name  : "dinner" %></h2>
-                    <p><%= @places[(day.dinner_id)-1].category if day.dinner_id %></p>
+                <% else %>
+                  <h3>Dinner</h3>
+                <% end %>
+              </div>
+              <div class="place-card d-flex ml-0">
+                <% if day.evening_id %>
+                  <div class="place-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
+                  <div>
+                    <h2><%= @places[(day.evening_id)-1].name %></h2>
+                    <p><%= @places[(day.evening_id)-1].category %></p>
                   </div>
-                  <div class="day-card">
-                    <h2><%= day.evening_id ? @places[(day.evening_id)-1].name  : "evening" %></h2>
-                    <p><%= @places[(day.evening_id)-1].category if day.evening_id %></p>
-                  </div>
-          </div>
+                <% else %>
+                  <h3>Evening</h3>
+                <% end %>
+              </div>
+            </div>
           <% end %>
         </div>
     </div>
