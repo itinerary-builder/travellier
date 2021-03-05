@@ -3,6 +3,9 @@
     <div class="day-card profile-day-card">
       <h2><%= trip.title %></h2>
       <p><%= pluralize(trip.duration, "day") %></p>
+      <% if !trip.completed %>
+        <%= link_to "Mark as completed", itinerary_path(trip, itinerary: { completed: true }), method: "put", remote: true, class: "btn btn-primary profile-completed-button" %>
+      <% end %>
     </div>
   <% end %>
 <% end %>

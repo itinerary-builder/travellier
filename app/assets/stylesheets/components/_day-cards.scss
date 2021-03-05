@@ -112,12 +112,14 @@
 .profile-day-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+	align-items: flex-start;
+	text-align: left;
   width: 300px;
   padding: .5rem;
   margin: 10px auto;
   background-color: white;
   color: $navy;
+	height: 110px;
   
   h2 {
     font-weight: 400;
