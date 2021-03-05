@@ -11,9 +11,11 @@
 
 .places {
 	width: 50%;
-	height: 550px;
+	height: 585px;
 	margin: 100px auto;
+	margin-bottom: 0;
 	overflow: auto;
+
 }
 
 .place-card {
@@ -22,13 +24,13 @@
 	width: 90%;
 	border-radius: 5px;
 	padding: 5px;
-	margin: 5px auto;
+	margin: 8px auto;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 	transition: 0.4s;
 
 	&:hover { 
 	  transform: scale(1.04);
-	  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	  box-shadow: 2px 4px 6px rgba($orange, 0.25);
 	}
 
 	a {
@@ -60,16 +62,21 @@
 	width: 40%;
 	height: 550px;
 	margin: 100px auto;
-	overflow: auto;
+	margin-bottom: 0;
 }
 
 .day-img {
 	width: 30%;
-	height: 90%;
+
 	img {
 		width: 100%;
 		height: 100%;
+		border-radius: 5px;
 	}
+}
+
+.itin-text {
+	padding: 5px;
 }
 
 .day-card {
@@ -78,13 +85,13 @@
 	width: 90%;
 	border-radius: 5px;
 	padding: 5px;
-	margin: 5px auto;
+	margin: 8px auto;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 	transition: 0.4s;
 
 	&:hover { 
 	  transform: scale(1.04);
-	  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+	  box-shadow: 2px 4px 6px rgba($orange, 0.25);
 	}
 
 	h2 {
@@ -98,6 +105,7 @@
 
 	p {
 		font-size: 15px;
+		color: $orange;
 	}
 }
 
