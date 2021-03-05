@@ -12,7 +12,7 @@
             <div class="modal-tabs">
               <%= f.input :place_id, as: :hidden, input_html: {value: place.id} %>
               <%= f.input :tod, as: :radio_buttons, collection: Day::TOD %>
-              <%= f.input :day_id, as: :select, collection: itinerary.days.order(id: :asc), label_method: :name, value_method: :id %>
+              <%= f.input :day_id, as: :select, collection: itinerary.days.order(id: :asc), label_method: :name, value_method: :id, input_html: { id: "day_#{place.id}"}%>
             </div>
           </div>
           <div class="modal-text">
