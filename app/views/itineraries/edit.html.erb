@@ -8,6 +8,7 @@
     <%= render partial: "partials/navigation_buttons"%>  
   </div>
 </div>
+
 <div class="edit-container my-5">
 	<div class="row">
 		<div class="col-lg-5">
@@ -112,9 +113,7 @@
 		</div>
 	</div>
 </div>
-<% @places.each do |place| %>
-	<%= render partial: "partials/modal", locals: {place: place, itinerary: @itinerary} %>
-<% end %>
+<%= render partial: "partials/modal" %>
 <div class="text-center">
   <%= link_to 'Save Itinerary', itinerary_path , class: "btn btn-primary profile-button w-25 m-5"%>
 </div>	
