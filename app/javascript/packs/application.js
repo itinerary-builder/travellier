@@ -42,3 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initAddFormToggle();
   initMapbox();
 });
+
+import "controllers"
