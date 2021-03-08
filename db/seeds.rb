@@ -195,7 +195,8 @@ end
 
 # Array of restaurants for ALGARVE #
 
-array_from_yelp_algarve = search('evora')
+
+array_from_yelp_algarve = search('algarve')
 
 array_from_yelp_algarve["businesses"].each do |resto|
     restaurants << {
@@ -1010,6 +1011,7 @@ file_13 = URI.open(photo_13)
 place_13.photo.attach(io: file_13, filename: 'nazare.jpg', content_type: 'image/jpg')
 place_13.save
 # puts "finish 10"
+
 
 
 #EVORA #
