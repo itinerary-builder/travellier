@@ -12,15 +12,15 @@
 	<div class="places">
 		<div>
 			<% @places.each do |place| %>
-				<div class="place-card d-flex" href="#<%= dom_id(place) %>" data-toggle="modal">
+				<div class="place-card d-flex modal-trigger" href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>" data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>" data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>">
 					<div class="place-img"><%= cl_image_tag place.photo.key %></div>
 					<div class="place-text m-3">
 						<h2><%= place.name %></h2>
 						<p><%= place.category %></p>
 					</div>
 				</div>
-				<%= render partial: "partials/modal", locals: {place: place, itinerary: @itinerary} %>
 			<% end %>
+      <%= render partial: "partials/modal"%>
 		</div>
 	</div>
 
