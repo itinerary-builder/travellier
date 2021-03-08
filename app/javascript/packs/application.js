@@ -14,6 +14,7 @@ import initAddScrollhover from "../plugins/init_add_scrollhover";
 import initAddFormToggle from "../plugins/init_add_form_toggle";
 import initMapbox from "../plugins/init_mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
+import itineraryModal from "../plugins/itinerary_modal";
 
 
 Rails.start()
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initAddScrollhover();
   initAddFormToggle();
   initMapbox();
+  itineraryModal();
 });

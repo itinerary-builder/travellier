@@ -1,23 +1,23 @@
-<div class="modal fade" id="<%= dom_id(place) %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="place-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"><%= place.name %></h5>
+        <h5 class="modal-title" id="modal-place-name"></h5>
       </div>
-      <%= simple_form_for :day, url: assign_place_itinerary_days_path(itinerary), method:
+      <%= simple_form_for :day, url: assign_place_itinerary_days_path(@itinerary), method:
        :patch do |f|%>
         <div class="modal-body">
           <div class="modal-top">
-            <%= cl_image_tag place.photo.key %>
+            <img src="#" alt="" id="modal-img">
             <div class="modal-tabs">
-              <%= f.input :place_id, as: :hidden, input_html: {value: place.id} %>
+              <%= f.input :place_id, as: :hidden, input_html: {id: "modal-place-id"} %>
               <%= f.input :tod, as: :radio_buttons, collection: Day::TOD %>
-              <%= f.input :day_id, as: :select, collection: itinerary.days.order(id: :asc), label_method: :name, value_method: :id%>
+              <%= f.input :day_id, as: :select, collection: @itinerary.days.order(id: :asc), label_method: :name, value_method: :id%>
             </div>
           </div>
           <div class="modal-text">
-            <p><%= place.description %></p>
-            <a href="<%= place.link_url %>" target="_blank">More info</a>
+            <p id="modal-place-description" ></p>
+            <a id="modal-place-url" href="#" target="_blank">More info</a>
           </div>
         </div>
         <div class="modal-footer">
