@@ -60,10 +60,8 @@
 }
 
 .days {
-	width: 40%;
-	height: 550px;
-	margin: 50px auto;
-	margin-bottom: 0;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .day-img {
@@ -78,6 +76,10 @@
 
 .itin-text {
 	padding: 5px;
+}
+
+.edit-container {
+	margin: 2rem 1rem;
 }
 
 .day-card {

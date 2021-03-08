@@ -3,123 +3,120 @@
 	<p><%= @itinerary.duration %> days</p>
 </div>
 <hr style="width: 60%;">
-<div class="text-center m-3">
+<div class="text-center mt-3">
   <div>
     <%= render partial: "partials/navigation_buttons"%>  
   </div>
 </div>
-<div class="container d-flex justify-content-around">
-	<div class="places">
-		<div>
-			<% @places.each do |place| %>
-				<div class="place-card d-flex modal-trigger" href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>" data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>" data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>">
-					<div class="place-img"><%= cl_image_tag place.photo.key %></div>
-					<div class="place-text m-3">
-						<h2><%= place.name %></h2>
-						<p><%= place.category %></p>
-					</div>
-				</div>
-			<% end %>
-      <%= render partial: "partials/modal"%>
-		</div>
-	</div>
 
-	<div class="days">
-    <div class="text-center m-3">
-  		<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-  			<a class="btn btn-primary profile-button w-25" href="#pills-<%=ind %>"  id="pills-<%= ind %>-tab" data-toggle="pill"  role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
-  		<% end %>
-    </div>
-		<div class="tab-content" id="pills-tabContent">
-		 	<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-				<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
-          <div class="day-card d-flex">
-          	<% if day.morning_id %>
-          		<% if @places[(day.morning_id)-1].photo.attached? %>
-              <div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
-              <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-              <% end %>
-              <div class="itin-text">
-            		<h2><%= @places[(day.morning_id)-1].name %></h2>
-            		<p><%= @places[(day.morning_id)-1].category %></p>
-              </div>
-          	<% else %>
-          		<h3>Morning</h3>
-          	<% end %>
-          </div>
-          <div class="day-card d-flex">
-          	<% if day.lunch_id %>
-              <% if @places[(day.lunch_id)-1].photo.attached? %>
-          		<div class="day-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
-              <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-              <% end %>
-              <div class="itin-text">
-            		<h2><%= @places[(day.lunch_id)-1].name %></h2>
-            		<p><%= @places[(day.lunch_id)-1].category %></p>
-              </div>
-          	<% else %>
-          		<h3>Lunch</h3>
-          	<% end %>
-          </div>
-          <div class="day-card d-flex">
-          	<% if day.afternoon_id %>
-          		<% if @places[(day.afternoon_id)-1].photo.attached? %>
-                <div class="day-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
-              <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-              <% end %>
-              <div class="itin-text">
-            		<h2><%= @places[(day.afternoon_id)-1].name %></h2>
-            		<p><%= @places[(day.afternoon_id)-1].category %></p>
-              </div>
-          	<% else %>
-          		<h3>Afternoon</h3>
-          	<% end %>
-          </div>
-          <div class="day-card d-flex">
-          	<% if day.dinner_id %>
-          		<% if @places[(day.dinner_id)-1].photo.attached? %>
-                <div class="day-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
-              <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-              <% end %>
-              <div class="itin-text">
-            		<h2><%= @places[(day.dinner_id)-1].name %></h2>
-            		<p><%= @places[(day.dinner_id)-1].category %></p>
-              </div>
-          	<% else %>
-          		<h3>Dinner</h3>
-          	<% end %>
-          </div>
-          <div class="day-card d-flex">
-          	<% if day.evening_id %>
-          		<% if @places[(day.evening_id)-1].photo.attached? %>
-                <div class="day-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
-              <% else %>
-                <%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-              <% end %>
-              <div class="itin-text">
-            		<h2><%= @places[(day.evening_id)-1].name %></h2>
-            		<p><%= @places[(day.evening_id)-1].category %></p>
-              </div>
-          	<% else %>
-          		<h3>Evening</h3>
-          	<% end %>
-          </div>
+<div class="edit-container my-5">
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="days">
+				<div class="text-center mb-4">
+					<div class="mb-4">
+						<h3>Your Itinerary</h3>
+					</div>
+					<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
+						<a class="btn btn-primary profile-button w-25" href="#pills-<%=ind %>" id="pills-<%= ind %>-tab" data-toggle="pill" role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
+					<% end %>
 				</div>
-			<% end %>
+				<div class="tab-content" id="pills-tabContent">
+					<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
+						<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
+							<div class="day-card d-flex mb-4">
+								<% if day.morning_id %>
+									<% if @places[(day.morning_id)-1].photo.attached? %>
+									<div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
+									<% else %>
+										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+									<% end %>
+									<div class="itin-text">
+										<h2><%= @places[(day.morning_id)-1].name %></h2>
+										<p><%= @places[(day.morning_id)-1].category %></p>
+									</div>
+								<% else %>
+									<h3>Morning</h3>
+								<% end %>
+							</div>
+							<div class="day-card d-flex mb-4">
+								<% if day.lunch_id %>
+									<% if @places[(day.lunch_id)-1].photo.attached? %>
+									<div class="day-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
+									<% else %>
+										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+									<% end %>
+									<div class="itin-text">
+										<h2><%= @places[(day.lunch_id)-1].name %></h2>
+										<p><%= @places[(day.lunch_id)-1].category %></p>
+									</div>
+								<% else %>
+									<h3>Lunch</h3>
+								<% end %>
+							</div>
+							<div class="day-card d-flex mb-4">
+								<% if day.afternoon_id %>
+									<% if @places[(day.afternoon_id)-1].photo.attached? %>
+										<div class="day-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
+									<% else %>
+										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+									<% end %>
+									<div class="itin-text">
+										<h2><%= @places[(day.afternoon_id)-1].name %></h2>
+										<p><%= @places[(day.afternoon_id)-1].category %></p>
+									</div>
+								<% else %>
+									<h3>Afternoon</h3>
+								<% end %>
+							</div>
+							<div class="day-card d-flex mb-4">
+								<% if day.dinner_id %>
+									<% if @places[(day.dinner_id)-1].photo.attached? %>
+										<div class="day-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
+									<% else %>
+										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+									<% end %>
+									<div class="itin-text">
+										<h2><%= @places[(day.dinner_id)-1].name %></h2>
+										<p><%= @places[(day.dinner_id)-1].category %></p>
+									</div>
+								<% else %>
+									<h3>Dinner</h3>
+								<% end %>
+							</div>
+							<div class="day-card d-flex mb-4">
+								<% if day.evening_id %>
+									<% if @places[(day.evening_id)-1].photo.attached? %>
+										<div class="day-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
+									<% else %>
+										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+									<% end %>
+									<div class="itin-text">
+										<h2><%= @places[(day.evening_id)-1].name %></h2>
+										<p><%= @places[(day.evening_id)-1].category %></p>
+									</div>
+								<% else %>
+									<h3>Evening</h3>
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-7 p-0">
+			<div id="map"
+					style="width: 100%; height: 100vh; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"
+					data-markers="<%= @markers.to_json %>"
+					data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+			</div>
 		</div>
 	</div>
 </div>
+<%= render partial: "partials/modal" %>
 <div class="text-center">
   <%= link_to 'Save Itinerary', itinerary_path , class: "btn btn-primary profile-button w-25 m-5"%>
 </div>	
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+
 

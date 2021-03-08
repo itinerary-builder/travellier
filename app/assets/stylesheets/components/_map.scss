@@ -1,7 +1,36 @@
-.mapboxgl-popup {
-  max-width: 200px;
+.mapboxgl-popup-content {
+  padding: 0 !important;
 }
 
-.mapboxgl-popup-content {
-  text-align: center;
+.mapboxgl-popup-tip {
+  border: none !important;
+}
+
+.mapboxgl-popup {
+  max-width: 400px !important;
+  max-height: 200px;
+  overflow: hidden;
+  box-shadow: $favourite-box-shadow;
+  border-radius: 10px;
+  
+  .mapbox-popup-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mapbox-popup-div-info {
+    flex-grow: 1;
+    padding: 1rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+  }
+
+  .map-image {
+    height: 100%;
+    max-width: 200px;
+    object-fit: cover;
+  }
 }
