@@ -195,6 +195,7 @@ end
 
 # Array of restaurants for ALGARVE #
 
+
 array_from_yelp_algarve = search('algarve')
 
 array_from_yelp_algarve["businesses"].each do |resto|
@@ -1012,7 +1013,8 @@ place_13.save
 # puts "finish 10"
 
 
-# EVORA #
+
+#EVORA #
 
 url_evora = 'https://www.triposo.com/api/20201111/poi.json?location_id=C389vora&count=20&fields=images,name,coordinates,snippet&account=C5KPFAI5&token=1cqamu68ut4x8he5cmoglzkjmkyddw1n'
 place_serialized = open(url_evora).read
