@@ -3,24 +3,27 @@
 	<p><%= @itinerary.duration %> days</p>
 </div>
 <hr style="width: 60%;">
-<div class="text-center m-3">
+<div class="text-center mt-3">
   <div>
     <%= render partial: "partials/navigation_buttons"%>  
   </div>
 </div>
-<div class="container">
+<div class="edit-container my-5">
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-5">
 			<div class="days">
-				<div class="text-center m-3">
+				<div class="text-center mb-4">
+					<div class="mb-4">
+						<h3>Your Itinerary</h3>
+					</div>
 					<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-						<a class="btn btn-primary profile-button w-25" href="#pills-<%=ind %>"  id="pills-<%= ind %>-tab" data-toggle="pill"  role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
+						<a class="btn btn-primary profile-button w-25" href="#pills-<%=ind %>" id="pills-<%= ind %>-tab" data-toggle="pill" role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
 					<% end %>
 				</div>
 				<div class="tab-content" id="pills-tabContent">
 					<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
 						<div id="pills-<%= ind %>" class="tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
-							<div class="day-card d-flex">
+							<div class="day-card d-flex mb-4">
 								<% if day.morning_id %>
 									<% if @places[(day.morning_id)-1].photo.attached? %>
 									<div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
@@ -35,7 +38,7 @@
 									<h3>Morning</h3>
 								<% end %>
 							</div>
-							<div class="day-card d-flex">
+							<div class="day-card d-flex mb-4">
 								<% if day.lunch_id %>
 									<% if @places[(day.lunch_id)-1].photo.attached? %>
 									<div class="day-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
@@ -50,7 +53,7 @@
 									<h3>Lunch</h3>
 								<% end %>
 							</div>
-							<div class="day-card d-flex">
+							<div class="day-card d-flex mb-4">
 								<% if day.afternoon_id %>
 									<% if @places[(day.afternoon_id)-1].photo.attached? %>
 										<div class="day-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
@@ -65,7 +68,7 @@
 									<h3>Afternoon</h3>
 								<% end %>
 							</div>
-							<div class="day-card d-flex">
+							<div class="day-card d-flex mb-4">
 								<% if day.dinner_id %>
 									<% if @places[(day.dinner_id)-1].photo.attached? %>
 										<div class="day-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
@@ -80,7 +83,7 @@
 									<h3>Dinner</h3>
 								<% end %>
 							</div>
-							<div class="day-card d-flex">
+							<div class="day-card d-flex mb-4">
 								<% if day.evening_id %>
 									<% if @places[(day.evening_id)-1].photo.attached? %>
 										<div class="day-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
@@ -100,16 +103,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-6">
+		<div class="col-lg-7 p-0">
 			<div id="map"
-					style="width: 100%; height: 600px;"
+					style="width: 100%; height: 100vh; border-top-left-radius: 10px; border-bottom-left-radius: 10px;"
 					data-markers="<%= @markers.to_json %>"
 					data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 			</div>
 		</div>
 	</div>
 </div>
-
+<% @places.each do |place| %>
+	<%= render partial: "partials/modal", locals: {place: place, itinerary: @itinerary} %>
+<% end %>
 <div class="text-center">
   <%= link_to 'Save Itinerary', itinerary_path , class: "btn btn-primary profile-button w-25 m-5"%>
 </div>	

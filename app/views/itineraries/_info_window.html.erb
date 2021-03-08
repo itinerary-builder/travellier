@@ -1,2 +1,8 @@
-<h2 name="name"><%= place.name %></h2>
-<p name="category"><%= place.category %></p>
+<div class="mapbox-popup-div">
+  <%= cl_image_tag place.photo.key, class: "map-image" %>
+  <div class="mapbox-popup-div-info">
+    <h2 name="name"><%= place.name %></h2>
+    <p name="category"><%= place.category %></p>
+    <div href="#<%= dom_id(place) %>" data-toggle="modal" class="btn btn-warning profile-completed-button"><i class="fas fa-plus"></i></div>
+  </div>
+</div>
