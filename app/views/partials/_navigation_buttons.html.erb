@@ -1,13 +1,13 @@
-<%= link_to do %>
- <div class="btn btn-ghost">Museum<i class="fas fa-archway btn-icon btn-icon-green"></i></div>
+<%= link_to edit_itinerary_path(@itinerary, filter: 'Museums') do %>
+ <div class="btn btn-ghost" data-category="Museums">Museum<i class="fas fa-archway btn-icon btn-icon-green"></i></div>
 <% end %>
-<%= link_to do %>
- <div class="btn btn-ghost">Landmarks<i class="fas fa-map-marked-alt btn-icon btn-icon-red"></i></div>
+<%= link_to edit_itinerary_path(@itinerary, filter: 'Landmarks') do %>
+ <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="fas fa-map-marked-alt btn-icon btn-icon-red"></i></div>
 <% end %>
-<%= link_to do %>
- <div class="btn btn-ghost">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
+<%= link_to edit_itinerary_path(@itinerary, filter: 'Activities') do %>
+ <div class="btn btn-ghost" data-category="Activities">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
 <% end %>
-<%= link_to do %>
- <div class="btn btn-ghost">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
+<%= link_to edit_itinerary_path(@itinerary, filter: 'Restaurants') do %>
+ <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
 <% end %>
 
