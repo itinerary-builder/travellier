@@ -24,6 +24,7 @@ class ItinerariesController < ApplicationController
 	def edit
 		@itinerary = Itinerary.find(params[:id])
 		@places = Place.all
+		@filtered_places = Place.all
 		if params[:filter].present?
 			@filtered_places = @places.where(category: params[:filter])
 		end
