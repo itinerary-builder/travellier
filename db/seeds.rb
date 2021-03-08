@@ -57,7 +57,8 @@ restaurants.each_with_index do |resto, index|
         lat: resto[:lat],
         lng: resto[:lng],
         description: resto[:description],
-        link_url: resto[:link_url]
+        link_url: resto[:link_url],
+        city: "lisbon"
     )
     file = URI.open(resto[:image_url])
     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
@@ -88,7 +89,8 @@ restaurants.each_with_index do |resto, index|
         lat: resto[:lat],
         lng: resto[:lng],
         description: resto[:description],
-        link_url: resto[:link_url]
+        link_url: resto[:link_url],
+        city: "porto"
     )
     file = URI.open(resto[:image_url])
     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
@@ -119,7 +121,8 @@ restaurants.each_with_index do |resto, index|
         lat: resto[:lat],
         lng: resto[:lng],
         description: resto[:description],
-        link_url: resto[:link_url]
+        link_url: resto[:link_url],
+        city: "coimbra"
     )
     file = URI.open(resto[:image_url])
     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
@@ -152,7 +155,8 @@ restaurants.each_with_index do |resto, index|
         lat: resto[:lat],
         lng: resto[:lng],
         description: resto[:description],
-        link_url: resto[:link_url]
+        link_url: resto[:link_url],
+        city: "evora"
     )
     file = URI.open(resto[:image_url])
     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
@@ -185,7 +189,8 @@ restaurants.each_with_index do |resto, index|
         lat: resto[:lat],
         lng: resto[:lng],
         description: resto[:description],
-        link_url: resto[:link_url]
+        link_url: resto[:link_url],
+        city: "algarve"
     )
     file = URI.open(resto[:image_url])
     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
@@ -209,6 +214,7 @@ place_1 = Place.new(
     lat: place["results"][0]["coordinates"]["latitude"],
     lng: place["results"][0]["coordinates"]["longitude"],
     description: place["results"][0]["snippet"],
+    city: "lisbon",
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/torre-de-belem/a/poi-sig/401037/360366"
     )
 photo = place["results"][0]["images"][0]["source_url"]
@@ -224,6 +230,7 @@ place_2 = Place.new(
     lat: place["results"][1]["coordinates"]["latitude"], 
     lng: place["results"][1]["coordinates"]["longitude"],
     description: place["results"][1]["snippet"],
+    city: "lisbon",
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/activities/lisbon-3-hour-walking-tour-around-avenida-da-liberdade/a/pa-act/v-7526P6/360366",
     )
 photo_2 = place["results"][1]["images"][0]["source_url"]
@@ -238,6 +245,7 @@ place_3 = Place.new(
     lat: place["results"][2]["coordinates"]["latitude"],
     lng: place["results"][2]["coordinates"]["longitude"],
     description: place["results"][2]["snippet"],
+    city: "lisbon",
     link_url: "https://www.berardocollection.com/",
     )
 photo_3 = place["results"][2]["images"][0]["source_url"]
@@ -252,6 +260,7 @@ place_4 = Place.new(
     lat: place["results"][3]["coordinates"]["latitude"],
     lng: place["results"][3]["coordinates"]["longitude"],
     description: place["results"][3]["snippet"],
+    city: "lisbon",
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/mosteiro-dos-jeronimos/a/poi-sig/400967/360366",
     )
 photo_4 = place["results"][3]["images"][0]["source_url"]
@@ -266,6 +275,7 @@ place_5 = Place.new(
     lat: place["results"][4]["coordinates"]["latitude"],
     lng: place["results"][4]["coordinates"]["longitude"],
     description: place["results"][4]["snippet"],
+    city: "lisbon",
     link_url: "https://padraodosdescobrimentos.pt/en/inicio/",
     )
 photo_5 = place["results"][4]["images"][0]["source_url"]
@@ -282,6 +292,7 @@ place_7 = Place.new(
     lat: place["results"][6]["coordinates"]["latitude"],
     lng: place["results"][6]["coordinates"]["longitude"],
     description: place["results"][6]["snippet"],
+    city: "lisbon",
     link_url: "https://www.lisbon.net/archaeology-museum",
     )
 photo_7 = place["results"][6]["images"][0]["source_url"]
@@ -296,6 +307,7 @@ place_8 = Place.new(
     lat: place["results"][7]["coordinates"]["latitude"],
     lng: place["results"][7]["coordinates"]["longitude"],
     description: place["results"][7]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/museu-nacional-de-arte-antiga/a/poi-sig/400999/360366",
     )
 photo_8 = place["results"][7]["images"][0]["source_url"]
@@ -310,6 +322,7 @@ place_9 = Place.new(
     lat: place["results"][8]["coordinates"]["latitude"], 
     lng: place["results"][8]["coordinates"]["longitude"], 
     description: place["results"][8]["snippet"], 
+    city: "lisbon",
     link_url: "https://lisbonlisboaportugal.com/lisbon-sights/cristo-rei-christ-statue-lisbon.html",
     )
 photo_9 = place["results"][8]["images"][0]["source_url"]
@@ -324,6 +337,7 @@ place_10 = Place.new(
     lat: place["results"][9]["coordinates"]["latitude"], 
     lng: place["results"][9]["coordinates"]["longitude"], 
     description: place["results"][9]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.lonelyplanet.com/portugal/lisbon/attractions/castelo-de-sao-jorge/a/poi-sig/400925/360366",
     )
 photo_10 = place["results"][9]["images"][0]["source_url"]
@@ -338,7 +352,8 @@ place_11 = Place.new(
     category: "Landmarks", 
     lat: place["results"][10]["coordinates"]["latitude"], 
     lng: place["results"][10]["coordinates"]["longitude"], 
-    description: place["results"][10]["snippet"], 
+    description: place["results"][10]["snippet"],
+    city: "lisbon", 
     link_url: "http://www.palacioajuda.gov.pt/en-GB/palace/ContentDetail.aspx"
 )
 photo_11 = place["results"][10]["images"][0]["source_url"]
@@ -353,6 +368,7 @@ place_12 = Place.new(
     lat: place["results"][11]["coordinates"]["latitude"], 
     lng: place["results"][11]["coordinates"]["longitude"], 
     description: place["results"][11]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.lisbon.net/santa-justa-lift",
     )
 photo_12 = place["results"][11]["images"][0]["source_url"]
@@ -367,6 +383,7 @@ place_13 = Place.new(
     lat: place["results"][12]["coordinates"]["latitude"], 
     lng: place["results"][12]["coordinates"]["longitude"], 
     description: place["results"][12]["snippet"], 
+    city: "lisbon",
     link_url: "https://hcp.pt/",
     )
 photo_13 = place["results"][12]["images"][0]["source_url"]
@@ -383,6 +400,7 @@ place_14 = Place.new(
     lat: place["results"][13]["coordinates"]["latitude"], 
     lng: place["results"][13]["coordinates"]["longitude"], 
     description: place["results"][12]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.golisbon.com/sight-seeing/belem-palace.html",
     )
 photo_14 = place["results"][13]["images"][0]["source_url"]
@@ -397,6 +415,7 @@ place_15 = Place.new(
     lat: place["results"][14]["coordinates"]["latitude"], 
     lng: place["results"][14]["coordinates"]["longitude"], 
     description: place["results"][14]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.slbenfica.pt/en-us/loja/bilhetes/estadio-e-museu",
     )
 photo_15 = place["results"][14]["images"][0]["source_url"]
@@ -411,6 +430,7 @@ place_16 = Place.new(
     lat: place["results"][15]["coordinates"]["latitude"], 
     lng: place["results"][15]["coordinates"]["longitude"], 
     description: place["results"][15]["snippet"], 
+    city: "lisbon",
     link_url: "http://www.pestanapalacelisbon.com/",
     )
 photo_16 = place["results"][15]["images"][0]["source_url"]
@@ -425,6 +445,7 @@ place_17 = Place.new(
     lat: place["results"][16]["coordinates"]["latitude"], 
     lng: place["results"][16]["coordinates"]["longitude"], 
     description: place["results"][16]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.visitlisboa.com/en/places/arco-da-rua-augusta",
     )
     
@@ -440,6 +461,7 @@ place_18 = Place.new(
     lat: place["results"][17]["coordinates"]["latitude"], 
     lng: place["results"][17]["coordinates"]["longitude"], 
     description: place["results"][17]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.ccb.pt/",
     )
 photo_18 = place["results"][17]["images"][0]["source_url"]
@@ -454,6 +476,7 @@ place_19 = Place.new(
     lat: place["results"][18]["coordinates"]["latitude"], 
     lng: place["results"][18]["coordinates"]["longitude"], 
     description: place["results"][18]["snippet"], 
+    city: "lisbon",
     link_url: "https://www.lisbonportugaltourism.com/guide/mosteiro-de-sao-vicente-de-fora.html",
     )
 photo_19 = place["results"][18]["images"][0]["source_url"]
@@ -478,6 +501,7 @@ place_1 = Place.new(
     lat: place["results"][0]["coordinates"]["latitude"],
     lng: place["results"][0]["coordinates"]["longitude"],
     description: place["results"][0]["snippet"],
+    city: "porto",
     link_url: "https://www.serralves.pt/en/"
     )
 photo = place["results"][0]["images"][0]["source_url"]
@@ -494,6 +518,7 @@ place_2 = Place.new(
     lat: place["results"][1]["coordinates"]["latitude"], 
     lng: place["results"][1]["coordinates"]["longitude"],
     description: place["results"][1]["snippet"],
+    city: "porto",
     link_url: "https://en.wikipedia.org/wiki/Dom_Lu%C3%ADs_I_Bridge"
 )
 photo_2 = place["results"][1]["images"][0]["source_url"]
@@ -509,6 +534,7 @@ place_3 = Place.new(
     lat: place["results"][2]["coordinates"]["latitude"], 
     lng: place["results"][2]["coordinates"]["longitude"],
     description: place["results"][2]["snippet"],
+    city: "porto",
     link_url: "https://www.visitportugal.com/en/content/mosteiro-da-serra-do-pilar"
 )
 photo_3 = place["results"][2]["images"][0]["source_url"]
@@ -525,6 +551,7 @@ place_5 = Place.new(
     lat: place["results"][4]["coordinates"]["latitude"], 
     lng: place["results"][4]["coordinates"]["longitude"],
     description: place["results"][4]["snippet"],
+    city: "porto",
     link_url: "http://www.torredosclerigos.pt/en/"
 )
 photo_5 = place["results"][4]["images"][0]["source_url"]
@@ -540,6 +567,7 @@ place_6 = Place.new(
     lat: place["results"][5]["coordinates"]["latitude"], 
     lng: place["results"][5]["coordinates"]["longitude"],
     description: place["results"][5]["snippet"],
+    city: "porto",
     link_url: "https://palaciodabolsa.com/en/intro/"
 )
 photo_6 = place["results"][5]["images"][0]["source_url"]
@@ -555,6 +583,7 @@ place_8 = Place.new(
     lat: place["results"][7]["coordinates"]["latitude"], 
     lng: place["results"][7]["coordinates"]["longitude"],
     description: place["results"][7]["snippet"],
+    city: "porto",
     link_url: "https://www.portugalvisitor.com/porto-attractions/paco-episcopal"
 )
 photo_8 = place["results"][7]["images"][0]["source_url"]
@@ -570,6 +599,7 @@ place_9 = Place.new(
     lat: place["results"][8]["coordinates"]["latitude"], 
     lng: place["results"][8]["coordinates"]["longitude"],
     description: place["results"][8]["snippet"],
+    city: "porto",
     link_url: "http://www.pousadapalaciodofreixo.com/pt/"
 )
 photo_9 = place["results"][8]["images"][0]["source_url"]
@@ -585,6 +615,7 @@ place_10 = Place.new(
     lat: place["results"][9]["coordinates"]["latitude"], 
     lng: place["results"][9]["coordinates"]["longitude"],
     description: place["results"][9]["snippet"],
+    city: "porto",
     link_url: "https://localporto.com/casa-infante-house-of-prince-porto/"
 )
 photo_10 = place["results"][9]["images"][0]["source_url"]
@@ -608,6 +639,7 @@ place_1 = Place.new(
     lat: place["results"][0]["coordinates"]["latitude"],
     lng: place["results"][0]["coordinates"]["longitude"],
     description: place["results"][0]["snippet"],
+    city: "coimbra",
     link_url: "http://www.museumachadocastro.gov.pt/en-GB/default.aspx"
     )
 photo = place["results"][0]["images"][0]["source_url"]
@@ -624,6 +656,7 @@ place_2 = Place.new(
     lat: place["results"][1]["coordinates"]["latitude"], 
     lng: place["results"][1]["coordinates"]["longitude"],
     description: place["results"][1]["snippet"],
+    city: "coimbra",
     link_url: "https://en.wikipedia.org/wiki/Portugal_dos_Pequenitos"
 )
 photo_2 = place["results"][1]["images"][0]["source_url"]
@@ -639,6 +672,7 @@ place_3 = Place.new(
     lat: place["results"][2]["coordinates"]["latitude"], 
     lng: place["results"][2]["coordinates"]["longitude"],
     description: place["results"][2]["snippet"],
+    city: "coimbra",
     link_url: "https://www.quintadaslagrimas.pt/en/"
 )
 photo_3 = place["results"][2]["images"][0]["source_url"]
@@ -654,6 +688,7 @@ place_4 = Place.new(
     lat: place["results"][3]["coordinates"]["latitude"], 
     lng: place["results"][3]["coordinates"]["longitude"],
     description: place["results"][3]["snippet"],
+    city: "coimbra",
     link_url: "https://www.quintadaslagrimas.pt/en/"
 )
 photo_4 = place["results"][3]["images"][0]["source_url"]
@@ -670,6 +705,7 @@ place_5 = Place.new(
     lat: place["results"][4]["coordinates"]["latitude"], 
     lng: place["results"][4]["coordinates"]["longitude"],
     description: place["results"][4]["snippet"],
+    city: "coimbra",
     link_url: "https://www.culturacentro.gov.pt/mosteiro-santa-clara-a-velha-en/"
 )
 photo_5 = place["results"][4]["images"][0]["source_url"]
@@ -685,6 +721,7 @@ place_6 = Place.new(
     lat: place["results"][5]["coordinates"]["latitude"], 
     lng: place["results"][5]["coordinates"]["longitude"],
     description: place["results"][5]["snippet"],
+    city: "coimbra",
     link_url: "https://www.coimbraportugaltourism.com/guide/se-velha-old-cathedral.html"
 )
 photo_6 = place["results"][5]["images"][0]["source_url"]
@@ -700,6 +737,7 @@ place_7 = Place.new(
     lat: place["results"][6]["coordinates"]["latitude"], 
     lng: place["results"][6]["coordinates"]["longitude"],
     description: place["results"][6]["snippet"],
+    city: "coimbra",
     link_url: "https://www.publicspace.org/works/-/project/f234-parque-verde-do-mondego"
 )
 photo_7 = place["results"][6]["images"][0]["source_url"]
@@ -715,6 +753,7 @@ place_8 = Place.new(
     lat: place["results"][7]["coordinates"]["latitude"], 
     lng: place["results"][7]["coordinates"]["longitude"],
     description: place["results"][7]["snippet"],
+    city: "coimbra",
     link_url: "https://www.coimbraportugaltourism.com/guide/mosteiro-de-santa-cruz.html"
 )
 photo_8 = place["results"][7]["images"][0]["source_url"]
@@ -730,6 +769,7 @@ place_9 = Place.new(
     lat: place["results"][8]["coordinates"]["latitude"], 
     lng: place["results"][8]["coordinates"]["longitude"],
     description: place["results"][8]["snippet"],
+    city: "coimbra",
     link_url: "https://www.uc.pt/en/jardimbotanico"
 )
 photo_9 = place["results"][8]["images"][0]["source_url"]
@@ -745,6 +785,7 @@ place_10 = Place.new(
     lat: place["results"][9]["coordinates"]["latitude"], 
     lng: place["results"][9]["coordinates"]["longitude"],
     description: place["results"][9]["snippet"],
+    city: "coimbra",
     link_url: "https://www.coimbraportugaltourism.com/guide/mosteiro-de-santa-clara-a-nova.html"
 )
 photo_10 = place["results"][9]["images"][0]["source_url"]
@@ -759,6 +800,7 @@ place_11 = Place.new(
     lat: place["results"][10]["coordinates"]["latitude"], 
     lng: place["results"][10]["coordinates"]["longitude"],
     description: place["results"][10]["snippet"],
+    city: "coimbra",
     link_url: "https://www.coimbraportugaltourism.com/guide/se-nova-new-cathedral.html"
 )
 photo_11 = place["results"][10]["images"][0]["source_url"]
@@ -774,6 +816,7 @@ place_12 = Place.new(
     lat: place["results"][11]["coordinates"]["latitude"], 
     lng: place["results"][11]["coordinates"]["longitude"],
     description: place["results"][11]["snippet"],
+    city: "coimbra",
     link_url: "https://en.wikipedia.org/wiki/Pedro_e_In%C3%AAs_bridge"
 )
 photo_12 = place["results"][11]["images"][0]["source_url"]
@@ -788,6 +831,7 @@ place_13 = Place.new(
     lat: place["results"][12]["coordinates"]["latitude"], 
     lng: place["results"][12]["coordinates"]["longitude"],
     description: place["results"][12]["snippet"],
+    city: "coimbra",
     link_url: "https://en.wikipedia.org/wiki/Choupal_National_Forest"
 )
 photo_13 = place["results"][12]["images"][0]["source_url"]
@@ -803,6 +847,7 @@ place_15 = Place.new(
     lat: place["results"][14]["coordinates"]["latitude"], 
     lng: place["results"][14]["coordinates"]["longitude"],
     description: place["results"][14]["snippet"],
+    city: "coimbra",
     link_url: "https://en.wikipedia.org/wiki/Igreja_de_Santiago_(Coimbra)"
 )
 photo_15 = place["results"][14]["images"][0]["source_url"]
@@ -826,6 +871,7 @@ place_1 = Place.new(
     lat: place["results"][0]["coordinates"]["latitude"],
     lng: place["results"][0]["coordinates"]["longitude"],
     description: place["results"][0]["snippet"],
+    city: "evora",
     link_url: "https://www.visitevora.net/en/roman-temple-evora/"
     )
 photo = place["results"][0]["images"][0]["source_url"]
@@ -841,6 +887,7 @@ place_3 = Place.new(
     lat: place["results"][2]["coordinates"]["latitude"], 
     lng: place["results"][2]["coordinates"]["longitude"],
     description: place["results"][2]["snippet"],
+    city: "evora",
     link_url: "https://en.wikipedia.org/wiki/Capela_dos_Ossos"
 )
 photo_3 = place["results"][2]["images"][0]["source_url"]
@@ -856,6 +903,7 @@ place_4 = Place.new(
     lat: place["results"][3]["coordinates"]["latitude"], 
     lng: place["results"][3]["coordinates"]["longitude"],
     description: place["results"][3]["snippet"],
+    city: "evora",
     link_url: "https://www.visitevora.net/en/almendres-cromlech-portugal/"
 )
 photo_4 = place["results"][3]["images"][0]["source_url"]
@@ -872,6 +920,7 @@ place_5 = Place.new(
     lat: place["results"][4]["coordinates"]["latitude"], 
     lng: place["results"][4]["coordinates"]["longitude"],
     description: place["results"][4]["snippet"],
+    city: "evora",
     link_url: "https://www.visitevora.net/en/king-manuel-palace-evora/"
 )
 photo_5 = place["results"][4]["images"][0]["source_url"]
@@ -887,6 +936,7 @@ place_7 = Place.new(
     lat: place["results"][6]["coordinates"]["latitude"], 
     lng: place["results"][6]["coordinates"]["longitude"],
     description: place["results"][6]["snippet"],
+    city: "evora",
     link_url: "https://en.wikipedia.org/wiki/Church_of_Nossa_Senhora_da_Gra%C3%A7a_(%C3%89vora)"
 )
 photo_7 = place["results"][6]["images"][0]["source_url"]
@@ -902,6 +952,7 @@ place_8 = Place.new(
     lat: place["results"][7]["coordinates"]["latitude"], 
     lng: place["results"][7]["coordinates"]["longitude"],
     description: place["results"][7]["snippet"],
+    city: "evora",
     link_url: "https://www.visitevora.net/igreja-espirito-santo-evora/"
 )
 photo_8 = place["results"][7]["images"][0]["source_url"]
@@ -925,6 +976,7 @@ place_1 = Place.new(
     lat: place["results"][0]["coordinates"]["latitude"],
     lng: place["results"][0]["coordinates"]["longitude"],
     description: place["results"][0]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Lighthouse_of_Cabo_de_S%C3%A3o_Vicente"
     )
 photo = place["results"][0]["images"][0]["source_url"]
@@ -941,6 +993,7 @@ place_2 = Place.new(
     lat: place["results"][1]["coordinates"]["latitude"], 
     lng: place["results"][1]["coordinates"]["longitude"],
     description: place["results"][1]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Castle_of_Castro_Marim"
 )
 photo_2 = place["results"][1]["images"][0]["source_url"]
@@ -956,6 +1009,7 @@ place_3 = Place.new(
     lat: place["results"][2]["coordinates"]["latitude"], 
     lng: place["results"][2]["coordinates"]["longitude"],
     description: place["results"][2]["snippet"],
+    city: "algarve",
     link_url: "https://www.visitportugal.com/en/node/135682"
 )
 photo_3 = place["results"][2]["images"][0]["source_url"]
@@ -971,6 +1025,7 @@ place_4 = Place.new(
     lat: place["results"][3]["coordinates"]["latitude"], 
     lng: place["results"][3]["coordinates"]["longitude"],
     description: place["results"][3]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Silves_Cathedral"
 )
 photo_4 = place["results"][3]["images"][0]["source_url"]
@@ -987,6 +1042,7 @@ place_5 = Place.new(
     lat: place["results"][4]["coordinates"]["latitude"], 
     lng: place["results"][4]["coordinates"]["longitude"],
     description: place["results"][4]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Ponta_da_Piedade_Lighthouse"
 )
 photo_5 = place["results"][4]["images"][0]["source_url"]
@@ -1004,6 +1060,7 @@ place_7 = Place.new(
     lat: place["results"][6]["coordinates"]["latitude"], 
     lng: place["results"][6]["coordinates"]["longitude"],
     description: place["results"][6]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Fort_of_Ponta_da_Bandeira"
 )
 photo_7 = place["results"][6]["images"][0]["source_url"]
@@ -1019,6 +1076,7 @@ place_8 = Place.new(
     lat: place["results"][7]["coordinates"]["latitude"], 
     lng: place["results"][7]["coordinates"]["longitude"],
     description: place["results"][7]["snippet"],
+    city: "algarve",
     link_url: "https://www.algarvetips.com/cities/faro/cathedral-of-faro/"
 )
 photo_8 = place["results"][7]["images"][0]["source_url"]
@@ -1034,6 +1092,7 @@ place_9 = Place.new(
     lat: place["results"][8]["coordinates"]["latitude"], 
     lng: place["results"][8]["coordinates"]["longitude"],
     description: place["results"][8]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Lighthouse_of_Ponta_de_Sagres"
 )
 photo_9 = place["results"][8]["images"][0]["source_url"]
@@ -1049,6 +1108,7 @@ place_10 = Place.new(
     lat: place["results"][9]["coordinates"]["latitude"], 
     lng: place["results"][9]["coordinates"]["longitude"],
     description: place["results"][9]["snippet"],
+    city: "algarve",
     link_url: "https://en.wikipedia.org/wiki/Pego_do_Inferno"
 )
 photo_10 = place["results"][9]["images"][0]["source_url"]
