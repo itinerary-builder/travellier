@@ -22,16 +22,31 @@ class ItinerariesController < ApplicationController
 	end
 
 	def edit
-		@places = Place.all
 		@itinerary = Itinerary.find(params[:id])
-		@markers = @places.map do |place|
-      {
-        lat: place.lat,
-        lng: place.lng,
-				infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
-				category: place.category
-      }
-    end
+		@places = Place.all
+		@filtered_places = Place.all
+		if params[:filter].present?
+			@filtered_places = @places.where(category: params[:filter])
+		end
+		if params[:filter].present?
+			@markers = @filtered_places.map do |place|
+				{
+					lat: place.lat,
+					lng: place.lng,
+					infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+					category: place.category
+				}
+			end 
+		else
+			@markers = @places.map do |place|
+				{
+					lat: place.lat,
+					lng: place.lng,
+					infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+					category: place.category
+				}
+			end
+		end
 	end
 
 	def update
