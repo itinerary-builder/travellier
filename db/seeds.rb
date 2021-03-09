@@ -35,168 +35,168 @@ def search(location)
     response.parse
   end
 
-restaurants = []
-array_from_yelp = search('lisbon')
+# restaurants = []
+# array_from_yelp = search('lisbon')
 
-array_from_yelp["businesses"].each do |resto|
-    restaurants << {
-        name: resto["name"],
-        category: "Restaurants",
-        lat: resto["coordinates"]["latitude"],
-        lng: resto["coordinates"]["longitude"],
-        description: resto["categories"].map { |e| e["title"] }.join(", "),
-        link_url: resto["url"],
-        image_url: resto["image_url"]
-    }
-end
+# array_from_yelp["businesses"].each do |resto|
+#     restaurants << {
+#         name: resto["name"],
+#         category: "Restaurants",
+#         lat: resto["coordinates"]["latitude"],
+#         lng: resto["coordinates"]["longitude"],
+#         description: resto["categories"].map { |e| e["title"] }.join(", "),
+#         link_url: resto["url"],
+#         image_url: resto["image_url"]
+#     }
+# end
 
-restaurants.each_with_index do |resto, index|
-    restaurant = Place.new(
-        name: resto[:name],
-        category: resto[:category],
-        lat: resto[:lat],
-        lng: resto[:lng],
-        description: resto[:description],
-        link_url: resto[:link_url],
-        city: "lisbon"
-    )
-    file = URI.open(resto[:image_url])
-    restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
-    restaurant.save
-    puts "Restaurant #{index + 1} finished..."
-end
+# restaurants.each_with_index do |resto, index|
+#     restaurant = Place.new(
+#         name: resto[:name],
+#         category: resto[:category],
+#         lat: resto[:lat],
+#         lng: resto[:lng],
+#         description: resto[:description],
+#         link_url: resto[:link_url],
+#         city: "lisbon"
+#     )
+#     file = URI.open(resto[:image_url])
+#     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
+#     restaurant.save
+#     puts "Restaurant #{index + 1} finished..."
+# end
 
 # array of restaurants for PORTO #
 
-array_from_yelp_porto = search('porto, pt')
-restaurants = []
-array_from_yelp_porto["businesses"].each_with_index do |resto, index|
-    restaurants << {
-        name: resto["name"],
-        category: "Restaurants",
-        lat: resto["coordinates"]["latitude"],
-        lng: resto["coordinates"]["longitude"],
-        description: resto["categories"].map { |e| e["title"] }.join(", "),
-        link_url: resto["url"],
-        image_url: resto["image_url"]
-    }
-end
+# array_from_yelp_porto = search('porto, pt')
+# restaurants = []
+# array_from_yelp_porto["businesses"].each_with_index do |resto, index|
+#     restaurants << {
+#         name: resto["name"],
+#         category: "Restaurants",
+#         lat: resto["coordinates"]["latitude"],
+#         lng: resto["coordinates"]["longitude"],
+#         description: resto["categories"].map { |e| e["title"] }.join(", "),
+#         link_url: resto["url"],
+#         image_url: resto["image_url"]
+#     }
+# end
 
-restaurants.each_with_index do |resto, index|
-    restaurant = Place.new(
-        name: resto[:name],
-        category: resto[:category],
-        lat: resto[:lat],
-        lng: resto[:lng],
-        description: resto[:description],
-        link_url: resto[:link_url],
-        city: "porto"
-    )
-    file = URI.open(resto[:image_url])
-    restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
-    restaurant.save
-    puts "Porto Restaurant #{index + 1} finished..."
-end
+# restaurants.each_with_index do |resto, index|
+#     restaurant = Place.new(
+#         name: resto[:name],
+#         category: resto[:category],
+#         lat: resto[:lat],
+#         lng: resto[:lng],
+#         description: resto[:description],
+#         link_url: resto[:link_url],
+#         city: "porto"
+#     )
+#     file = URI.open(resto[:image_url])
+#     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
+#     restaurant.save
+#     puts "Porto Restaurant #{index + 1} finished..."
+# end
 
-# Array of restaurants for COIMBRA #
+# # Array of restaurants for COIMBRA #
 
-array_from_yelp_coimbra = search('coimbra')
-restaurants = []
-array_from_yelp_coimbra["businesses"].each do |resto|
-    restaurants << {
-        name: resto["name"],
-        category: "Restaurants",
-        lat: resto["coordinates"]["latitude"],
-        lng: resto["coordinates"]["longitude"],
-        description: resto["categories"].map { |e| e["title"] }.join(", "),
-        link_url: resto["url"],
-        image_url: resto["image_url"]
-    }
-end
+# array_from_yelp_coimbra = search('coimbra')
+# restaurants = []
+# array_from_yelp_coimbra["businesses"].each do |resto|
+#     restaurants << {
+#         name: resto["name"],
+#         category: "Restaurants",
+#         lat: resto["coordinates"]["latitude"],
+#         lng: resto["coordinates"]["longitude"],
+#         description: resto["categories"].map { |e| e["title"] }.join(", "),
+#         link_url: resto["url"],
+#         image_url: resto["image_url"]
+#     }
+# end
 
-restaurants.each_with_index do |resto, index|
-    restaurant = Place.new(
-        name: resto[:name],
-        category: resto[:category],
-        lat: resto[:lat],
-        lng: resto[:lng],
-        description: resto[:description],
-        link_url: resto[:link_url],
-        city: "coimbra"
-    )
-    file = URI.open(resto[:image_url])
-    restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
-    restaurant.save
-    puts "Coimbra Restaurant #{index + 1} finished..."
-end
-
-
-# Array of restaurants for EVORA #
+# restaurants.each_with_index do |resto, index|
+#     restaurant = Place.new(
+#         name: resto[:name],
+#         category: resto[:category],
+#         lat: resto[:lat],
+#         lng: resto[:lng],
+#         description: resto[:description],
+#         link_url: resto[:link_url],
+#         city: "coimbra"
+#     )
+#     file = URI.open(resto[:image_url])
+#     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
+#     restaurant.save
+#     puts "Coimbra Restaurant #{index + 1} finished..."
+# end
 
 
-array_from_yelp_evora = search('evora')
-restaurants = []
-array_from_yelp_evora["businesses"].each_with_index do |resto, index|
-    restaurants << {
-        name: resto["name"],
-        category: "Restaurants",
-        lat: resto["coordinates"]["latitude"],
-        lng: resto["coordinates"]["longitude"],
-        description: resto["categories"].map { |e| e["title"] }.join(", "),
-        link_url: resto["url"],
-        image_url: resto["image_url"]
-    }
-end
-
-restaurants.each_with_index do |resto, index|
-    restaurant = Place.new(
-        name: resto[:name],
-        category: resto[:category],
-        lat: resto[:lat],
-        lng: resto[:lng],
-        description: resto[:description],
-        link_url: resto[:link_url],
-        city: "evora"
-    )
-    file = URI.open(resto[:image_url])
-    restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
-    restaurant.save
-    puts "Evora Restaurant #{index + 1} finished..."
-end
+# # Array of restaurants for EVORA #
 
 
-# #Array of restaurants for ALGARVE #
+# array_from_yelp_evora = search('evora')
+# restaurants = []
+# array_from_yelp_evora["businesses"].each_with_index do |resto, index|
+#     restaurants << {
+#         name: resto["name"],
+#         category: "Restaurants",
+#         lat: resto["coordinates"]["latitude"],
+#         lng: resto["coordinates"]["longitude"],
+#         description: resto["categories"].map { |e| e["title"] }.join(", "),
+#         link_url: resto["url"],
+#         image_url: resto["image_url"]
+#     }
+# end
+
+# restaurants.each_with_index do |resto, index|
+#     restaurant = Place.new(
+#         name: resto[:name],
+#         category: resto[:category],
+#         lat: resto[:lat],
+#         lng: resto[:lng],
+#         description: resto[:description],
+#         link_url: resto[:link_url],
+#         city: "evora"
+#     )
+#     file = URI.open(resto[:image_url])
+#     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
+#     restaurant.save
+#     puts "Evora Restaurant #{index + 1} finished..."
+# end
 
 
-array_from_yelp_algarve = search('algarve')
-restaurants = []
-array_from_yelp_algarve["businesses"].each do |resto|
-    restaurants << {
-        name: resto["name"],
-        category: "Restaurants",
-        lat: resto["coordinates"]["latitude"],
-        lng: resto["coordinates"]["longitude"],
-        description: resto["categories"].map { |e| e["title"] }.join(", "),
-        link_url: resto["url"],
-        image_url: resto["image_url"]
-    }
-end
+# # #Array of restaurants for ALGARVE #
 
-restaurants.each_with_index do |resto, index|
-    restaurant = Place.new(
-        name: resto[:name],
-        category: resto[:category],
-        lat: resto[:lat],
-        lng: resto[:lng],
-        description: resto[:description],
-        link_url: resto[:link_url],
-        city: "algarve"
-    )
-    file = URI.open(resto[:image_url])
-    restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
-    restaurant.save
-    puts "Algarve Restaurant #{index + 1} finished..."
-end
+
+# array_from_yelp_algarve = search('algarve')
+# restaurants = []
+# array_from_yelp_algarve["businesses"].each do |resto|
+#     restaurants << {
+#         name: resto["name"],
+#         category: "Restaurants",
+#         lat: resto["coordinates"]["latitude"],
+#         lng: resto["coordinates"]["longitude"],
+#         description: resto["categories"].map { |e| e["title"] }.join(", "),
+#         link_url: resto["url"],
+#         image_url: resto["image_url"]
+#     }
+# end
+
+# restaurants.each_with_index do |resto, index|
+#     restaurant = Place.new(
+#         name: resto[:name],
+#         category: resto[:category],
+#         lat: resto[:lat],
+#         lng: resto[:lng],
+#         description: resto[:description],
+#         link_url: resto[:link_url],
+#         city: "algarve"
+#     )
+#     file = URI.open(resto[:image_url])
+#     restaurant.photo.attach(io: file, filename: "#{resto[:name].downcase}.jpg", content_type: 'image/jpg')
+#     restaurant.save
+#     puts "Algarve Restaurant #{index + 1} finished..."
+# end
 
 
 # Crating new activities/museums/landmarks from TRIPOSO API for Portugal trips #
@@ -1120,4 +1120,8 @@ puts "finish 73"
 puts "should be 104 places after all of this"
 ending = Time.now
 
+<<<<<<< fix-seed
 puts "Finished the seed in #{(ending - start).round(2)} seconds."
+=======
+puts "Finished the seed in #{(ending - start).round(2)} seconds."
+>>>>>>> local
