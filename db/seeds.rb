@@ -544,7 +544,6 @@ place_3.save
 puts "finish 22"
 # sleep(3)
 
-
 place_5 = Place.new(
     name: place["results"][4]["name"],
     category: "Museums",
