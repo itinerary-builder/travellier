@@ -4,13 +4,17 @@
         <h3><%= "#{@itinerary.days.count} Days" %></h3>
         <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn  button-orange" %>
     </div>
-        <hr style="width: 60%; height:2em;">
-      <div class="container d-flex category-buttons">
-          <div class="btn btn-ghost" data-category="Museums">Museums<i class="fas fa-archway btn-icon btn-icon-green"></i></div>
-          <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="fas fa-map-signs btn-icon btn-icon-red"></i></div>
-          <div class="btn btn-ghost" data-category="Activities">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
-          <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
-      </div>
+    <hr style="width: 60%; height:2em;">
+    <div class="d-flex align-items-center justify-content-center my-3">
+      <div class="home-number-small mr-3">3</div>
+      <div class="form-title-h2">DAILY PLANNER</div>
+    </div>
+    <div class="container d-flex category-buttons">
+        <div class="btn btn-ghost" data-category="Museums">Museums<i class="fas fa-archway btn-icon btn-icon-green"></i></div>
+        <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="fas fa-map-signs btn-icon btn-icon-red"></i></div>
+        <div class="btn btn-ghost" data-category="Activities">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
+        <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
+    </div>
 <div class="itinerary-show-page">
   <div class="show-box">
     <ul class="d-flex column-top">
