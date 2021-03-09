@@ -25,11 +25,8 @@
 					<% end %>
 				</div>
 				<% @filtered_places.each do |place| %>
-					<div href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>"
-							data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>"
-							data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>"
-							class="place-card d-flex modal-trigger">
-						<div class="place-img"><%= cl_image_tag place.photo.key %></div>
+					<div href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>" data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>" data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>" class="place-card d-flex modal-trigger">
+						<div class="place-img"><%= cl_image_tag(place.photo.key, width:200, quality: 'low')  %></div>
 						<div class="place-text m-3">
 							<h2><%= place.name %></h2>
 							<p><%= sanitize find_icon(place.category) %></p>
