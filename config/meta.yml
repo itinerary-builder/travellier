@@ -1,0 +1,5 @@
+meta_product_name: "Travellier"
+meta_title: "Travellier - Plan the trip of a lifetime and travel with ease"
+meta_description: "Choose your destination: Search where would you like to go or get inspired by our featured destinations. Plan your tailored trip: Add or remove activities with ease to your daily calendar/planner and managing them according to your needs. Daily planer: Have at your fingertips your day by day itinerary to make sure you get the best hassle-free experience out of your trip. All in one place!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@travellier_twitter_account"   # required for Twitter Cards
