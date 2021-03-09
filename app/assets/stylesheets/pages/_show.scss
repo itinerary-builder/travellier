@@ -18,37 +18,43 @@
 .itinerary-show-page{
   .show-box{
     margin: 20px;
-    margin-top: 80px;
+    margin-top: 40px;
     padding: 30px;
     display: flex;
     justify-content: space-between;
     overflow: scroll;
     width: 100vw;
-    // flex-direction: column;
+    flex-direction: column;
   }
   .day-content{
-    width: 600px;
+    width: 100%;
     margin: 15px;
     min-height: 8em;
  }
+ .place-card{
+   padding: 0px;
+   margin: 10px;
+ }
   
-  .button-orange{
-    margin: 15px;
-    width: 84px;
-    border-radius: 15px;
-    background-color: $orange;
+}
+.button-orange{
+  position: relative;
+  left: 20em;
+  margin: 15px;
+  width: 160px;
+  border-radius: 15px;
+  background-color: $orange;
+  text-decoration: none;
+  :hover{
+    background-color: $light-blue;
     text-decoration: none;
-    :hover{
-      background-color: $light-blue;
-      text-decoration: none;
-    }
   }
  .day-card{
    width: 600px;
  }
  .buttons{
-   display: flex;
-   justify-content: center;
+    position: relative;
+    left: 64em;
  }
 }
 

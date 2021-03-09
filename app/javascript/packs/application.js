@@ -44,3 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   itineraryModal();
 });
+
+import "controllers"

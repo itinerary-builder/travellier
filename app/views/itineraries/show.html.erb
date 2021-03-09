@@ -2,74 +2,80 @@
     <div class="centered-text p-2">    
         <h1><%= @itinerary.title.capitalize %></h1>
         <h3><%= "#{@itinerary.days.count} Days" %></h3>
+        <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn  button-orange" %>
     </div>
         <hr style="width: 60%; height:2em;">
-    <div class="itinerary-show-page">
-    <div class="buttons">
-        <%= link_to "edit", edit_itinerary_path(@itinerary), class: "btn button-orange" %>
-        <%= link_to "save", profile_path, class: "btn button-orange" %>
-    </div>
-        <div class="show-box">
+<div class="itinerary-show-page">
+  <div class="show-box">
+    <ul class="d-flex">
+        <li>Morning</li>
+        <li>Lunch</li>
+        <li>Afternoon</li>
+        <li>Dinner</li>
+        <li>Evening</li>
+    </ul>
           <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
-          <div class="day-content">
-            <div class="btn btn-primary"> <%= "Day #{index+1}" %> </div>
-              <div class="place-card d-flex ml-0">
-                <% if day.morning_id %>
-                  <div class="place-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
-                  <div>
-                    <h2><%= @places[(day.morning_id)-1].name %></h2>
-                    <p><%= @places[(day.morning_id)-1].category %></p>
+          <div class="day-content d-flex" data-controller="drag" data-drag-url="/places/:id/move">
+            <div class="btn btn-primary"><%= "Day #{index+1}" %></div>
+                  <div class="place-card d-flex ml-0" >
+                    <% if day.morning_id %>
+                      <div class="place-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
+                      <div>
+                        <h2><%= @places[(day.morning_id)-1].name %></h2>
+                        <p><%= @places[(day.morning_id)-1].category %></p>
+                      </div>
+                    <% else %>
+                      <h3>__</h3>
+                    <% end %>
                   </div>
-                <% else %>
-                  <h3>Morning</h3>
-                <% end %>
-              </div>
-              <div class="place-card d-flex ml-0">
-                <% if day.lunch_id %>
-                  <div class="place-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
-                  <div>
-                    <h2><%= @places[(day.lunch_id)-1].name %></h2>
-                    <p><%= @places[(day.lunch_id)-1].category %></p>
+                  <div class="place-card d-flex ml-0">
+                    <% if day.lunch_id %>
+                      <div class="place-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
+                      <div>
+                        <h2><%= @places[(day.lunch_id)-1].name %></h2>
+                        <p><%= @places[(day.lunch_id)-1].category %></p>
+                      </div>
+                    <% else %>
+                      <h3>__</h3>
+                    <% end %>
                   </div>
-                <% else %>
-                  <h3>Lunch</h3>
-                <% end %>
-              </div>
-              <div class="place-card d-flex ml-0">
-                <% if day.afternoon_id %>
-                  <div class="place-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
-                  <div>
-                    <h2><%= @places[(day.afternoon_id)-1].name %></h2>
-                    <p><%= @places[(day.afternoon_id)-1].category %></p>
+                  <div class="place-card d-flex ml-0">
+                    <% if day.afternoon_id %>
+                      <div class="place-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
+                      <div>
+                        <h2><%= @places[(day.afternoon_id)-1].name %></h2>
+                        <p><%= @places[(day.afternoon_id)-1].category %></p>
+                      </div>
+                    <% else %>
+                      <h3>__</h3>
+                    <% end %>
                   </div>
-                <% else %>
-                  <h3>Afternoon</h3>
-                <% end %>
-              </div>
-              <div class="place-card d-flex ml-0">
-                <% if day.dinner_id %>
-                  <div class="place-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
-                  <div>
-                    <h2><%= @places[(day.dinner_id)-1].name %></h2>
-                    <p><%= @places[(day.dinner_id)-1].category %></p>
+                  <div class="place-card d-flex ml-0" >
+                    <% if day.dinner_id %>
+                      <div class="place-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
+                      <div>
+                        <h2><%= @places[(day.dinner_id)-1].name %></h2>
+                        <p><%= @places[(day.dinner_id)-1].category %></p>
+                      </div>
+                    <% else %>
+                      <h3>__</h3>
+                    <% end %>
                   </div>
-                <% else %>
-                  <h3>Dinner</h3>
-                <% end %>
-              </div>
-              <div class="place-card d-flex ml-0">
-                <% if day.evening_id %>
-                  <div class="place-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
-                  <div>
-                    <h2><%= @places[(day.evening_id)-1].name %></h2>
-                    <p><%= @places[(day.evening_id)-1].category %></p>
+                  <div class="place-card d-flex ml-0">
+                    <% if day.evening_id %>
+                      <div class="place-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
+                      <div>
+                        <h2><%= @places[(day.evening_id)-1].name %></h2>
+                        <p><%= @places[(day.evening_id)-1].category %></p>
+                      </div>
+                    <% else %>
+                      <h3>__</h3>
+                    <% end %>
                   </div>
-                <% else %>
-                  <h3>Evening</h3>
-                <% end %>
-              </div>
             </div>
           <% end %>
-        </div>
+          </div>
     </div>
 </div>
+
+        
