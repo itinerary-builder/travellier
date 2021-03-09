@@ -3,11 +3,11 @@ const itineraryModal = () => {
 
 	triggers.forEach(trigger => {
 		trigger.addEventListener("click", e => {
-			const id = e.target.dataset.placeId;
-			const photo = e.target.dataset.photoKey;
-			const description = e.target.dataset.description;
-			const place_name = e.target.dataset.placeName;
-			const place_link = e.target.dataset.placeUrl;
+			const id = e.currentTarget.dataset.placeId;
+			const photo = e.currentTarget.dataset.photoKey;
+			const description = e.currentTarget.dataset.description;
+			const place_name = e.currentTarget.dataset.placeName;
+			const place_link = e.currentTarget.dataset.placeUrl;
 			document.querySelector("#modal-place-name").innerHTML = place_name;
 			document.querySelector("#modal-img").src = photo;
 			document.querySelector("#modal-place-description").innerHTML = description;

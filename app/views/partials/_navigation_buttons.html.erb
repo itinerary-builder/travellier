@@ -1,14 +1,28 @@
-<%= link_to edit_itinerary_path(@itinerary, filter: 'Museums') do %>
- <div class="btn btn-ghost" data-category="Museums">Museums<i class="fas fa-archway btn-icon btn-icon-green"></i></div>
+<% if map %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Museums') do %>
+  <div class="btn btn-ghost" data-category="Museums">Museums<i class="ml-2 fas fa-archway btn-icon btn-icon-green"></i></div>
+  <% end %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Landmarks') do %>
+  <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="ml-2 fas fa-map-signs btn-icon btn-icon-red"></i></div>
+  <% end %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Activities') do %>
+  <div class="btn btn-ghost" data-category="Activities">Activities<i class="ml-2 fas fa-hiking btn-icon btn-icon-blue"></i></div>
+  <% end %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Restaurants') do %>
+  <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="ml-2 fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
+  <% end %>
+  <a href="#map"><div class="btn btn-ghost" data-category="Restaurants">View map<i class="ml-2 fas fa-map-marked-alt btn-icon btn-icon-purple"></i></div></a>
+<% else %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Museums', anchor: "map") do %>
+  <div class="btn btn-ghost" data-category="Museums">Museums<i class="ml-2 fas fa-archway btn-icon btn-icon-green"></i></div>
+  <% end %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Landmarks', anchor: "map") do %>
+  <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="ml-2 fas fa-map-signs btn-icon btn-icon-red"></i></div>
+  <% end %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Activities', anchor: "map") do %>
+  <div class="btn btn-ghost" data-category="Activities">Activities<i class="ml-2 fas fa-hiking btn-icon btn-icon-blue"></i></div>
+  <% end %>
+  <%= link_to edit_itinerary_path(@itinerary, filter: 'Restaurants', anchor: "map") do %>
+  <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="ml-2 fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
+  <% end %>
 <% end %>
-<%= link_to edit_itinerary_path(@itinerary, filter: 'Landmarks') do %>
- <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="fas fa-map-signs btn-icon btn-icon-red"></i></div>
-<% end %>
-<%= link_to edit_itinerary_path(@itinerary, filter: 'Activities') do %>
- <div class="btn btn-ghost" data-category="Activities">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
-<% end %>
-<%= link_to edit_itinerary_path(@itinerary, filter: 'Restaurants') do %>
- <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
-<% end %>
-<a href="#map"><div class="btn btn-ghost" data-category="Restaurants">View map<i class="fas fa-map-marked-alt btn-icon btn-icon-purple"></i></div></a>
-

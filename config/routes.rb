@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :itineraries, only: [:new, :create, :show, :edit, :update] do
     resources :days, only: [] do
       patch :assign_place, on: :collection
-      patch :move
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  patch "/days/:id/move_place", to: "days#move_place" 
 end
+
