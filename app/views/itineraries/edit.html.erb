@@ -28,7 +28,6 @@
 							<p><%= place.category %></p>
 						</div>
 					</div>
-					<%= render partial: "partials/modal", locals: {place: place, itinerary: @itinerary} %>
 				<% end %>
 			</div>
 		</div>
@@ -40,11 +39,13 @@
 				</div>
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
 					<div class="carousel-inner">
-					  <% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-					    <div class="carousel-item <%= 'active' if ind == 0 %>">
-					 			<a class="btn btn-primary profile-button w-25" href="#pills-<%=ind %>" id="pills-<%= ind %>-tab" data-toggle="pill" role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
-					   	</div>
-					  <% end %>
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+						  <% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
+						    	<li class="carousel-item <%= 'active' if ind == 0 %>">
+						 			<a class="carousel-tab btn btn-primary profile-button w-25" href="#pills-<%=ind %>" id="pills-<%= ind %>-tab" data-toggle="pill" role="tab" aria-controls="pills-<%= ind %>" aria-selected="true"><%= day.name %></a>
+						   		</li>
+						  	<% end %>
+					 	</ul>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 					  <span class="carousel-control-prev-icon" aria-hidden="true" style="color: $orange;"></span>
@@ -57,7 +58,7 @@
 				</div>
 				<div class="pe-5 tab-content" id="pills-tabContent">
 					<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-						<div id="pills-<%= ind %>" class="edit-container tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
+						<div id="pills-<%= ind %>" class="pill-container edit-container tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
 							<div class="day-card d-flex mb-4">
 								<% if day.morning_id %>
 									<% if @places[(day.morning_id)-1].photo.attached? %>

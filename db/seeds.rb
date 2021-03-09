@@ -546,19 +546,19 @@ place_3.save
 puts "finish 22"
 # sleep(3)
 
-place_4 = Place.new(
-    name: place["results"][3]["name"],
-    category: "Activities",
-    lat: place["results"][3]["coordinates"]["latitude"], 
-    lng: place["results"][3]["coordinates"]["longitude"],
-    description: place["results"][3]["snippet"],
-    link_url: "http://www.casadamusica.com/en/agenda#tab=lista"
-    )
-photo_4 = place["results"][3]["images"][0]["source_url"]
-file_4 = URI.open(photo_4)
-place_4.photo.attach(io: file_4, filename: 'porto.jpg', content_type: 'image/jpg')
-place_4.save
-puts "finish 23"
+# place_4 = Place.new(
+#     name: place["results"][3]["name"],
+#     category: "Activities",
+#     lat: place["results"][3]["coordinates"]["latitude"], 
+#     lng: place["results"][3]["coordinates"]["longitude"],
+#     description: place["results"][3]["snippet"],
+#     link_url: "http://www.casadamusica.com/en/agenda#tab=lista"
+#     )
+# photo_4 = place["results"][3]["images"][0]["source_url"]
+# file_4 = URI.open(photo_4)
+# place_4.photo.attach(io: file_4, filename: 'porto.jpg', content_type: 'image/jpg')
+# place_4.save
+# puts "finish 23"
 # sleep(3)
 
 
