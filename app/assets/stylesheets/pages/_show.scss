@@ -13,6 +13,13 @@
 
 .show-page-container{
   margin-top: 100px;
+  .category-buttons{
+     justify-content: center;
+  }
+  .btn-ghost{
+    margin: 3px;
+    opacity: 0.9;
+  }
 }
 
 .itinerary-show-page{
@@ -35,7 +42,49 @@
    padding: 0px;
    margin: 10px;
  }
-  
+
+ .column-top{
+   padding: 10px;
+   margin: 10px;
+ }
+
+ .vertical-text{
+   writing-mode: vertical-lr;
+ }
+
+ .place-img{
+   		img {
+   		  width: 50%;
+   		  height: 50%;
+   		  border-radius: 5px 0px 0px 5px;
+        object-fit: cover;
+   		}
+ }
+ .column-top{
+  padding: 10px;
+  margin: 10px;
+  position: absolute;
+  bottom: 13em;
+  width: 100%;
+ #morning{
+  left: 10em;
+ }
+ #lunch {
+   left: 35em;
+ }
+  #afternoon {
+    left: 55em;
+  }
+   #dinner {
+     left: 79em;
+   }
+    #evening {
+      left: 100em;
+    }
+  }
+  .day-btn{
+    text-align: center;
+  }
 }
 .button-orange{
   position: relative;
@@ -45,8 +94,9 @@
   border-radius: 15px;
   background-color: $orange;
   text-decoration: none;
-  :hover{
-    background-color: $light-blue;
+}
+  .button-orange:hover {
+    background-color: $dark-orange;
     text-decoration: none;
   }
  .day-card{
@@ -56,7 +106,6 @@
     position: relative;
     left: 64em;
  }
-}
 
 // hr{
 //       width: 20%;

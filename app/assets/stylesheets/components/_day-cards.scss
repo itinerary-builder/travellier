@@ -13,7 +13,7 @@
 }
 
 .places {
-	height: 90vh;
+	height: 675px;
 	overflow: auto;
 		&::-webkit-scrollbar-track {
 			box-shadow: inset $favourite-box-shadow;
@@ -34,6 +34,12 @@
 				background-color: $light-blue;
 		}
 }
+
+#arrow-left, #arrow-right{
+	color: $orange;
+	font-size: 30px;
+}
+
 
 
 .place-card {
