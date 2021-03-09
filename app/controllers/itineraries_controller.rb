@@ -23,7 +23,7 @@ class ItinerariesController < ApplicationController
 
 	def edit
 		@itinerary = Itinerary.find(params[:id])
-		@places = Place.where(city: @itinerary.city.downcase)
+		@places = Place.includes(photo_attachment: :blob).where(city: @itinerary.city.downcase)
 		@filtered_places = @places
 		if params[:filter].present?
 			@filtered_places = @places.where(category: params[:filter])

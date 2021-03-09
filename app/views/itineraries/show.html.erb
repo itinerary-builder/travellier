@@ -63,7 +63,7 @@
                     <% end %>
                   </div>
                   <div class="place-card d-flex ml-0">
-                    <% if day.evening_id %>
+                    <% if day.evening %>
                       <div class="place-img"><%= cl_image_tag day.evening.photo.key%></div>
                       <div>
                         <h2><%= day.evening.name %></h2>
