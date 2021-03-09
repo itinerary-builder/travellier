@@ -47,6 +47,10 @@ class ItinerariesController < ApplicationController
 				}
 			end
 		end
+		respond_to do |format|
+			format.html
+			format.js { render layout: false, content_type: 'text/javascript' }
+		end
 	end
 
 	def update

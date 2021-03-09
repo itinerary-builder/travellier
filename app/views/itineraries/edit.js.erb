@@ -1,0 +1,44 @@
+function init() {
+  const currentElement = document.querySelector('.ghost-active');
+  const currentTarget = currentElement.dataset.category;
+  currentElement.classList.remove('ghost-active')
+  renderPlaces(currentTarget);
+}
+
+function renderPlaces(element) {
+  const places = document.querySelector('.places-cards-add');
+  places.innerHTML = "";
+
+  if (element === "Museums") {
+    <% filtered_places = @filtered_places.where(category: "Museums") %>
+  } else if (element === "Landmarks") {
+    <% filtered_places = @filtered_places.where(category: "Landmarks") %>
+  } else if (element === "Activities") {
+    <% filtered_places = @filtered_places.where(category: "Activities") %>
+  } else if (element === "Restaurants") {
+    <% filtered_places = @filtered_places.where(category: "Restaurants") %>
+  } else {
+    <% filtered_places = @filtered_places %>
+  }
+
+  const museums = `
+    <% filtered_places.each do |place| %>
+      <div href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>"
+          data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>"
+          data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>"
+          class="place-card d-flex modal-trigger">
+        <div class="place-img"><%= cl_image_tag place.photo.key %></div>
+        <div class="place-text m-3">
+          <h2><%= place.name %></h2>
+          <p><%= sanitize find_icon(place.category) %></p>
+          <p class="place-card-description"><%= place.description[0, 70] %>...</p>
+        </div>
+      </div>
+    <% end %>
+  `;
+  places.insertAdjacentHTML('beforeend', museums)
+  window.itineraryModal()
+}
+
+
+init();
