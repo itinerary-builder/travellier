@@ -23,8 +23,8 @@ class ItinerariesController < ApplicationController
 
 	def edit
 		@itinerary = Itinerary.find(params[:id])
-		@places = Place.all
-		@filtered_places = Place.all
+		@places = Place.where(city: @itinerary.city.downcase)
+		@filtered_places = @places
 		if params[:filter].present?
 			@filtered_places = @places.where(category: params[:filter])
 		end
