@@ -9,4 +9,8 @@ class DaysController < ApplicationController
     end
     redirect_to edit_itinerary_path(@itinerary)
   end
+
+  def move_place
+    
+  end
 end

@@ -60,75 +60,75 @@
 					<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
 						<div id="pills-<%= ind %>" class="pill-container edit-container tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel" aria-labelledby="pills-<%= ind %>-tab">
 							<div class="day-card d-flex mb-4">
-								<% if day.morning_id %>
-									<% if @places[(day.morning_id)-1].photo.attached? %>
-									<div class="day-img"><%= cl_image_tag @places[(day.morning_id)-1].photo.key%></div>
+								<% if day.morning %>
+									<% if day.morning.photo.attached? %>
+									<div class="day-img"><%= cl_image_tag day.morning_id.photo.key%></div>
 									<% else %>
 										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
 									<% end %>
 									<div class="itin-text">
-										<h2><%= @places[(day.morning_id)-1].name %></h2>
-										<p><%= @places[(day.morning_id)-1].category %></p>
+										<h2><%= day.morning.name %></h2>
+										<p><%= day.morning.category %></p>
 									</div>
 								<% else %>
 									<h3>Morning</h3>
 								<% end %>
 							</div>
 							<div class="day-card d-flex mb-4">
-								<% if day.lunch_id %>
-									<% if @places[(day.lunch_id)-1].photo.attached? %>
-									<div class="day-img"><%= cl_image_tag @places[(day.lunch_id)-1].photo.key%></div>
+								<% if day.lunch %>
+									<% if day.lunch.photo.attached? %>
+									<div class="day-img"><%= cl_image_tag day.lunch.photo.key%></div>
 									<% else %>
 										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
 									<% end %>
 									<div class="itin-text">
-										<h2><%= @places[(day.lunch_id)-1].name %></h2>
-										<p><%= @places[(day.lunch_id)-1].category %></p>
+										<h2><%= day.lunch.name %></h2>
+										<p><%= day.lunch.category %></p>
 									</div>
 								<% else %>
 									<h3>Lunch</h3>
 								<% end %>
 							</div>
 							<div class="day-card d-flex mb-4">
-								<% if day.afternoon_id %>
-									<% if @places[(day.afternoon_id)-1].photo.attached? %>
-										<div class="day-img"><%= cl_image_tag @places[(day.afternoon_id)-1].photo.key%></div>
+								<% if day.afternoon %>
+									<% if day.afternoon.photo.attached? %>
+										<div class="day-img"><%= cl_image_tag day.afternoon.photo.key%></div>
 									<% else %>
 										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
 									<% end %>
 									<div class="itin-text">
-										<h2><%= @places[(day.afternoon_id)-1].name %></h2>
-										<p><%= @places[(day.afternoon_id)-1].category %></p>
+										<h2><%= day.afternoon.name %></h2>
+										<p><%= day.afternoon.category %></p>
 									</div>
 								<% else %>
 									<h3>Afternoon</h3>
 								<% end %>
 							</div>
 							<div class="day-card d-flex mb-4">
-								<% if day.dinner_id %>
-									<% if @places[(day.dinner_id)-1].photo.attached? %>
-										<div class="day-img"><%= cl_image_tag @places[(day.dinner_id)-1].photo.key%></div>
+								<% if day.dinner %>
+									<% if day.dinner.photo.attached? %>
+										<div class="day-img"><%= cl_image_tag day.dinner.photo.key%></div>
 									<% else %>
 										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
 									<% end %>
 									<div class="itin-text">
-										<h2><%= @places[(day.dinner_id)-1].name %></h2>
-										<p><%= @places[(day.dinner_id)-1].category %></p>
+										<h2><%= day.dinner.name %></h2>
+										<p><%= day.dinner.category %></p>
 									</div>
 								<% else %>
 									<h3>Dinner</h3>
 								<% end %>
 							</div>
 							<div class="day-card d-flex mb-4">
-								<% if day.evening_id %>
-									<% if @places[(day.evening_id)-1].photo.attached? %>
-										<div class="day-img"><%= cl_image_tag @places[(day.evening_id)-1].photo.key%></div>
+								<% if day.evening %>
+									<% if day.evening.photo.attached? %>
+										<div class="day-img"><%= cl_image_tag day.evening.photo.key%></div>
 									<% else %>
 										<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
 									<% end %>
 									<div class="itin-text">
-										<h2><%= @places[(day.evening_id)-1].name %></h2>
-										<p><%= @places[(day.evening_id)-1].category %></p>
+										<h2><%= day.evening.name %></h2>
+										<p><%= day.evening.category %></p>
 									</div>
 								<% else %>
 									<h3>Evening</h3>
