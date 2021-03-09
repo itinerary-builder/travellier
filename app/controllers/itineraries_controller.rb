@@ -18,7 +18,7 @@ class ItinerariesController < ApplicationController
 
 	def show
 		@itinerary = Itinerary.find(params[:id])
-		@places = Place.all
+		# @places = Place.all
 	end
 
 	def edit
