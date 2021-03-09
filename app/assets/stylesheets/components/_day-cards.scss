@@ -10,9 +10,15 @@
 }
 
 .places {
-	height: 90vh;
+	height: 675px;
 	overflow: auto;
 }
+
+#arrow-left, #arrow-right{
+	color: $orange;
+	font-size: 30px;
+}
+
 
 
 .place-card {
