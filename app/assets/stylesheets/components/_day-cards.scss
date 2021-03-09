@@ -1,6 +1,6 @@
 
 .itin-title {
-	margin-top: 60px;
+	margin-top: 100px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -70,12 +70,18 @@
 		color: $orange;
 	}
 
+	&-description {
+		opacity: .7;
+		font-size: .9rem;
+		color: $navy !important;
+	}
+
 	.place-img {
-		width: 40%;
+		width: 240px;
 		height: 100%;
 
 		img {
-			width: 100%;
+			width: 240px;
 			height: 100%;
 			border-top-left-radius: 5px;
 			border-bottom-left-radius: 5px;
