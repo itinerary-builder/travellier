@@ -7,12 +7,12 @@
         <hr style="width: 60%; height:2em;">
 <div class="itinerary-show-page">
   <div class="show-box">
-    <ul class="d-flex">
-        <li>Morning</li>
-        <li>Lunch</li>
-        <li>Afternoon</li>
-        <li>Dinner</li>
-        <li>Evening</li>
+    <ul class="d-flex column-headers">
+        <li><h3>Morning</h3></li>
+        <li><h3>Lunch</h3></li>
+        <li><h3>Afternoon</h3></li>
+        <li><h3>Dinner</h3></li>
+        <li><h3>Evening</h3></li>
     </ul>
           <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
           <div class="day-content d-flex" data-controller="drag" data-drag-url="/places/:id/move">

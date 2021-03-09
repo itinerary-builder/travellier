@@ -35,6 +35,15 @@
    padding: 0px;
    margin: 10px;
  }
+
+ .column-headers{
+   width: 100%;
+   li{
+     margin: 10px;
+     display: flex;
+     justify-content: space-between;
+   }
+ }
   
 }
 .button-orange{
