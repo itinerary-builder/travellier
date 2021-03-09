@@ -12,9 +12,9 @@ require "optparse"
 
 start = Time.now
 
-# User.destroy_all
-# Itinerary.destroy_all
-# Place.destroy_all
+ User.destroy_all
+ Itinerary.destroy_all
+ Place.destroy_all
 
 
 
