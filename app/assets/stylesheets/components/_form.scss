@@ -18,6 +18,14 @@
   input[type="submit"] {
     background-color: $navy;
     border-radius: 50px;
+    color: white;
+    transition: background-color 0.8s;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: $lighter-blue;
+    border-radius: 50px;
+    color: $navy;
   }
 
   input:active, input:focus {
@@ -40,3 +48,11 @@
     border-radius: 50px;
   }
 }
+
+#itinerary_city {
+  border-radius: 10px;
+  background: $lighter-blue;
+  font-size: 1.2rem;
+  color: #495057c7;
+}
+

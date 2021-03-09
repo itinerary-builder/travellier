@@ -68,7 +68,7 @@ end
 
 # array of restaurants for PORTO #
 
-array_from_yelp_porto = search('porto')
+array_from_yelp_porto = search('porto, pt')
 restaurants = []
 array_from_yelp_porto["businesses"].each_with_index do |resto, index|
     restaurants << {
@@ -165,7 +165,7 @@ restaurants.each_with_index do |resto, index|
 end
 
 
-#Array of restaurants for ALGARVE #
+# #Array of restaurants for ALGARVE #
 
 
 array_from_yelp_algarve = search('algarve')
@@ -1117,7 +1117,7 @@ place_10.photo.attach(io: file_10, filename: 'algarve.jpg', content_type: 'image
 place_10.save
 puts "finish 73"
 # sleep(3)
-# should be 105 places after all of this
+puts "should be 104 places after all of this"
 ending = Time.now
 
 puts "Finished the seed in #{(ending - start).round(2)} seconds."
