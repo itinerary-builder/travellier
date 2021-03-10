@@ -3,7 +3,7 @@ class DaysController < ApplicationController
 
   def assign_place
     if @day.present?
-      @day.update("#{params[:day][:tod]}_id"=>params[:day][:place_id])
+      @day.update("#{params[:day][:tod][1]}_id"=>params[:day][:place_id])
     else
       flash[:alert] = "#{params[:day][:tod]} is already set"
     end

@@ -36,17 +36,19 @@
     box-shadow: 0 0 0 0.2rem #b2c2cf6e;
   }
 
-  h2 {
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+  
   .btn {
     width: 100%;
     margin-bottom: 20px;
     border-radius: 50px;
   }
+}
+
+.form-title-h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: $headers-font;
 }
 
 #itinerary_city {

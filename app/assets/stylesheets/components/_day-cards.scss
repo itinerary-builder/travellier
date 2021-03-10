@@ -1,6 +1,9 @@
 
 .itin-title {
-	margin-top: 60px;
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	h1 {
 		font-size: 60px;
 	}
@@ -12,6 +15,24 @@
 .places {
 	height: 675px;
 	overflow: auto;
+		&::-webkit-scrollbar-track {
+			box-shadow: inset $favourite-box-shadow;
+			-webkit-box-shadow: inset $favourite-box-shadow;
+			border-radius: 10px;
+			background-color: $lighter-blue;
+		}
+
+		&::-webkit-scrollbar {
+				width: 8px;
+				background-color: $lighter-blue
+		}
+
+		&::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				box-shadow: inset $favourite-box-shadow;
+			-webkit-box-shadow: inset $favourite-box-shadow;
+				background-color: $light-blue;
+		}
 }
 
 #arrow-left, #arrow-right{
@@ -49,15 +70,22 @@
 		color: $orange;
 	}
 
+	&-description {
+		opacity: .7;
+		font-size: .9rem;
+		color: $navy !important;
+	}
+
 	.place-img {
-		width: 40%;
+		width: 240px;
 		height: 100%;
 
 		img {
-			width: 100%;
+			width: 240px;
 			height: 100%;
 			border-top-left-radius: 5px;
 			border-bottom-left-radius: 5px;
+			object-fit: cover;
 		}
 	}
 }
@@ -76,6 +104,7 @@
 		margin: 0;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
+		object-fit: cover;
 	}
 }
 
