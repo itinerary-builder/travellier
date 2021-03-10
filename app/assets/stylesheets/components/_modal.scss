@@ -1,3 +1,8 @@
+.modal-content {
+	border-radius: 10px;
+	background-color: $lighter-blue;
+}
+
 .modal-top {
 	display: flex;
 	justify-content: space-around;
@@ -13,3 +18,50 @@
 	margin: 15px;
 }
 
+.modal-header, .modal-footer {
+	border: none;
+}
+
+#modal-place-url {
+	position: absolute;
+	left: 25px;
+	text-decoration: none;
+
+	&:hover {
+		color: $orange;
+	}
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba($orange, 0), rgba($orange, 0.4), rgba($orange, 0));
+}
+
+.tag-item {
+  
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+	text-align: center;
+	width: 100px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  background-color: rgba($orange, 0.2);
+  color: $navy;
+  border: 1px solid rgba($orange,0.2);
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  background-color: rgba($orange,0.6);
+  color: white;
+}

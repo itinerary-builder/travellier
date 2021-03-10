@@ -8,16 +8,26 @@
 // </div>
 
 import { Controller } from "stimulus"
-import { Sortable } from "sortablejs"
+import { Sortable, Swap } from "sortablejs"
 import { timers } from "jquery"
 
 export default class extends Controller {
   // static targets = [ "output" ]
 
   connect() {
-   this.sortable = Sortable.create(this.element, {
-     onEnd: this.end.bind(this)
-   })
+    Sortable.mount(new Swap());
+    const placesElements = document.getElementsByClassName("day-places");
+    console.log(placesElements);
+    Array.from(placesElements).forEach(element =>{
+      Sortable.create(element, {
+        swap: true,
+        // inwardSwap: true,
+        group: {name: "places"}
+        // fallbackOnBody: true,
+        // swapThreshold: 0.65
+      })
+    })
+
   }
   end(event) {
     console.log(event)
