@@ -31,8 +31,8 @@ function renderMap(element) {
     <% filtered_places = @filtered_places %>
   }
 
-  const foo = <%= filtered_places.map { |place| { lat: place.lat, lng: place.lng, infoWindow: ApplicationController.new.render_to_string(partial: "itineraries/info_window", locals: { place: place }), category: place.category } }.to_json.html_safe %>
-  mapDiv.dataset.markers = foo;
+  const filtered_places_map = <%= filtered_places.map { |place| { lat: place.lat, lng: place.lng, infoWindow: ApplicationController.new.render_to_string(partial: "itineraries/info_window", locals: { place: place }), category: place.category }.to_json.html_safe }.to_json.html_safe %>
+  mapDiv.dataset.markers = `[${filtered_places_map}]`;
   window.initMapbox();
 }
 
