@@ -38,7 +38,6 @@ function renderMap(element) {
 
 function renderPlaces(element) {
   const places = document.querySelector('.places-cards-add');
-  places.innerHTML = "";
 
   if (element === "Museums") {
     <% filtered_places = @filtered_places.where(category: "Museums") %>
@@ -67,6 +66,8 @@ function renderPlaces(element) {
       </div>
     <% end %>
   `;
+  
+  places.innerHTML = "";
   places.insertAdjacentHTML('beforeend', museums)
   window.itineraryModal()
 }
