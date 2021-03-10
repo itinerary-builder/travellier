@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
-  before_action set_itinerary, only: [:move_place, :assign_place]
+  before_action :set_itinerary, only: [:move_place, :assign_place]
 
   def assign_place
     if @day.present?
