@@ -23,7 +23,6 @@
 }
 
 .itinerary-show-page{
-
   .show-box{
     margin: 20px;
     margin-top: 40px;
@@ -45,13 +44,14 @@
     width: 100%;
     margin: 15px;
     min-height: 8em;
+  }
 
- .place-card{
-   padding: 0px;
-   margin: 10px;
- }
+  .place-card{
+    padding: 0px;
+    margin: 10px;
+  }
+
  .column-top{
-
    padding: 10px;
    margin: 16px;
    width: 250px;
@@ -70,19 +70,20 @@
    }
  
 
- .column-head{
+ .column-head {
    width: 100vw;
    margin-left: 50px;
  }
 
- .vertical-text{
+ .vertical-text {
    writing-mode: vertical-lr;
  }
 
- .column-top{
-  margin-left: 20px;
-  width: 250px;
+ .column-top {
+    margin-left: 20px;
+    width: 250px;
   }
+
   .day-btn{
     text-align: center;
     padding: 10px;
@@ -90,10 +91,12 @@
     height: 150px;
     border-radius: 5px;
   }
+
    .day-card {
      width: 600px;
    }
 }
+
 .button-orange{
   position: relative;
   left: 20em;
@@ -103,13 +106,13 @@
   background-color: $orange;
   text-decoration: none;
 }
-  .button-orange:hover {
-    background-color: $dark-orange;
-    text-decoration: none;
-  }
 
- .buttons{
-    position: relative;
-    left: 64em;
- }
+.button-orange:hover {
+  background-color: $dark-orange;
+  text-decoration: none;
+}
 
+.buttons{
+  position: relative;
+  left: 64em;
+}
