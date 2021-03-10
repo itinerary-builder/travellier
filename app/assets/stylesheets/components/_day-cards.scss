@@ -13,7 +13,7 @@
 }
 
 .places {
-	height: 675px;
+	height: 590px;
 	overflow: auto;
 		&::-webkit-scrollbar-track {
 			box-shadow: inset $favourite-box-shadow;
@@ -36,6 +36,7 @@
 }
 
 #arrow-left, #arrow-right{
+	padding-bottom: 575px;
 	color: $orange;
 	font-size: 30px;
 }
