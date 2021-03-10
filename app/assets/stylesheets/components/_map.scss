@@ -15,12 +15,11 @@
   
   .mapbox-popup-div {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
   }
 
   .mapbox-popup-div-info {
-    flex-grow: 1;
     padding: 1rem;
 
     h2 {

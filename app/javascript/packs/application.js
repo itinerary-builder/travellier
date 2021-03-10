@@ -15,7 +15,7 @@ import initAddFormToggle from "../plugins/init_add_form_toggle";
 import initMapbox from "../plugins/init_mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import itineraryModal from "../plugins/itinerary_modal";
-
+import initAjaxPlaces from "../plugins/init_ajax_places";
 
 Rails.start()
 Turbolinks.start()
@@ -43,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   initAddFormToggle();
   initMapbox();
   itineraryModal();
+  initAjaxPlaces();
 });
 
 import "controllers"

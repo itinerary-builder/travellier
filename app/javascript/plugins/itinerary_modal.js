@@ -1,5 +1,5 @@
 const itineraryModal = () => {
-	const triggers = document.querySelectorAll(".modal-trigger")
+	const triggers = document.querySelectorAll(".modal-trigger");
 
 	triggers.forEach(trigger => {
 		trigger.addEventListener("click", e => {
@@ -13,9 +13,9 @@ const itineraryModal = () => {
 			document.querySelector("#modal-place-description").innerHTML = description;
 			document.querySelector("#modal-place-id").value = id;
 			document.querySelector("#modal-place-url").href = place_link;
-		})
-
-	})
+		});
+	});
 };
 
+window.itineraryModal = itineraryModal;
 export default itineraryModal;
