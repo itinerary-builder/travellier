@@ -2,7 +2,7 @@
 		<div>
 			<% @places.each do |place| %>
 				<div class="place-card d-flex" href="#<%= dom_id(place) %>" data-toggle="modal">
-					<div class="place-img"><%= cl_image_tag place.photo.key %></div>
+					<div class="place-img"><%= cl_image_tag(place.photo.key, width: 300, height:200, crop: "scale") %></div>
 					<div class="place-text m-3">
 						<h2><%= place.name %></h2>
 						<p><%= place.category %></p>

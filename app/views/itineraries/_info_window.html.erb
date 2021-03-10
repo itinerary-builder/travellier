@@ -1,5 +1,5 @@
 <div class="mapbox-popup-div">
-  <%= cl_image_tag place.photo.key, class: "map-image" %>
+  <%= cl_image_tag(place.photo.key, width: 300, height:200, crop: "scale", class: "map-image") %>
   <div class="mapbox-popup-div-info">
     <h2 name="name"><%= place.name %></h2>
     <p name="category"><%= sanitize find_icon(place.category) %></p>
