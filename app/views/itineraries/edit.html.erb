@@ -14,14 +14,14 @@
 <div class="edit-container mt-5">
 	<div class="row">
 		<div class="col-lg-6">
-			<div class="places">
-				<div class="mb-4 text-center">
+			<div class="mb-4 text-center">
 					<% if params["filter"].present? %>
 						<h3>Featured <%= params["filter"] %></h3>
 					<% else %>
 						<h3>Featured Attractions</h3>
 					<% end %>
 				</div>
+			<div class="places">
 				<div class="places-cards-add">
 					<% @filtered_places.each do |place| %>
 						<div href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>"
@@ -49,13 +49,86 @@
 						<div class="carousel-inner">
 							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 								<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-									<li class="carousel-item <%= 'active' if ind == 0 %>">
-										<a class="carousel-tab btn btn-primary profile-button w-25" href="#pills-<%=ind %>"
-											id="pills-<%= ind %>-tab" data-toggle="pill" role="tab" aria-controls="pills-<%= ind %>"
-											aria-selected="true"><%= day.name %></a>
-									</li>
-								<% end %>
-							</ul>
+											<li class="carousel-item <%= 'active' if ind == 0 %>">
+												<h3 class="mb-4"><%= day.name %></h3>
+												<div class="day-card d-flex mb-2">
+													<% if day.morning %>
+														<% if day.morning.photo.attached? %>
+															<div class="day-img"><%= cl_image_tag(day.morning.photo.key, width: 300, height:200, crop: "scale") %></div>
+														<% else %>
+															<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+														<% end %>
+														<div class="itin-text">
+															<h2><%= day.morning.name %></h2>
+															<p><%= sanitize find_icon(day.morning.category) %></p>
+														</div>
+													<% else %>
+															<h3>Morning</h3>
+													<% end %>
+												</div>
+												<div class="day-card d-flex mb-2">
+													<% if day.lunch %>
+														<% if day.lunch.photo.attached? %>
+															<div class="day-img"><%= cl_image_tag(day.lunch.photo.key, width: 300, height:200, crop: "scale")%></div>
+														<% else %>
+															<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+														<% end %>
+														<div class="itin-text">
+															<h2><%= day.lunch.name %></h2>
+															<p><%= sanitize find_icon(day.lunch.category) %></p>
+														</div>
+													<% else %>
+														<h3>Lunch</h3>
+													<% end %>
+												</div>
+												<div class="day-card d-flex mb-2">
+													<% if day.afternoon %>
+														<% if day.afternoon.photo.attached? %>
+															<div class="day-img"><%= cl_image_tag(day.afternoon.photo.key, width: 300, height:200, crop: "scale")%></div>
+														<% else %>
+															<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+														<% end %>
+														<div class="itin-text">
+															<h2><%= day.afternoon.name %></h2>
+															<p><%= sanitize find_icon(day.afternoon.category) %></p>
+														</div>
+													<% else %>
+														<h3>Afternoon</h3>
+													<% end %>
+												</div>
+												<div class="day-card d-flex mb-2">
+													<% if day.dinner %>
+														<% if day.dinner.photo.attached? %>
+															<div class="day-img"><%= cl_image_tag(day.dinner.photo.key, width: 300, height:200, crop: "scale")%></div>
+														<% else %>
+															<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+														<% end %>
+														<div class="itin-text">
+															<h2><%= day.dinner.name %></h2>
+															<p><%= sanitize find_icon(day.dinner.category) %></p>
+														</div>
+													<% else %>
+														<h3>Dinner</h3>
+													<% end %>
+												</div>
+												<div class="day-card d-flex mb-2">
+													<% if day.evening %>
+														<% if day.evening.photo.attached? %>
+															<div class="day-img"><%= cl_image_tag(day.evening.photo.key, width: 300, height:200, crop: "scale")%></div>
+														<% else %>
+															<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
+														<% end %>
+														<div class="itin-text">
+															<h2><%= day.evening.name %></h2>
+															<p><%= sanitize find_icon(day.evening.category) %></p>
+														</div>
+													<% else %>
+														<h3>Evening</h3>
+													<% end %>
+												</div>
+										</li>
+									<% end %>
+								</ul>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 							<span id="arrow-left" aria-hidden="true"><i class="fas fa-angle-left"></i></span>
@@ -65,89 +138,6 @@
 							<span id="arrow-right" aria-hidden="true"><i class="fas fa-angle-right"></i></span>
 							<span class="sr-only">Next</span>
 						</a>
-					</div>
-					<div class="pe-5 tab-content" id="pills-tabContent">
-						<% @itinerary.days.order(id: :asc).each_with_index do |day, ind| %>
-							<div id="pills-<%= ind %>"
-									class="pill-container edit-container tab-pane fade <%= ind == 0 ? 'show active' : "" %>" role="tabpanel"
-									aria-labelledby="pills-<%= ind %>-tab">
-								<div class="day-card d-flex mb-2">
-									<% if day.morning %>
-										<% if day.morning.photo.attached? %>
-											<div class="day-img"><%= cl_image_tag(day.morning.photo.key, width: 300, height:200, crop: "scale") %></div>
-										<% else %>
-											<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-										<% end %>
-										<div class="itin-text">
-											<h2><%= day.morning.name %></h2>
-											<p><%= sanitize find_icon(day.morning.category) %></p>
-										</div>
-									<% else %>
-											<h3>Morning</h3>
-									<% end %>
-								</div>
-								<div class="day-card d-flex mb-2">
-									<% if day.lunch %>
-										<% if day.lunch.photo.attached? %>
-											<div class="day-img"><%= cl_image_tag(day.lunch.photo.key, width: 300, height:200, crop: "scale")%></div>
-										<% else %>
-											<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-										<% end %>
-										<div class="itin-text">
-											<h2><%= day.lunch.name %></h2>
-											<p><%= sanitize find_icon(day.lunch.category) %></p>
-										</div>
-									<% else %>
-										<h3>Lunch</h3>
-									<% end %>
-								</div>
-								<div class="day-card d-flex mb-2">
-									<% if day.afternoon %>
-										<% if day.afternoon.photo.attached? %>
-											<div class="day-img"><%= cl_image_tag(day.afternoon.photo.key, width: 300, height:200, crop: "scale")%></div>
-										<% else %>
-											<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-										<% end %>
-										<div class="itin-text">
-											<h2><%= day.afternoon.name %></h2>
-											<p><%= sanitize find_icon(day.afternoon.category) %></p>
-										</div>
-									<% else %>
-										<h3>Afternoon</h3>
-									<% end %>
-								</div>
-								<div class="day-card d-flex mb-2">
-									<% if day.dinner %>
-										<% if day.dinner.photo.attached? %>
-											<div class="day-img"><%= cl_image_tag(day.dinner.photo.key, width: 300, height:200, crop: "scale")%></div>
-										<% else %>
-											<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-										<% end %>
-										<div class="itin-text">
-											<h2><%= day.dinner.name %></h2>
-											<p><%= sanitize find_icon(day.dinner.category) %></p>
-										</div>
-									<% else %>
-										<h3>Dinner</h3>
-									<% end %>
-								</div>
-								<div class="day-card d-flex mb-2">
-									<% if day.evening %>
-										<% if day.evening.photo.attached? %>
-											<div class="day-img"><%= cl_image_tag(day.evening.photo.key, width: 300, height:200, crop: "scale")%></div>
-										<% else %>
-											<%= image_tag "https://images.unsplash.com/photo-1536663815808-535e2280d2c2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", class: "day-img"%>
-										<% end %>
-										<div class="itin-text">
-											<h2><%= day.evening.name %></h2>
-											<p><%= sanitize find_icon(day.evening.category) %></p>
-										</div>
-									<% else %>
-										<h3>Evening</h3>
-									<% end %>
-								</div>
-							</div>
-						<% end %>
 					</div>
 				</div>
 			</div>
