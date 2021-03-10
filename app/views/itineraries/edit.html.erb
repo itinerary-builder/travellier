@@ -8,9 +8,7 @@
 	<div class="form-title-h2">PLAN YOUR TAILORED TRIP</div>
 </div>
 <div class="small-navbar-tabs-categories text-center mt-3">
-	<div>
-		<%= render partial: "partials/navigation_buttons", locals: { map: true } %>
-	</div>
+	<%= render partial: "partials/navigation_buttons", locals: { map: true } %>
 </div>
 
 <div class="edit-container mt-5">
@@ -24,16 +22,21 @@
 						<h3>Featured Attractions</h3>
 					<% end %>
 				</div>
-				<% @filtered_places.each do |place| %>
-					<div href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>" data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>" data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>" class="place-card d-flex modal-trigger">
-						<div class="place-img"><%= cl_image_tag(place.photo.key, width:200, quality: 'low')  %></div>
-						<div class="place-text m-3">
-							<h2><%= place.name %></h2>
-							<p><%= sanitize find_icon(place.category) %></p>
-							<p class="place-card-description"><%= place.description[0, 70] %>...</p>
+				<div class="places-cards-add">
+					<% @filtered_places.each do |place| %>
+						<div href="#place-modal" data-toggle="modal" data-place-id="<%= place.id %>"
+								data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>"
+								data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>"
+								class="place-card d-flex modal-trigger">
+							<div class="place-img"><%= cl_image_tag place.photo.key %></div>
+							<div class="place-text m-3">
+								<h2><%= place.name %></h2>
+								<p><%= sanitize find_icon(place.category) %></p>
+								<p class="place-card-description"><%= place.description[0, 70] %>...</p>
+							</div>
 						</div>
-					</div>
-				<% end %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div class="col-lg-6 p-0">

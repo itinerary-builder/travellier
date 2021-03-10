@@ -1,6 +1,5 @@
 class DaysController < ApplicationController
   before_action :set_itinerary, only: [:assign_place]
-  # before_action :find_day, only: [:move_place]
 
   def assign_place
     if @day.present?
@@ -23,7 +22,6 @@ class DaysController < ApplicationController
    @dragged_tod = dragged_item["daytime"]
    @dragged_place = dragged_item["placeId"] == "" ?  nil : dragged_item["placeId"].to_i
    #the dragged item has the information for the day and daytime that the swapped item needs to get &vv
-  #  binding.pry
    @dragged_day.update("#{@dragged_tod}_id": @swapped_place)
    @swapped_day.update("#{@swapped_tod}_id": @dragged_place)
    
@@ -37,8 +35,4 @@ class DaysController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @day = Day.find(params[:day][:day_id])
   end
-
-  # def find_day
-  #   @day = Day.find(params[:day][:day_id])
-  # end
 end
