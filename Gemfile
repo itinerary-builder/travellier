@@ -23,7 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-gem 'image_processing', '~> 1.2'
+# gem 'image_processing', '~> 1.2'
 gem 'faker'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -36,7 +36,7 @@ gem 'font-awesome-sass'
 gem 'http', '~> 3.0'
 gem 'geocoder'
 gem 'simple_form'
-gem 'image_optimizer'
+# gem 'image_optimizer'
 group :development, :test do  
   gem 'pry-byebug'
   gem 'pry-rails'
