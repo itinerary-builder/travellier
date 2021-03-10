@@ -31,7 +31,7 @@
               <div class="d-flex day-places">
                   <div class="place-card d-flex ml-0" >
                     <% if day.morning%>
-                      <div class="place-img"><%= cl_image_tag day.morning.photo.key%></div>
+                      <div class="place-img"><%= cl_image_tag(day.morning.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
                         <h2><%= day.morning.name %></h2>
                         <%= sanitize find_icon(day.morning.category) %>
@@ -42,7 +42,7 @@
                   </div>
                   <div class="place-card d-flex ml-0">
                     <% if day.lunch %>
-                      <div class="place-img"><%= cl_image_tag day.lunch.photo.key%></div>
+                      <div class="place-img"><%= cl_image_tag(day.lunch.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
                         <h2><%= day.lunch.name %></h2>
                         <%= sanitize find_icon(day.lunch.category) %>
@@ -53,7 +53,7 @@
                   </div>
                   <div class="place-card d-flex ml-0">
                     <% if day.afternoon %>
-                      <div class="place-img"><%= cl_image_tag day.afternoon.photo.key%></div>
+                      <div class="place-img"><%= cl_image_tag(day.afternoon.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
                         <h2><%= day.afternoon.name %></h2>
                         <%= sanitize find_icon(day.afternoon.category) %>
@@ -64,7 +64,7 @@
                   </div>
                   <div class="place-card d-flex ml-0" >
                     <% if day.dinner %>
-                      <div class="place-img"><%= cl_image_tag day.dinner.photo.key%></div>
+                      <div class="place-img"><%= cl_image_tag(day.dinner.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
                         <h2><%= day.dinner.name %></h2>
                         <%= sanitize find_icon(day.dinner.category) %>
@@ -75,7 +75,7 @@
                   </div>
                   <div class="place-card d-flex ml-0">
                     <% if day.evening %>
-                      <div class="place-img"><%= cl_image_tag day.evening.photo.key%></div>
+                      <div class="place-img"><%= cl_image_tag(day.evening.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
                         <h2><%= day.evening.name %></h2>
                         <%= sanitize find_icon(day.evening.category) %>

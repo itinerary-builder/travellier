@@ -38,7 +38,6 @@ function renderMap(element) {
 
 function renderPlaces(element) {
   const places = document.querySelector('.places-cards-add');
-  places.innerHTML = "";
 
   if (element === "Museums") {
     <% filtered_places = @filtered_places.where(category: "Museums") %>
@@ -58,7 +57,7 @@ function renderPlaces(element) {
           data-photo-key="<%= url_for(place.photo) %>" data-description="<%=  place.description %>"
           data-place-name=" <%= place.name %>" data-place-url="<%= place.link_url %>"
           class="place-card d-flex modal-trigger">
-        <div class="place-img"><%= cl_image_tag place.photo.key %></div>
+        <div class="place-img"><%= cl_image_tag(place.photo.key, width: 300, height:200, crop: "scale") %></div>
         <div class="place-text m-3">
           <h2><%= place.name %></h2>
           <p><%= sanitize find_icon(place.category) %></p>
@@ -67,6 +66,8 @@ function renderPlaces(element) {
       </div>
     <% end %>
   `;
+  
+  places.innerHTML = "";
   places.insertAdjacentHTML('beforeend', museums)
   window.itineraryModal()
 }
