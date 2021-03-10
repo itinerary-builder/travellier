@@ -23,67 +23,68 @@
 }
 
 .itinerary-show-page{
+
   .show-box{
     margin: 20px;
     margin-top: 40px;
     padding: 30px;
     display: flex;
     justify-content: space-between;
-    overflow: scroll;
     width: 100vw;
     flex-direction: column;
+    overflow: scroll;
   }
+
+  .place-card:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+
   .day-content{
     width: 100%;
     margin: 15px;
     min-height: 8em;
- }
- .place-card{
-   padding: 0px;
-   margin: 10px;
- }
+  }
 
- .column-top{
+ .place-card{
    padding: 10px;
-   margin: 10px;
+   margin: 16px;
+   width: 250px;
+   background-size: cover;
+   background-position: center;
+   cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
+
+   &.show-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+   }
+ 
+
+ .column-head{
+   width: 100vw;
+   margin-left: 50px;
  }
 
  .vertical-text{
    writing-mode: vertical-lr;
  }
 
- .place-img{
-   		img {
-   		  width: 50%;
-   		  height: 50%;
-   		  border-radius: 5px 0px 0px 5px;
-        object-fit: cover;
-   		}
- }
  .column-top{
-  padding: 10px;
-  margin: 10px;
-  position: absolute;
-  bottom: 13em;
-  width: 100%;
- #morning{
-  left: 10em;
- }
- #lunch {
-   left: 35em;
- }
-  #afternoon {
-    left: 55em;
-  }
-   #dinner {
-     left: 79em;
-   }
-    #evening {
-      left: 100em;
-    }
+  margin-left: 20px;
+  width: 250px;
   }
   .day-btn{
     text-align: center;
+    padding: 10px;
+    margin: 16px;
+    height: 150px;
+    border-radius: 5px;
   }
    .day-card {
      width: 600px;
@@ -108,8 +109,3 @@
     left: 64em;
  }
 
-// hr{
-//       width: 20%;
-//       /* height: 2em; */
-//       border: solid 3px #52b1ff;
-// }
