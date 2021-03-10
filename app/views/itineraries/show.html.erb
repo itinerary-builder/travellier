@@ -1,10 +1,12 @@
 <div class="show-page-container" >
     <div class="centered-text p-2">    
-        <h1><%= @itinerary.title.capitalize %></h1>
+        <h1 style="font-size: 60px;"><%= @itinerary.title.capitalize %></h1>
         <h3><%= "#{@itinerary.days.count} Days" %></h3>
         <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn  button-orange" %>
     </div>
+
     <hr style="width: 60%;">
+
     <div class="d-flex align-items-center justify-content-center my-3">
       <div class="home-number-small mr-3">3</div>
       <div class="form-title-h2">DAILY PLANNER</div>
@@ -15,6 +17,7 @@
         <div class="btn btn-ghost" data-category="Activities">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
         <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
     </div>
+
   <div class="itinerary-show-page">
     <div class="show-box">
       <div class="column-head d-flex">
@@ -34,39 +37,40 @@
           <h3 class="column-top">Evening</h3>
         </div>
       </div>
-      <div data-controller="drag" data-drag-url="/days/:id/move_place"></div>
-        <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
+    <div data-controller="drag" data-drag-url="/days/move_place"></div>
+          <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
+
           <div class="day-content d-flex" >
               <div class="d-flex day-places">
                   <div class="m-2 vertical-text btn-primary day-btn"><%= "Day #{index+1}" %></div>
-                  <div class="place-card d-flex m-2" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path day.morning.photo.key if day.morning %>');">
+                  <div class="place-card d-flex m-2" data-daytime="morning" data-day-id="<%= day.id %>" data-place-id= "<%= day.morning ? day.morning.id : nil %>" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path(day.morning.photo.key, width: 300, height:200, crop: "scale") if day.morning %>');">
                     <% if day.morning%>
                         <h2 class=" w-100 align-self-center text-center"><%= day.morning.name %></h2>
                         <div class="show-icon"><%= sanitize find_icon(day.morning.category) %></div>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex m-2" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path day.lunch.photo.key if day.lunch %>');">
+                  <div class="place-card d-flex m-2" data-daytime="lunch" data-day-id="<%= day.id %>" data-place-id= "<%= day.lunch ? day.lunch.id : nil %>" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path(day.lunch.photo.key, width: 300, height:200, crop: "scale") if day.lunch %>');">
                     <% if day.lunch %>
                       <h2 class="ml-3 w-100 align-self-center text-center"><%= day.lunch.name %></h2>
                       <div class="show-icon"><%= sanitize find_icon(day.lunch.category) %></div>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex m-2" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path day.afternoon.photo.key if day.afternoon %>');">
+                  <div class="place-card d-flex m-2" data-daytime="afternoon" data-day-id="<%= day.id %>" data-place-id= "<%= day.afternoon ? day.afternoon.id : nil %>" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path(day.afternoon.photo.key, width: 300, height:200, crop: "scale") if day.afternoon %>');">
                     <% if day.afternoon %>
                       <h2 class="ml-3 w-100 align-self-center text-center"><%= day.afternoon.name %></h2>
                       <div class="show-icon"><%= sanitize find_icon(day.afternoon.category) %></div>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex m-2" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path day.dinner.photo.key if day.dinner %>');">
+                  <div class="place-card d-flex m-2" data-daytime="dinner" data-day-id="<%= day.id %>" data-place-id= "<%= day.dinner ? day.dinner.id : nil %>" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path(day.dinner.photo.key, width: 300, height:200, crop: "scale") if day.dinner %>');">
                     <% if day.dinner %>
                       <h2 class="ml-3 w-100 align-self-center text-center"><%= day.dinner.name %></h2>
                       <div class="show-icon"><%= sanitize find_icon(day.dinner.category) %></div>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex m-2" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path day.evening.photo.key if day.evening %>');">
+                  <div class="place-card d-flex m-2" data-daytime="evening" data-day-id="<%= day.id %>" data-place-id= "<%= day.evening ? day.evening.id : nil %>" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6),rgba(255, 255, 255, 0.6)), url('<%= cl_image_path(day.evening.photo.key, width: 300, height:200, crop: "scale") if day.evening %>');">
                     <% if day.evening %>
                       <h2 class="ml-3 w-100 align-self-center text-center"><%= day.evening.name %></h2>
-                      <div class="show-icon"><%= sanitize find_icon(day.evening.category) %></div>
+                      <div class="show-icon"><%= sanitize find_icon(day.evening.category) %></div>                  
                     <% end %>
                   </div>
                 </div>

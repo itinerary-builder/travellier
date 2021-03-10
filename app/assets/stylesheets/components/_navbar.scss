@@ -13,6 +13,7 @@
   align-items: center;
   color: $navy;
 }
+
 .navbar-navy {
   background-color: $navy;
   color: $lighter-blue;
@@ -25,6 +26,11 @@
   .navbar-brand {
     color: $lighter-blue;
   }
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
 }
 
 .navbar-lewagon-link {

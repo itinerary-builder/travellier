@@ -1,0 +1,24 @@
+
+[1mFrom:[0m /home/cosmina/code/limecoconutz/travellier/app/controllers/days_controller.rb:27 DaysController#move_place:
+
+    [1;34m14[0m:   [32mdef[0m [1;34mmove_place[0m
+    [1;34m15[0m:    [1;34m#retrieve the information from the params[0m
+    [1;34m16[0m:    swapped_item = [1;34;4mJSON[0m.parse(params[[31m[1;31m"[0m[31mswappedItem[1;31m"[0m[31m[0m])
+    [1;34m17[0m:    @swapped_day = [1;34;4mDay[0m.find(swapped_item[[31m[1;31m"[0m[31mdayId[1;31m"[0m[31m[0m].to_i)
+    [1;34m18[0m:    @swapped_tod = swapped_item[[31m[1;31m"[0m[31mdaytime[1;31m"[0m[31m[0m]
+    [1;34m19[0m:    @swapped_place = swapped_item[[31m[1;31m"[0m[31mplaceId[1;31m"[0m[31m[0m].to_i
+    [1;34m20[0m: 
+    [1;34m21[0m:    dragged_item = [1;34;4mJSON[0m.parse(params[[31m[1;31m"[0m[31mdraggedItem[1;31m"[0m[31m[0m])
+    [1;34m22[0m:    @dragged_day = [1;34;4mDay[0m.find(dragged_item[[31m[1;31m"[0m[31mdayId[1;31m"[0m[31m[0m].to_i)
+    [1;34m23[0m:    @dragged_tod = dragged_item[[31m[1;31m"[0m[31mdaytime[1;31m"[0m[31m[0m]
+    [1;34m24[0m:    @dragged_place = dragged_item[[31m[1;31m"[0m[31mplaceId[1;31m"[0m[31m[0m].to_i
+    [1;34m25[0m:    [1;34m#the dragged item has the information for the day and daytime that the swapped item needs to get &vv[0m
+    [1;34m26[0m:    binding.pry
+ => [1;34m27[0m:    @dragged_day.update([35m[1;35m"[0m[35m#{@dragged_tod}[0m[35m_id[1;35m"[0m[35m[0m: @swapped_place)
+    [1;34m28[0m:    @swapped_day.update([35m[1;35m"[0m[35m#{@swapped_tod}[0m[35m_id[1;35m"[0m[35m[0m: @dragged_place)
+    [1;34m29[0m:    
+    [1;34m30[0m:     head [33m:ok[0m
+    [1;34m31[0m: [1;34m# Parameters: {"draggedItem"=>"{\"daytime\":\"afternoon\",\"dayId\":\"2\",\"placeId\":\"32\"}", [0m
+    [1;34m32[0m: [1;34m# "swappedItem"=>"{\"daytime\":\"morning\",\"dayId\":\"1\",\"placeId\":\"1\"}"}[0m
+    [1;34m33[0m:   [32mend[0m
+

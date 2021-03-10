@@ -10,6 +10,7 @@
 import { Controller } from "stimulus"
 import { Sortable, Swap } from "sortablejs"
 import { timers } from "jquery"
+import Rails from "@rails/ujs"
 
 export default class extends Controller {
   // static targets = [ "output" ]
@@ -30,16 +31,23 @@ export default class extends Controller {
     })
   }
   end(event) {
-    // console.log(event)
-    let id = event.item.dataset.id //id of day within which the place has been moved
-    // console.log(id)
-    // let data = new FormData()
-    // console.log(data.append(id, event.newIndex))
+    // console.log("swapped item: ", event.swapItem.dataset)
+    let draggedItem = Object.assign({},event.item.dataset)
+    let swappedItem = Object.assign({}, event.swapItem.dataset)
+    let id = event.item.dataset.dayId
+    // console.log(id)//id of day within which the place has been moved
+    let draggedItemJSON = JSON.stringify(draggedItem)
+    let swappedItemJSON = JSON.stringify(swappedItem)
+    let data = new FormData()
+    data.append("draggedItem", draggedItemJSON)
+    data.append("swappedItem", swappedItemJSON)
+    // console.log(data.get("draggedItem"))
+    console.log("Dragged: " ,data.get("draggedItem"), "Swapped: ", data.get("swappedItem"))
 
-    // Rails.ajax({
-    //   url: this.data.get("url").replace(":id", id),
-    //   type: 'PATCH',
-    //   data: data
-    // })
+    Rails.ajax({
+      url: this.data.get("url").replace(":id", id),
+      type: 'PATCH',
+      data: data
+    })
   }
 }
