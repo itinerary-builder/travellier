@@ -17,9 +17,10 @@ export default class extends Controller {
   connect() {
     Sortable.mount(new Swap());
     const placesElements = document.getElementsByClassName("day-places");
-    console.log(placesElements);
+    // console.log(placesElements);
     Array.from(placesElements).forEach(element =>{
       Sortable.create(element, {
+        onEnd: this.end.bind(this),
         swap: true,
         // inwardSwap: true,
         group: {name: "places"}
@@ -27,16 +28,18 @@ export default class extends Controller {
         // swapThreshold: 0.65
       })
     })
-
   }
   end(event) {
-    console.log(event)
-    let data = new FormData()
-    data.append({position: event.newIndex + 1})
-    Rails.ajax({
-      url: '',
-      type: 'PATCH',
-      data: data
-    })
+    // console.log(event)
+    let id = event.item.dataset.id //id of day within which the place has been moved
+    // console.log(id)
+    // let data = new FormData()
+    // console.log(data.append(id, event.newIndex))
+
+    // Rails.ajax({
+    //   url: this.data.get("url").replace(":id", id),
+    //   type: 'PATCH',
+    //   data: data
+    // })
   }
 }
