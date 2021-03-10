@@ -1,5 +1,6 @@
 class DaysController < ApplicationController
-  before_action set_itinerary, only: [:move_place, :assign_place]
+  before_action :set_itinerary, only: [:assign_place]
+  # before_action :find_day, only: [:move_place]
 
   def assign_place
     if @day.present?
@@ -11,8 +12,24 @@ class DaysController < ApplicationController
   end
 
   def move_place
-    @day.insert_at(params[:position].to_i)
+   #retrieve the information from the params
+   swapped_item = JSON.parse(params["swappedItem"])
+   @swapped_day = Day.find(swapped_item["dayId"].to_i)
+   @swapped_tod = swapped_item["daytime"]
+   @swapped_place = swapped_item["placeId"] == "" ?  nil : swapped_item["placeId"].to_i
+
+   dragged_item = JSON.parse(params["draggedItem"])
+   @dragged_day = Day.find(dragged_item["dayId"].to_i)
+   @dragged_tod = dragged_item["daytime"]
+   @dragged_place = dragged_item["placeId"] == "" ?  nil : dragged_item["placeId"].to_i
+   #the dragged item has the information for the day and daytime that the swapped item needs to get &vv
+  #  binding.pry
+   @dragged_day.update("#{@dragged_tod}_id": @swapped_place)
+   @swapped_day.update("#{@swapped_tod}_id": @dragged_place)
+   
     head :ok
+# Parameters: {"draggedItem"=>"{\"daytime\":\"afternoon\",\"dayId\":\"2\",\"placeId\":\"32\"}", 
+# "swappedItem"=>"{\"daytime\":\"morning\",\"dayId\":\"1\",\"placeId\":\"1\"}"}
   end
 
   private
@@ -20,4 +37,8 @@ class DaysController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @day = Day.find(params[:day][:day_id])
   end
+
+  # def find_day
+  #   @day = Day.find(params[:day][:day_id])
+  # end
 end
