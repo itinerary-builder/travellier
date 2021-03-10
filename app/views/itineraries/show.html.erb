@@ -1,10 +1,10 @@
 <div class="show-page-container" >
     <div class="centered-text p-2">    
-        <h1><%= @itinerary.title.capitalize %></h1>
+        <h1 style="font-size: 60px;"><%= @itinerary.title.capitalize %></h1>
         <h3><%= "#{@itinerary.days.count} Days" %></h3>
         <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn  button-orange" %>
     </div>
-    <hr style="width: 60%; height:2em;">
+    <hr style="width: 40%;">
     <div class="d-flex align-items-center justify-content-center my-3">
       <div class="home-number-small mr-3">3</div>
       <div class="form-title-h2">DAILY PLANNER</div>
@@ -24,12 +24,12 @@
         <li class="column-top" id="dinner"><h3>Dinner</h3></li>
         <li class="column-top" id="evening"><h3>Evening</h3></li>
     </ul>
-    <div data-controller="drag" data-drag-url="/days/:id/move_place"></div>
+    <div data-controller="drag" data-drag-url="/days/move_place"></div>
           <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
           <div class="day-content d-flex" >
             <div class="vertical-text btn-primary day-btn"><%= "Day #{index+1}" %></div>
               <div class="d-flex day-places">
-                  <div class="place-card d-flex ml-0" >
+                  <div class="place-card d-flex ml-0" data-daytime="morning" data-day-id="<%= day.id %>" data-place-id= "<%= day.morning ? day.morning.id : nil %>">
                     <% if day.morning%>
                       <div class="place-img"><%= cl_image_tag(day.morning.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
@@ -40,7 +40,7 @@
                       <h3>__</h3>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex ml-0">
+                  <div class="place-card d-flex ml-0" data-daytime="lunch" data-day-id="<%= day.id %>" data-place-id= "<%= day.lunch ? day.lunch.id : nil %>">
                     <% if day.lunch %>
                       <div class="place-img"><%= cl_image_tag(day.lunch.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
@@ -51,7 +51,7 @@
                       <h3>__</h3>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex ml-0">
+                  <div class="place-card d-flex ml-0" data-daytime="afternoon" data-day-id="<%= day.id %>" data-place-id= "<%= day.afternoon ? day.afternoon.id : nil %>">
                     <% if day.afternoon %>
                       <div class="place-img"><%= cl_image_tag(day.afternoon.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
@@ -62,7 +62,7 @@
                       <h3>__</h3>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex ml-0" >
+                  <div class="place-card d-flex ml-0"  data-daytime="dinner" data-day-id="<%= day.id %>" data-place-id= "<%= day.dinner ? day.dinner.id : nil %>">
                     <% if day.dinner %>
                       <div class="place-img"><%= cl_image_tag(day.dinner.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
@@ -73,7 +73,7 @@
                       <h3>__</h3>
                     <% end %>
                   </div>
-                  <div class="place-card d-flex ml-0">
+                  <div class="place-card d-flex ml-0" data-daytime="evening" data-day-id="<%= day.id %>" data-place-id= "<%= day.evening ? day.evening.id : nil %>">
                     <% if day.evening %>
                       <div class="place-img"><%= cl_image_tag(day.evening.photo.key, width: 300, height:200, crop: "scale")%></div>
                       <div>
