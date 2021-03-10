@@ -69,4 +69,5 @@ const initMapbox = () => {
   }
 };
 
+window.initMapbox = initMapbox;
 export default initMapbox;

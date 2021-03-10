@@ -1,8 +1,39 @@
 function init() {
   const currentElement = document.querySelector('.ghost-active');
-  const currentTarget = currentElement.dataset.category;
-  currentElement.classList.remove('ghost-active')
+  const currentMapElement = document.querySelector('.ghost-map-active');
+  let currentTarget = null;
+  if (currentElement) {
+    currentTarget = currentElement.dataset.category;
+    currentElement.classList.remove('ghost-active')
+  }
+
+  if (currentMapElement) {
+    currentTarget = currentMapElement.dataset.category;
+    currentMapElement.classList.remove('ghost-map-active')
+  }
+
   renderPlaces(currentTarget);
+  renderMap(currentTarget)
+}
+
+function renderMap(element) {
+  const mapDiv = document.getElementById('map');
+
+  if (element === "Museums") {
+    <% filtered_places = @filtered_places.where(category: "Museums") %>
+  } else if (element === "Landmarks") {
+    <% filtered_places = @filtered_places.where(category: "Landmarks") %>
+  } else if (element === "Activities") {
+    <% filtered_places = @filtered_places.where(category: "Activities") %>
+  } else if (element === "Restaurants") {
+    <% filtered_places = @filtered_places.where(category: "Restaurants") %>
+  } else {
+    <% filtered_places = @filtered_places %>
+  }
+
+  const foo = <%= filtered_places.map { |place| { lat: place.lat, lng: place.lng, infoWindow: ApplicationController.new.render_to_string(partial: "itineraries/info_window", locals: { place: place }), category: place.category } }.to_json.html_safe %>
+  mapDiv.dataset.markers = foo;
+  window.initMapbox();
 }
 
 function renderPlaces(element) {
