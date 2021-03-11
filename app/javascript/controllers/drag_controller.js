@@ -23,10 +23,12 @@ export default class extends Controller {
       Sortable.create(element, {
         onEnd: this.end.bind(this),
         swap: true,
-        // inwardSwap: true,
-        group: {name: "places"}
-        // fallbackOnBody: true,
-        // swapThreshold: 0.65
+        inwardSwap: true,
+        swapClass: 'highlight', 
+        group: {name: "places"},
+        fallbackOnBody: true,
+        swapThreshold: 0.5,
+        animation: 150
       })
     })
   }

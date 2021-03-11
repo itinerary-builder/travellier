@@ -2,12 +2,9 @@
   width: 100%;
 }
 .centered-text{
-  // position: relative;
-  // top: 3em;
   display: flex;
   align-items: center;
   flex-direction: column;
-  // margin: 15px;
   padding-top: 107px;
 }
 
@@ -91,15 +88,15 @@
   }
 }
 
-.button-orange{
-  position: relative;
-  left: 20em;
-  margin: 15px;
-  width: 160px;
-  border-radius: 15px;
-  background-color: $orange;
-  text-decoration: none;
-}
+// .button-orange{
+//   position: relative;
+//   left: 20em;
+//   margin: 15px;
+//   width: 160px;
+//   border-radius: 15px;
+//   background-color: $orange;
+//   text-decoration: none;
+// }
 
 .button-orange:hover {
   background-color: $dark-orange;
