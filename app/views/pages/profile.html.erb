@@ -1,47 +1,47 @@
 <div class="profile-big-container">
-<div class="profile">
-  <div class="profile-container">
-    <div class="row">
-      <div class="col-lg-4">
-        <%= render partial: "partials/profile_segment" %>  
-      </div>
-      <div class="col-lg-4">
-        <div class="flex-row">
-          <div class="vertical-line"></div>
+  <div class="profile">
+    <div class="profile-container">
+      <div class="row">
+        <div class="col-lg-4">
+          <%= render partial: "partials/profile_segment" %>  
+        </div>
+        <div class="col-lg-4">
+          <div class="flex-row">
+            <div class="vertical-line"></div>
+            <div class="text-center">
+              <h1>Upcoming Trips</h1>
+              <% if @upcoming.empty? %>
+                <div class="text-center profile-container-no-entries mt-5">
+                  <p>No upcoming trips.</p> 
+                  <p>Book a trip below <i class="fas fa-arrow-down"></i></p>
+                  <%= link_to "Book here", new_itinerary_path, class: "btn btn-primary profile-button" %>
+                </div>
+              <% else %>
+                <div class="container profile-container-cards my-5">
+                  <%= render partial: "partials/profile_cards", locals: { itineraries: @upcoming } %>
+                </div>
+              <% end %>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+        </div>
+        <div class="col-lg-4">
           <div class="text-center">
-            <h1>Upcoming Trips</h1>
-            <% if @upcoming.empty? %>
+            <h1>Completed Trips</h1>
+            <% if @completed.empty? %>
               <div class="text-center profile-container-no-entries mt-5">
-                <p>No upcoming trips.</p> 
+                <p>No completed trips.</p> 
                 <p>Book a trip below <i class="fas fa-arrow-down"></i></p>
                 <%= link_to "Book here", new_itinerary_path, class: "btn btn-primary profile-button" %>
               </div>
             <% else %>
               <div class="container profile-container-cards my-5">
-                <%= render partial: "partials/profile_cards", locals: { itineraries: @upcoming } %>
+                <%= render partial: "partials/profile_cards", locals: { itineraries: @completed } %>
               </div>
             <% end %>
           </div>
-          <div class="vertical-line"></div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="text-center">
-          <h1>Completed Trips</h1>
-          <% if @completed.empty? %>
-            <div class="text-center profile-container-no-entries mt-5">
-              <p>No completed trips.</p> 
-              <p>Book a trip below <i class="fas fa-arrow-down"></i></p>
-              <%= link_to "Book here", new_itinerary_path, class: "btn btn-primary profile-button" %>
-            </div>
-          <% else %>
-            <div class="container profile-container-cards my-5">
-              <%= render partial: "partials/profile_cards", locals: { itineraries: @completed } %>
-            </div>
-          <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
