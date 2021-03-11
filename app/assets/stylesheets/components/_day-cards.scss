@@ -113,7 +113,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 10px;
+	padding: 5px;
+	max-width: 70%;
+	min-width: 70%;
 }
 
 .edit-container {
@@ -121,6 +123,7 @@
 }
 
 .day-card {
+	position: relative;
 	background-color: white;
 	height: 100px;
 	width: 90%;
@@ -128,14 +131,20 @@
 	margin: 8px auto;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 	transition: 0.4s;
+	.btn-icon{
+		position: absolute;
+		    top: 2px;
+		    right: 2px;
+	}
+	h2{
+		font-size: 16px;
+		margin: auto;
+		padding-top: 10px;
+	}
 
 	&:hover { 
 	  transform: scale(1.04);
 	  box-shadow: 2px 4px 6px rgba($orange, 0.25);
-	}
-
-	h2 {
-		font-size: 20px;
 	}
 
 	h3 {
