@@ -1,0 +1,71 @@
+<div class="overview-page">
+  <div class="header">
+    <p>Trip Overview</p>
+    <i class="print-icon fas fa-print fa-2x"></i>
+  </div>
+  <div class="itinerary-content">
+    <% @itinerary.days.order(id: :asc).each_with_index do |day, index| %>
+      <div class="content-container">
+        <p class="days"><%= "Day #{index+1}" %></p>
+        <div class="content-conainter-days">
+          <p class="tod">Morning ☕</p>
+          <% if day.morning %>
+            <ul>
+              <li class="tod-title"><%= day.morning.name %></li>
+              <li><%= day.morning.description%></li>
+            </ul>
+          <% else %>
+              <li class="no-entry">There seems to be nothing scheduled for this time of day 🤷‍♂️</li>
+          <% end %>
+        </div>
+        <div class="content-conainter-days">
+          <p class="tod">Lunch 🥘</p>
+          <% if day.lunch %>
+            <ul>
+              <li class="tod-title"><%= day.lunch.name %></li>
+              <li><%= day.lunch.description %></li>
+            </ul>
+          <% else %>
+              <li class="no-entry">There seems to be nothing scheduled for this time of day 🤷‍♂️</li>
+          <% end %>
+        </div>
+        <div class="content-conainter-days">
+          <p class="tod">Afternoon ☀️</p>
+          <% if day.afternoon %>
+            <ul>
+              <li class="tod-title"><%= day.afternoon.name %></li>
+              <li><%= day.afternoon.description %></li>
+            </ul>
+          <% else %>
+              <li class="no-entry">There seems to be nothing scheduled for this time of day 🤷‍♂️</li>
+          <% end %>
+        </div>
+        <div class="content-conainter-days">
+          <p class="tod">Dinner 🍜</p>
+          <% if day.dinner %>
+            <ul>
+              <li class="tod-title"><%= day.dinner.name %></li>
+              <li><%= day.dinner.description %></li>
+            </ul>
+          <% else %>
+              <li class="no-entry">There seems to be nothing scheduled for this time of day 🤷‍♂️</li>
+          <% end %>
+        </div>
+        <div class="content-conainter-days">
+          <p class="tod">Evening 🌙</p>
+          <% if day.evening %>
+            <ul>
+              <li class="tod-title"><%= day.evening.name %></li>
+              <li><%= day.evening.description %></li>
+            </ul>
+          <% else %>
+              <li class="no-entry">There seems to be nothing scheduled for this time of day 🤷‍♂️</li>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center align-items-center mb-5">
+    <%= link_to "Back to my planner", itinerary_path(@itinerary), class: "btn profile-button w-25" %>
+  </div>
+</div>

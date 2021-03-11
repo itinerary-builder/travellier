@@ -5,6 +5,6 @@
   </div>
   <%= f.input :title, input_html: { placeholder: "Trip title" }, label: false %>
   <%= f.input :duration, input_html: { placeholder: "Number of days" }, label: false %>
-  <%= f.input :city, collection: ["Lisbon", "Porto", "Algarve", "Evora", "Caimbra"], prompt: 'Your ideal city', label: false %>
+  <%= f.input :city, collection: ["Lisbon", "Porto", "Algarve", "Evora", "Coimbra"], prompt: 'Your ideal city', label: false %>
   <%= f.button :submit, 'Create Itinerary',  class: "btn btn-primary" %>
 <% end %>

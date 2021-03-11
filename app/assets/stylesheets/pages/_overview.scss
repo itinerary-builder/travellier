@@ -1,0 +1,49 @@
+.overview-page {
+  margin: 100px;
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: $navy;
+    cursor: pointer;
+
+    p {
+      font-size: 2.5rem;
+      font-family: $headers-font;
+    }
+
+    .print-icon {
+      transition: color .4s;
+    }
+
+    .print-icon:hover {
+      color: $orange;
+    }
+  }
+
+  .days {
+    font-size: 2rem;
+    font-family: $headers-font;
+    margin-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 4px solid $navy;
+  }
+
+  .tod {
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    &-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+
+  .no-entry {
+    color: $orange;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}

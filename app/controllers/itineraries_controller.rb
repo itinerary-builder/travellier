@@ -1,6 +1,6 @@
 class ItinerariesController < ApplicationController
 
-	before_action :set_itinerary, only: [:show, :edit, :update]
+	before_action :set_itinerary, only: [:show, :edit, :update, :overview]
 
 	def new
 	   @itinerary=Itinerary.new
@@ -59,6 +59,9 @@ class ItinerariesController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def overview
 	end
 
 	private
