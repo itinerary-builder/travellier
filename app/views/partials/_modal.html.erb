@@ -1,29 +1,29 @@
 <div class="modal fade" id="place-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" id="modal-img">
       <div class="modal-header">
         <h5 class="modal-title m-auto" id="modal-place-name"></h5>
+        <button type="button" class="btn btn-secondary profile-button" data-dismiss="modal">X</button>
       </div>
-      <hr class="style-two" style="width: 90%;">
+      <hr style="width: 90%;" class="m-0">
       <%= simple_form_for :day, url: assign_place_itinerary_days_path(@itinerary), method:
        :patch do |f|%>
-        <div class="modal-body">
-          <div class="modal-top">
-            <img src="#" alt="" id="modal-img">
-            <div class="modal-tabs">
+        <div class="modal-body p-0">
+            <div class="modal-tabs text-center d-flex justify-content-between">
               <%= f.input :place_id, as: :hidden, input_html: {id: "modal-place-id"} %>
-              <%= f.input :day_id, as: :select, collection: @itinerary.days.order(id: :asc), label_method: :name, value_method: :id%>
-              <%= f.input :tod, :label => "When?", as: :radio_buttons, collection: Day::TOD, input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
-            </div>
+              <div class="days-dropdown">
+                <%= f.input :day_id, as: :select, collection: @itinerary.days.order(id: :asc), label_method: :name, value_method: :id %>
+              </div>
+              <div class="tod-tabs">
+                <%= f.input :tod, :label => "When?", as: :radio_buttons, collection: Day::TOD, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+              </div>
           </div>
-          <div class="modal-text">
+          <div class="modal-text text-center">
             <p id="modal-place-description" ></p>
           </div>
         </div>
         <div class="modal-footer d-flex">
           <a id="modal-place-url" href="#" target="_blank">Learn more</a>
-          <button type="button" class="btn btn-secondary profile-button" data-dismiss="modal">Close</button>
           <%= f.submit "Add to itinerary", class: "btn btn-primary profile-button" %>
         </div>
       <% end %>
