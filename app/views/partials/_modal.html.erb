@@ -12,9 +12,9 @@
             <img src="#" alt="" id="modal-img">
             <div class="modal-tabs">
               <%= f.input :place_id, as: :hidden, input_html: {id: "modal-place-id"} %>
-              <%= f.input :tod, as: :check_boxes, collection: Day::TOD, input_html: { class: "tag-selector" },
-                  item_wrapper_class: 'tag-item' %>
               <%= f.input :day_id, as: :select, collection: @itinerary.days.order(id: :asc), label_method: :name, value_method: :id%>
+              <%= f.input :tod, :label => "When?", as: :radio_buttons, collection: Day::TOD, input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
             </div>
           </div>
           <div class="modal-text">
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="modal-footer d-flex">
-          <a id="modal-place-url" href="#" target="_blank">More info</a>
+          <a id="modal-place-url" href="#" target="_blank">Learn more</a>
           <button type="button" class="btn btn-secondary profile-button" data-dismiss="modal">Close</button>
           <%= f.submit "Add to itinerary", class: "btn btn-primary profile-button" %>
         </div>
