@@ -1,5 +1,5 @@
 .profile {
-  margin: 7.5% 5%;
+  margin: 12% 5% 10% 5%;
   color: $navy;
 }
 
@@ -46,10 +46,22 @@
 
 .profile-button {
   border-radius: 50px;
+  box-shadow: $favourite-box-shadow;
+  background: $button-color !important;
+  color: rgb(227, 227, 227);
+  transition: color 0.3s;
+}
+
+.profile-button:hover, .profile-completed-button:hover {
+  color: $orange;
 }
 
 .profile-completed-button {
   border-radius: 50px;
   font-size: .8rem;
   padding: 2px 6px;
+  box-shadow: $favourite-box-shadow;
+  background: $button-color !important;
+  color: rgb(227, 227, 227);
+  transition: color 0.3s;
 }

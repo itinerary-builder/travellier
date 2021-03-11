@@ -146,13 +146,11 @@
 </div>
 
 <div class="text-center">
-	<%= link_to 'My Daily Planner', itinerary_path , class: "btn btn-primary profile-button w-25 m-5"%>
+	<%= link_to 'My Daily Planner', itinerary_path , class: "btn profile-button w-25 m-5"%>
 </div>
 
 <div class="small-navbar-tabs-categories text-center my-3">
-	<div>
-		<%= render partial: "partials/navigation_buttons", locals: { map: false }%>
-	</div>
+	<%= render partial: "partials/navigation_buttons", locals: { map: false }%>
 </div>
 
 <div id="map" style="width: 100%; height: 60vh;" data-markers="<%= @markers.to_json %>"
