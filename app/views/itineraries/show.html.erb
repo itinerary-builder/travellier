@@ -2,7 +2,7 @@
     <div class="centered-text p-2">    
         <h1 style="font-size: 60px;"><%= @itinerary.title.capitalize %></h1>
         <h3><%= "#{@itinerary.days.count} Days" %></h3>
-        <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn  button-orange" %>
+        <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn profile-button w-25 mt-5" %>
     </div>
 
     <hr style="width: 60%;">
@@ -12,10 +12,10 @@
       <div class="form-title-h2">DAILY PLANNER</div>
     </div>
     <div class="container d-flex category-buttons">
-        <div class="btn btn-ghost" data-category="Museums">Museums<i class="fas fa-archway btn-icon btn-icon-green"></i></div>
-        <div class="btn btn-ghost" data-category="Landmarks">Landmarks<i class="fas fa-map-signs btn-icon btn-icon-red"></i></div>
-        <div class="btn btn-ghost" data-category="Activities">Activities<i class="fas fa-hiking btn-icon btn-icon-blue"></i></div>
-        <div class="btn btn-ghost" data-category="Restaurants">Restaurants<i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow"></i></div>
+        <div class="key" data-category="Museums">Museums <i class="fas fa-archway btn-icon btn-icon-green ml-1"></i></div>
+        <div  class="key" data-category="Landmarks">Landmarks <i class="fas fa-map-signs btn-icon btn-icon-red ml-1"></i></div>
+        <div class="key" data-category="Activities">Activities <i class="fas fa-hiking btn-icon btn-icon-blue ml-1"></i></div>
+        <div class="key"  data-category="Restaurants">Restaurants <i class="fas fa-glass-martini-alt btn-icon btn-icon-yellow ml-1"></i></div>
     </div>
 
   <div class="itinerary-show-page">
