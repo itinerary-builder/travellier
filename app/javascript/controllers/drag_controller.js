@@ -22,12 +22,7 @@ export default class extends Controller {
       Sortable.create(element, {
         onEnd: this.end.bind(this),
         swap: true,
-        inwardSwap: true,
-        swapClass: 'highlight', 
         group: {name: "places"},
-        fallbackOnBody: true,
-        swapThreshold: 0.5,
-        animation: 150
       })
     })
   }
@@ -37,6 +32,7 @@ export default class extends Controller {
     let swappedItem = Object.assign({}, event.swapItem.dataset)
     let id = event.item.dataset.dayId
     console.log(event)
+    console.log(event.to)
     // console.log(id)//id of day within which the place has been moved
     let draggedItemJSON = JSON.stringify(draggedItem)
     let swappedItemJSON = JSON.stringify(swappedItem)
