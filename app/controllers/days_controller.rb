@@ -22,9 +22,15 @@ class DaysController < ApplicationController
    @dragged_tod = dragged_item["daytime"]
    @dragged_place = dragged_item["placeId"] == "" ?  nil : dragged_item["placeId"].to_i
    #the dragged item has the information for the day and daytime that the swapped item needs to get &vv
-   @dragged_day.update("#{@dragged_tod}_id": @swapped_place)
-   @swapped_day.update("#{@swapped_tod}_id": @dragged_place)
-   
+p dragged_item
+p @dragged_day
+p swapped_item
+p @swapped_day
+    @dragged_day.update!("#{@dragged_tod}_id": @swapped_place)
+    @swapped_day.update!("#{@swapped_tod}_id": @dragged_place)
+p "___________________________"
+p @dragged_day
+p @swapped_day
     head :ok
 # Parameters: {"draggedItem"=>"{\"daytime\":\"afternoon\",\"dayId\":\"2\",\"placeId\":\"32\"}", 
 # "swappedItem"=>"{\"daytime\":\"morning\",\"dayId\":\"1\",\"placeId\":\"1\"}"}
