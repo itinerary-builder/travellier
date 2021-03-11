@@ -59,7 +59,7 @@ function renderPlaces(element) {
           class="place-card d-flex modal-trigger">
         <div class="place-img"><%= cl_image_tag(place.photo.key, width: 300, height:200, crop: "scale") %></div>
         <div class="place-text m-3">
-          <h2><%= place.name %></h2>
+          <h2><%= place.name.size > 20 ? "#{place.name[0, 19]}..." : place.name %></h2>
           <p><%= sanitize find_icon(place.category) %></p>
           <p class="place-card-description"><%= place.description[0, 70] %>...</p>
         </div>

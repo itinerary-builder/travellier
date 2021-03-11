@@ -2,7 +2,7 @@
     <div class="centered-text p-2">    
         <h1 style="font-size: 60px;"><%= @itinerary.title.capitalize %></h1>
         <h3><%= "#{@itinerary.days.count} Days" %></h3>
-        <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn profile-button w-25 mt-5" %>
+        <%= link_to "Edit My Trip", edit_itinerary_path(@itinerary), class: "btn profile-button w-25 mt-5" if !@itinerary.completed %>
     </div>
 
     <hr style="width: 60%;">
