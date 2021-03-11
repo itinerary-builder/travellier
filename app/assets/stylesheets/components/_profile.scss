@@ -4,6 +4,28 @@
 }
 
 .profile-container {
+  height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+    &::-webkit-scrollbar-track {
+      box-shadow: inset $favourite-box-shadow;
+      -webkit-box-shadow: inset $favourite-box-shadow;
+      border-radius: 10px;
+      background-color: $lighter-blue;
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        background-color: $lighter-blue
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset $favourite-box-shadow;
+      -webkit-box-shadow: inset $favourite-box-shadow;
+        background-color: $light-blue;
+    }
+
   h1 {
     font-weight: 300;
   }
