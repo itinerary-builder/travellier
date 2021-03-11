@@ -12,11 +12,10 @@ import { Sortable, Swap } from "sortablejs"
 import { timers } from "jquery"
 import Rails from "@rails/ujs"
 
+Sortable.mount(new Swap());
 export default class extends Controller {
   // static targets = [ "output" ]
-
   connect() {
-    Sortable.mount(new Swap());
     const placesElements = document.getElementsByClassName("day-places");
     // console.log(placesElements);
     Array.from(placesElements).forEach(element =>{
@@ -37,6 +36,7 @@ export default class extends Controller {
     let draggedItem = Object.assign({},event.item.dataset)
     let swappedItem = Object.assign({}, event.swapItem.dataset)
     let id = event.item.dataset.dayId
+    console.log(event)
     // console.log(id)//id of day within which the place has been moved
     let draggedItemJSON = JSON.stringify(draggedItem)
     let swappedItemJSON = JSON.stringify(swappedItem)
