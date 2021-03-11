@@ -31,7 +31,26 @@
     justify-content: space-between;
     width: 100vw;
     flex-direction: column;
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    &::-webkit-scrollbar-track {
+      box-shadow: inset $favourite-box-shadow;
+      -webkit-box-shadow: inset $favourite-box-shadow;
+      border-radius: 10px;
+      background-color: $lighter-blue;
+    }
+
+    &::-webkit-scrollbar {
+        height: 8px;
+        background-color: $lighter-blue
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-shadow: inset $favourite-box-shadow;
+      -webkit-box-shadow: inset $favourite-box-shadow;
+        background-color: $light-blue;
+    }
   }
 
   .day-content{
