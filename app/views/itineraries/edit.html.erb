@@ -150,9 +150,7 @@
 </div>
 
 <div class="small-navbar-tabs-categories text-center my-3">
-	<div>
-		<%= render partial: "partials/navigation_buttons", locals: { map: false }%>
-	</div>
+	<%= render partial: "partials/navigation_buttons", locals: { map: false }%>
 </div>
 
 <div id="map" style="width: 100%; height: 60vh;" data-markers="<%= @markers.to_json %>"

@@ -1,9 +1,19 @@
+.small-navbar-tabs-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .small-navbar-tabs-categories a {
   text-decoration: none !important;
 }
 
 .btn-ghost {
-  width: 140px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 5px 10px;
@@ -59,15 +69,20 @@
       padding: 5px;
       border-radius: 50%;
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items:center;
       box-shadow: 3px 3px 4px rgba(0, 0, 0, .25), inset 3px 3px 4px rgba(0, 0, 0, .25);
       -moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, .25), inset 3px 3px 4px rgba(0, 0, 0, .25);
       -webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, .25), inset 3px 3px 4px rgba(0, 0, 0, .25);
 
       &-green {
           background-color: #6BA368;
+          width: 28px;
       }
       &-red {
         background-color: #CA807D;
+        width: 28px;
     }
     &-blue {
         background-color: #2A3B7A;
@@ -75,9 +90,11 @@
     }
     &-yellow {
         background-color:#FFB86F;
+        width: 28px;
     }
     &-purple {
         background-color: rgb(152, 62, 255);
+        width: 28px;
     }
   }
 
