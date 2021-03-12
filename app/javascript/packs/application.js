@@ -16,6 +16,7 @@ import initMapbox from "../plugins/init_mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import itineraryModal from "../plugins/itinerary_modal";
 import initAjaxPlaces from "../plugins/init_ajax_places";
+import initPrintFunc from "../plugins/init_print_function";
 
 Rails.start()
 Turbolinks.start()
@@ -44,6 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   itineraryModal();
   initAjaxPlaces();
+  initPrintFunc();
 });
 
 import "controllers"
