@@ -47,8 +47,9 @@
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
-.modal-body {  
-	overflow: auto;
+.modal-body {
+	overflow-y: auto;
+	overflow-x: hidden;
 	min-height: 400px;
 }
 
